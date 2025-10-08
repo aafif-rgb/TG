@@ -1,0 +1,53 @@
+{% style %}
+  {% # Loads all font variations with display: swap %}
+  {{ settings.type_primary_font | font_face: font_display: 'swap' }}
+  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  
+  {{ settings.font_heading | font_face: font_display: 'swap' }}
+  {{ settings.font_heading | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.font_heading | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.font_heading | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  
+  {{ settings.font_body | font_face: font_display: 'swap' }}
+  {{ settings.font_body | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.font_body | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.font_body | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+
+  :root {
+    /* Primary Font Variables */
+    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
+    --font-primary--style: {{ settings.type_primary_font.style }};
+    --font-primary--weight: {{ settings.type_primary_font.weight }};
+    
+    /* Heading Font Variables */
+    --font-heading--family: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+    --font-heading--style: {{ settings.font_heading.style }};
+    --font-heading--weight: {{ settings.font_heading.weight }};
+    
+    /* Body Font Variables */
+    --font-body--family: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+    --font-body--style: {{ settings.font_body.style }};
+    --font-body--weight: {{ settings.font_body.weight }};
+    
+    /* Font Size Variables */
+    --font-size-heading-large: {{ settings.font_size_heading_large }}px;
+    --font-size-heading-medium: {{ settings.font_size_heading_medium }}px;
+    --font-size-heading-small: {{ settings.font_size_heading_small }}px;
+    --font-size-body-large: {{ settings.font_size_body_large }}px;
+    --font-size-body: {{ settings.font_size_body }}px;
+    --font-size-small: {{ settings.font_size_small }}px;
+    
+    /* Layout Variables */
+    --page-width: {{ settings.max_page_width }};
+    --page-margin: {{ settings.min_page_margin }}px;
+    
+    /* Color Variables */
+    --color-background: {{ settings.background_color }};
+    --color-foreground: {{ settings.foreground_color }};
+    
+    /* Style Variables */
+    --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+  }
+{% endstyle %}

@@ -1,0 +1,242 @@
+.footer {
+    background-color: var(--dark-gray);
+    color: var(--pure-white);
+    padding: 5rem 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Company Info Section */
+.footer-section h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, var(--crimson-red), #ff4757);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.company-description {
+    color: var(--light-gray);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pure-white);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--crimson-red);
+    transform: translateY(-3px);
+}
+
+/* Footer Links */
+.footer-section h4 {
+    color: var(--pure-white);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links a:hover {
+    color: var(--pure-white);
+    padding-left: 5px;
+}
+
+.footer-link-icon {
+    color: var(--crimson-red);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+/* Footer Navigation Buttons */
+.footer-nav-button {
+    background: none;
+    border: none;
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    width: 100%;
+}
+
+.footer-nav-button:hover {
+    color: var(--pure-white);
+    padding-left: 5px;
+}
+
+/* Removed old contact-specific styles - now using footer-links */
+
+/* Newsletter Section */
+.newsletter-section {
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.newsletter-section h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--pure-white);
+}
+
+.newsletter-section p {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--pure-white);
+    font-size: 0.95rem;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--crimson-red);
+}
+
+.newsletter-button {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    border: none;
+    background: var(--crimson-red);
+    color: var(--pure-white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background: #ff1f1f;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-bottom-links a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--pure-white);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-button {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

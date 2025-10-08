@@ -1,0 +1,843 @@
+{% comment %}
+  Enhanced Product Section
+  Features interactive variant selection with color/texture switching,
+  modern design, and smooth animations
+{% endcomment %}
+
+{% style %}
+  .product-details {
+    --primary-color: {{ section.settings.primary_color | default: '#2E2E2E' }};
+    --secondary-color: {{ section.settings.secondary_color | default: '#DAE3EA' }};
+    --accent-color: {{ section.settings.accent_color | default: '#666666' }};
+    --text-color: {{ section.settings.text_color | default: '#2E2E2E' }};
+    --background-color: {{ section.settings.background_color | default: '#FFFFFF' }};
+    --button-bg-color: {{ section.settings.button_bg_color | default: '#2E2E2E' }};
+    --button-text-color: {{ section.settings.button_text_color | default: '#FFFFFF' }};
+    --button-hover-bg: {{ section.settings.button_hover_bg | default: '#1a1a1a' }};
+    --price-color: {{ section.settings.price_color | default: '#2E2E2E' }};
+    --compare-price-color: {{ section.settings.compare_price_color | default: '#999999' }};
+    --text-overlay-size: {{ section.settings.text_overlay_size | default: '24px' }};
+  }
+
+  .product-details__title {
+    {% if section.settings.use_custom_font %}
+      font-family: 'SingleRomanesque', serif;
+      font-weight: 400;
+    {% elsif section.settings.title_font %}
+      font-family: {{ section.settings.title_font.family }}, {{ section.settings.title_font.fallback_families }};
+      font-weight: {{ section.settings.title_font.weight }};
+      font-style: {{ section.settings.title_font.style }};
+    {% endif %}
+    font-size: {{ section.settings.title_size | default: '2rem' }};
+    color: var(--text-color);
+  }
+
+  .product-details__current-price {
+    {% if section.settings.use_custom_font %}
+      font-family: 'SingleRomanesque', serif;
+      font-weight: 400;
+    {% elsif section.settings.price_font %}
+      font-family: {{ section.settings.price_font.family }}, {{ section.settings.price_font.fallback_families }};
+      font-weight: {{ section.settings.price_font.weight }};
+      font-style: {{ section.settings.price_font.style }};
+    {% endif %}
+    font-size: {{ section.settings.price_size | default: '1.5rem' }};
+    color: var(--price-color);
+  }
+
+  .product-details__compare-price {
+    font-size: {{ section.settings.compare_price_size | default: '1.2rem' }};
+    color: var(--compare-price-color);
+  }
+
+  .product-details__add-to-cart {
+    {% if section.settings.use_custom_font %}
+      font-family: 'SingleRomanesque', serif;
+      font-weight: 400;
+    {% elsif section.settings.button_font %}
+      font-family: {{ section.settings.button_font.family }}, {{ section.settings.button_font.fallback_families }};
+      font-weight: {{ section.settings.button_font.weight }};
+      font-style: {{ section.settings.button_font.style }};
+    {% endif %}
+    font-size: {{ section.settings.button_size | default: '1rem' }};
+    background-color: var(--button-bg-color) !important;
+    color: var(--button-text-color) !important;
+    padding: {{ section.settings.button_padding | default: '1rem 2rem' }};
+    border-radius: {{ section.settings.button_radius | default: '8px' }};
+  }
+
+  .product-details__add-to-cart:hover {
+    background-color: var(--button-hover-bg) !important;
+  }
+
+  .shopify-payment-button__button--unbranded {
+    {% if section.settings.use_custom_font %}
+      font-family: 'SingleRomanesque', serif !important;
+      font-weight: 400 !important;
+    {% else %}
+      font-family: "Frutiger Serif Light", serif !important;
+      font-weight: 300 !important;
+    {% endif %}
+    font-size: {{ section.settings.button_size | default: '1rem' }} !important;
+    padding: {{ section.settings.button_padding | default: '1rem 2rem' }} !important;
+    border-radius: {{ section.settings.button_radius | default: '8px' }} !important;
+    background-color: #DAE3EA !important;
+    color: white !important;
+  }
+
+  .product-details__variants-title {
+    {% if section.settings.use_custom_font %}
+      font-family: 'SingleRomanesque', serif;
+      font-weight: 400;
+    {% elsif section.settings.section_title_font %}
+      font-family: {{ section.settings.section_title_font.family }}, {{ section.settings.section_title_font.fallback_families }};
+      font-weight: {{ section.settings.section_title_font.weight }};
+      font-style: {{ section.settings.section_title_font.style }};
+    {% endif %}
+    font-size: {{ section.settings.section_title_size | default: '1.5rem' }};
+    color: var(--text-color);
+  }
+
+  .product-details__option-label {
+    {% if section.settings.use_custom_font %}
+      font-family: 'SingleRomanesque', serif;
+      font-weight: 400;
+    {% elsif section.settings.label_font %}
+      font-family: {{ section.settings.label_font.family }}, {{ section.settings.label_font.fallback_families }};
+      font-weight: {{ section.settings.label_font.weight }};
+      font-style: {{ section.settings.label_font.style }};
+    {% endif %}
+    font-size: {{ section.settings.label_size | default: '0.875rem' }};
+    color: var(--accent-color);
+  }
+
+  .product-details__text-overlay {
+    font-size: var(--text-overlay-size);
+  }
+
+  {% if section.settings.title_font %}
+    {{ section.settings.title_font | font_face: display: 'swap' }}
+  {% endif %}
+
+  {% if section.settings.price_font %}
+    {{ section.settings.price_font | font_face: display: 'swap' }}
+  {% endif %}
+
+  {% if section.settings.button_font %}
+    {{ section.settings.button_font | font_face: display: 'swap' }}
+  {% endif %}
+
+  {% if section.settings.section_title_font %}
+    {{ section.settings.section_title_font | font_face: display: 'swap' }}
+  {% endif %}
+
+  {% if section.settings.label_font %}
+    {{ section.settings.label_font | font_face: display: 'swap' }}
+  {% endif %}
+
+  /* Custom Fonts */
+  @font-face {
+    font-family: 'SingleRomanesque';
+    src: url('{{ "SingleRomanesque-Regular.woff2" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'BuketRoman';
+    src: url('{{ "buket-roman-basic-webfont.woff2" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'HarmanScript';
+    src: url('{{ "Harman-Script-webfont.woff2" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'HarmanWestern';
+    src: url('{{ "Harman-Western-webfont.woff2" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'JandaAsLongAsYouLoveMe';
+    src: url('{{ "JandaAsLongAsYouLoveMe-webfont.woff2" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'PetuniaScript';
+    src: url('{{ "petunia-scriptbold-webfont.woff2" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+{% endstyle %}
+
+<div class="product-details">
+  <div class="product-details__container">
+    <!-- Product Images Section -->
+    <div class="product-details__images">
+      <div class="product-details__main-image">
+        {% if product.featured_image != blank %}
+          <div class="product-details__image-container">
+            <img
+              src="{{ product.featured_image | image_url: width: 800 }}"
+              alt="{{ product.title }}"
+              class="product-details__main-img"
+              id="ProductMainImage"
+              loading="eager"
+            >
+            <div class="product-details__text-overlay" id="TextOverlay"></div>
+          </div>
+          <script type="application/json" id="ProductData">
+            {{ product | json }}
+          </script>
+        {% else %}
+          <div class="product-details__placeholder">
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+              <rect width="200" height="200" fill="#DAE3EA"/>
+              <path d="M100 70C85.536 70 74 81.536 74 96C74 110.464 85.536 122 100 122C114.464 122 126 110.464 126 96C126 81.536 114.464 70 100 70Z" fill="#2E2E2E"/>
+            </svg>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Product Info Section -->
+    <div class="product-details__info">
+      <div class="product-details__header">
+        <h1 class="product-details__title">{{ product.title }}</h1>
+        <div class="product-details__price" style="gap:0.5rem;">
+          <span class="product-details__current-price">{{ product.price | money }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span class="product-details__compare-price">{{ product.compare_at_price | money }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Variant Selection -->
+      {% if product.variants.size > 1 %}
+        <div class="product-details__variants">
+          <h3 class="product-details__variants-title">
+            {{ section.settings.variants_title | default: 'Customize Your Trunk' }}
+          </h3>
+
+          {% for option in product.options_with_values %}
+            <div class="product-details__option">
+              <div class="product-details__option-header">
+                <label class="product-details__option-label">{{ option.name | upcase }}</label>
+                <span class="product-details__selected-value" data-for="{{ option.name | handleize }}"></span>
+              </div>
+              <div class="product-details__option-values">
+                {% for value in option.values %}
+                  {% comment %}
+                    Find a variant that has this specific option value
+                    We need to check all option positions (option1, option2, option3)
+                  {% endcomment %}
+                  {% assign variant = null %}
+                  {% for variant_check in product.variants %}
+                    {% if variant_check.option1 == value
+                      or variant_check.option2 == value
+                      or variant_check.option3 == value
+                    %}
+                      {% assign variant = variant_check %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+
+                  <button
+                    class="product-details__option-value {% if variant == current_variant %}active{% endif %}"
+                    data-option="{{ option.name | handleize }}"
+                    data-value="{{ value | handleize }}"
+                    data-value-label="{{ value }}"
+                    data-variant-id="{{ variant.id }}"
+                    {% if variant.available == false %}
+                      disabled
+                    {% endif %}
+                    aria-label="Select {{ value }}"
+                  >
+                    {% comment %}
+                      Show color swatch for color options and swatch icons for print options
+                    {% endcomment %}
+                    {% if option.name contains 'Color' or option.name contains 'color' %}
+                      <span
+                        class="product-details__color-swatch"
+                        data-color="{{ value | handleize }}"
+                        title="{{ value }}"
+                      >
+                        {% assign color_icon = null %}
+                        {% assign base_color = value | split: ' ' | first %}
+
+                        {% comment %} Look for color_icon in any variant that starts with this color {% endcomment %}
+                        {% for variant_check in product.variants %}
+                          {% if variant_check.option1 contains base_color
+                            and variant_check.metafields.custom.color_icon != blank
+                          %}
+                            {% assign color_icon = variant_check.metafields.custom.color_icon %}
+                            {% break %}
+                          {% endif %}
+                        {% endfor %}
+
+                        {% if color_icon != blank %}
+                          <img
+                            src="{{ color_icon | image_url: width: 64 }}"
+                            alt="{{ value }}"
+                            class="product-details__swatch-icon"
+                            loading="lazy"
+                          >
+                        {% else %}
+                          {% assign fallback_color = value
+                            | downcase
+                            | replace: ' ', '-'
+                            | replace: 'blue', '#0066CC'
+                            | replace: 'red', '#CC0000'
+                            | replace: 'green', '#00CC00'
+                            | replace: 'yellow', '#FFCC00'
+                            | replace: 'purple', '#6600CC'
+                            | replace: 'orange', '#FF6600'
+                            | replace: 'pink', '#FF0066'
+                            | replace: 'brown', '#663300'
+                            | replace: 'black', '#000000'
+                            | replace: 'white', '#FFFFFF'
+                            | replace: 'gray', '#666666'
+                            | replace: 'grey', '#666666'
+                            | replace: 'light-blue', '#87CEEB'
+                            | replace: 'dark-blue', '#00008B'
+                            | replace: 'olive-green', '#808000'
+                            | replace: 'lavender', '#E6E6FA'
+                            | replace: 'cream', '#FFFDD0'
+                          %}
+                          <span
+                            class="product-details__swatch-icon"
+                            style="background-color: {{ fallback_color }}"
+                          ></span>
+                        {% endif %}
+                      </span>
+                    {% elsif option.name contains 'Print' or option.name contains 'print' %}
+                      <span
+                        class="product-details__pattern-preview"
+                        data-pattern="{{ value | handleize }}"
+                        title="{{ value }}"
+                      >
+                        {% assign swatch_metafield = variant.metafields.custom.swatch_icon %}
+                        {% if swatch_metafield != blank %}
+                          <img
+                            src="{{ swatch_metafield | image_url: width: 64 }}"
+                            alt="{{ value }}"
+                            class="product-details__pattern-icon"
+                            loading="lazy"
+                          >
+                        {% else %}
+                          <span class="product-details__pattern-icon">{{ value | slice: 0, 2 | upcase }}</span>
+                        {% endif %}
+                      </span>
+                    {% endif %}
+
+                    <span class="product-details__option-text">{{ value }}</span>
+                    {% if variant.available == false %}
+                      <span class="product-details__option-unavailable">Out of Stock</span>
+                    {% endif %}
+                  </button>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Custom Text Options -->
+      <div class="product-details__custom-text">
+        <h3 class="product-details__variants-title">
+          {{ section.settings.text_title | default: 'Customize Your Text' }}
+        </h3>
+
+        <div class="product-details__option">
+          <label class="product-details__option-label"
+            >FONT STYLE <span class="product-details__selected-font">Romanesque</span></label
+          >
+          <div class="product-details__option-values">
+            <button type="button" class="product-details__option-value active" data-font="single-romanesque">
+              <span class="product-details__font-preview" style="font-family: 'SingleRomanesque', serif">Aa</span>
+              <span class="product-details__option-text">Romanesque</span>
+            </button>
+            <button type="button" class="product-details__option-value" data-font="buket-roman">
+              <span class="product-details__font-preview" style="font-family: 'BuketRoman', serif">Aa</span>
+              <span class="product-details__option-text">Buket Roman</span>
+            </button>
+            <button type="button" class="product-details__option-value" data-font="harman-script">
+              <span class="product-details__font-preview" style="font-family: 'HarmanScript', cursive">Aa</span>
+              <span class="product-details__option-text">Harman Script</span>
+            </button>
+            <button type="button" class="product-details__option-value" data-font="harman-western">
+              <span class="product-details__font-preview" style="font-family: 'HarmanWestern', serif">Aa</span>
+              <span class="product-details__option-text">Harman Western</span>
+            </button>
+            <button type="button" class="product-details__option-value" data-font="janda-as-long">
+              <span class="product-details__font-preview" style="font-family: 'JandaAsLongAsYouLoveMe', cursive"
+                >Aa</span
+              >
+              <span class="product-details__option-text">Janda Script</span>
+            </button>
+            <button type="button" class="product-details__option-value" data-font="petunia-script">
+              <span class="product-details__font-preview" style="font-family: 'PetuniaScript', cursive">Aa</span>
+              <span class="product-details__option-text">Petunia Script</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="product-details__option">
+          <div class="product-details__option-header">
+            <label class="product-details__option-label">FONT COLOR</label>
+            <span class="product-details__selected-value product-details__selected-color">
+              {{- settings.font_color_2_label -}}
+            </span>
+          </div>
+          <div class="product-details__option-values product-details__color-grid">
+            {% style %}
+              @media screen and (max-width: 768px) {
+                .product-details__color-grid {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 0.75rem;
+                  width: 100%;
+                }
+
+                .product-details__color-grid .product-details__option-value {
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                }
+
+                .product-details__color-grid .product-details__color-preview,
+                .product-details__color-grid .product-details__color-icon {
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  max-width: 100%;
+                  margin: 0 auto;
+                  border-width: 1px;
+                }
+
+                .product-details__color-grid .product-details__option-text {
+                  display: none;
+                }
+              }
+            {% endstyle %}
+            {% comment %}Start from index 2 to skip Black (1), and exclude Gold (12), Bronze (13), and Silver (14){% endcomment %}
+            {% for i in (2..11) %}
+              {% assign color_setting = 'font_color_' | append: i %}
+              {% assign label_setting = 'font_color_' | append: i | append: '_label' %}
+              {% assign icon_setting = 'font_color_' | append: i | append: '_icon' %}
+              {% assign color = settings[color_setting] %}
+              {% assign label = settings[label_setting] %}
+              {% assign icon = settings[icon_setting] %}
+
+              <button
+                type="button"
+                class="product-details__option-value{% if i == 2 %} active{% endif %}"
+                data-color="{{ color }}"
+                data-color-label="{{ label }}"
+              >
+                {% if icon != blank %}
+                  <img
+                    src="{{ icon | image_url: width: 150 }}"
+                    alt="{{ label }}"
+                    class="product-details__color-icon"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <span class="product-details__color-preview" style="background-color: {{ color }}"></span>
+                {% endif %}
+                <span class="product-details__option-text">{{ label }}</span>
+              </button>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="product-details__text-type">
+          <label class="product-details__option-label">TEXT TYPE</label>
+          <div class="product-details__text-toggle">
+            <button
+              type="button"
+              class="product-details__toggle-btn active"
+              data-text-type="custom"
+            >
+              Custom Text
+            </button>
+            <button
+              type="button"
+              class="product-details__toggle-btn"
+              data-text-type="monogram"
+            >
+              Monogram
+            </button>
+          </div>
+        </div>
+
+        <div class="product-details__text-input" id="CustomTextSection">
+          <label for="CustomText" class="product-details__option-label">YOUR TEXT</label>
+          <input
+            type="text"
+            id="CustomText"
+            class="product-details__text-field"
+            placeholder="Enter your text here..."
+            maxlength="50"
+          >
+        </div>
+
+        <div class="product-details__monogram" id="MonogramSection" style="display: none;">
+          <label class="product-details__option-label">MONOGRAM</label>
+          <div class="product-details__monogram-input">
+            <input
+              type="text"
+              id="MonogramFirst"
+              class="product-details__monogram-char"
+              maxlength="1"
+              placeholder="A"
+            >
+            <input
+              type="text"
+              id="MonogramMiddle"
+              class="product-details__monogram-char product-details__monogram-char--large"
+              maxlength="1"
+              placeholder="B"
+            >
+            <input
+              type="text"
+              id="MonogramLast"
+              class="product-details__monogram-char"
+              maxlength="1"
+              placeholder="C"
+            >
+          </div>
+        </div>
+        <!-- Card Message -->
+        <div class="product-details__card-message" style="margin-top: 25px;">
+          <h3 class="product-details__variants-title">{{ section.settings.card_title | default: 'Card Message' }}</h3>
+          <div class="product-details__option">
+            <label for="CardMessage" class="product-details__option-label">{{ section.settings.card_label | default: "Sending this as a gift? We’ll include a card! Tell us what to write." }}</label>
+            <textarea
+              id="CardMessage"
+              class="product-details__text-field product-details__text-field--multiline"
+              placeholder="{{ section.settings.card_placeholder | default: 'Enter your message for the card...' }}"
+              maxlength="200"
+            ></textarea>
+            <div class="product-details__field-note">Maximum 200 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Form -->
+      <div class="product-details__form">
+        {% form 'product', product %}
+          {% assign current_variant = product.selected_or_first_available_variant %}
+
+          <input type="hidden" name="id" value="{{ current_variant.id }}" id="VariantId">
+
+          <!-- Hidden inputs for customization properties -->
+          <input type="hidden" name="properties[Text Type]" value="Custom Text" id="TextType">
+          <input type="hidden" name="properties[Custom Text]" value="" id="TextProperty">
+          <input type="hidden" name="properties[Font Style]" value="Romanesque" id="FontProperty">
+          <input
+            type="hidden"
+            name="properties[Font Color]"
+            value="{{ settings.font_color_2_label }}"
+            id="ColorProperty"
+          >
+          <input type="hidden" name="properties[Color Code]" value="{{ settings.font_color_2 }}" id="ColorCodeProperty">
+          <input type="hidden" name="properties[Card Message]" value="" id="CardMessageProperty">
+          {% if product.variants.size > 1 %}
+            <input
+              type="hidden"
+              name="properties[Print]"
+              value="{{ product.variants.first.option2 }}"
+              id="PrintProperty"
+            >
+          {% endif %}
+
+          <div class="product-details__quantity">
+            <label for="Quantity" class="product-details__quantity-label">Quantity</label>
+            <div class="product-details__quantity-selector">
+              <button type="button" class="product-details__quantity-btn" data-action="decrease">-</button>
+              <input
+                type="number"
+                name="quantity"
+                id="Quantity"
+                value="1"
+                min="1"
+                class="product-details__quantity-input"
+              >
+              <button type="button" class="product-details__quantity-btn" data-action="increase">+</button>
+            </div>
+          </div>
+
+          <div class="product-details__buttons">
+            <button
+              type="submit"
+              class="product-details__add-to-cart"
+              {% unless current_variant.available %}
+                disabled
+              {% endunless %}
+            >
+              {% if current_variant.available %}
+                {{ section.settings.add_to_cart_text | default: 'Add to Cart' }}
+              {% else %}
+                {{ section.settings.out_of_stock_text | default: 'Out of Stock' }}
+              {% endif %}
+            </button>
+
+            {% if current_variant.available %}
+              {{ form | payment_button }}
+            {% endif %}
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ 'product-details.css' | asset_url | stylesheet_tag }}
+{{ 'product-details.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Product Details",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "variants_title",
+      "label": "Variants section title",
+      "default": "Customize Your Trunk"
+    },
+    {
+      "type": "text",
+      "id": "text_title",
+      "label": "Text customization title",
+      "default": "Customize Your Text"
+    },
+    {
+      "type": "text",
+      "id": "card_title",
+      "label": "Card message title",
+      "default": "Card Message"
+    },
+    {
+      "type": "text",
+      "id": "card_label",
+      "label": "Card label",
+      "default": "Sending this as a gift? We’ll include a card! Tell us what to write."
+    },
+    {
+      "type": "text",
+      "id": "card_placeholder",
+      "label": "Card placeholder",
+      "default": "Enter your message for the card..."
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Add to cart button text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "out_of_stock_text",
+      "label": "Out of stock text",
+      "default": "Out of Stock"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Primary color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "secondary_color",
+      "label": "Secondary color",
+      "default": "#DAE3EA"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "compare_price_color",
+      "label": "Compare price color",
+      "default": "#999999"
+    },
+    {
+      "type": "header",
+      "content": "Button Styling"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button background color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Button hover background",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "text",
+      "id": "button_padding",
+      "label": "Button padding",
+      "default": "1rem 2rem",
+      "info": "CSS padding value (e.g., 1rem 2rem)"
+    },
+    {
+      "type": "text",
+      "id": "button_radius",
+      "label": "Button border radius",
+      "default": "8px",
+      "info": "CSS border-radius value (e.g., 8px, 50px)"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_font",
+      "label": "Use custom SingleRomanesque font",
+      "default": false,
+      "info": "Enable to use the custom SingleRomanesque font for all text elements"
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "label": "Product title font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text",
+      "id": "title_size",
+      "label": "Title font size",
+      "default": "2rem",
+      "info": "CSS font-size value (e.g., 2rem, 24px)"
+    },
+    {
+      "type": "font_picker",
+      "id": "price_font",
+      "label": "Price font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text",
+      "id": "price_size",
+      "label": "Price font size",
+      "default": "1.5rem",
+      "info": "CSS font-size value (e.g., 1.5rem, 18px)"
+    },
+    {
+      "type": "text",
+      "id": "compare_price_size",
+      "label": "Compare price font size",
+      "default": "1.2rem",
+      "info": "CSS font-size value (e.g., 1.2rem, 16px)"
+    },
+    {
+      "type": "font_picker",
+      "id": "button_font",
+      "label": "Button font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text",
+      "id": "button_size",
+      "label": "Button font size",
+      "default": "1rem",
+      "info": "CSS font-size value (e.g., 1rem, 16px)"
+    },
+    {
+      "type": "font_picker",
+      "id": "section_title_font",
+      "label": "Section titles font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text",
+      "id": "section_title_size",
+      "label": "Section title font size",
+      "default": "1.5rem",
+      "info": "CSS font-size value (e.g., 1.5rem, 20px)"
+    },
+    {
+      "type": "font_picker",
+      "id": "label_font",
+      "label": "Labels font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text",
+      "id": "label_size",
+      "label": "Label font size",
+      "default": "0.875rem",
+      "info": "CSS font-size value (e.g., 0.875rem, 14px)"
+    },
+    {
+      "type": "text",
+      "id": "text_overlay_size",
+      "label": "Text overlay font size",
+      "default": "24px",
+      "info": "CSS font-size value for text overlay on product image (e.g., 24px, 1.5rem)"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

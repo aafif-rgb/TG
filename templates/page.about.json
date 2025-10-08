@@ -1,0 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "about",
+      "settings": {
+        "title": "Our Story",
+        "subtitle": "Discover the passion and craftsmanship behind our unique trunks",
+        "content": "<p>I've always had a fear of forgetting</p><p>Moments slip away, faces blur, voices fade..</p><p>It all started with a little box that could barely hold a few cards, filled with handwritten love in faded ink, plane tickets from little adventures, a couple crumpled polaroids and sandy seashells I picked up from the beach.</p><p>But as I grew, so did my box. My life filled with more moments, more laughter, more love, and the little box couldn't keep up.</p><p>And That's how I found,</p><p><strong>THE TREASURE TRUNK</strong></p><p>For me, these keepsakes aren't clutter. They re proof that I lived, loved, and felt deeply.</p><p>They're the map of my life, drawn in paper, ink, and little treasures. And every time I open the trunk, I get to live it all over again.</p>",
+        "show_cta": true,
+        "cta_text": "Explore Our Collection",
+        "cta_link": "/collections/all",
+        "show_team": false,
+        "team_title": "Meet Our Team"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

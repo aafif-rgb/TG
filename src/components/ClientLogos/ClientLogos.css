@@ -1,0 +1,224 @@
+.client-logos {
+    padding: 6rem 0;
+    background-color: var(--jet-black);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.client-logos-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--pure-white);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--light-gray);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Logos Carousel */
+.logos-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+    /* margin-bottom: 2rem; */
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logos-container::before,
+.logos-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logos-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--jet-black), transparent);
+}
+
+.logos-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--jet-black), transparent);
+}
+
+.logos-scroll {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    gap: 2rem;
+    align-items: center;
+    padding: 1rem 2rem;
+    width: fit-content;
+}
+
+.logo-item {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.logo-placeholder {
+    width: 160px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pure-white);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 0 1rem;
+    white-space: nowrap;
+}
+
+.logo-item:hover .logo-placeholder {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--crimson-red);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(229, 9, 20, 0.2);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+/* Stats Section */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--crimson-red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(229, 9, 20, 0.1);
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--crimson-red);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, var(--crimson-red), #ff4757);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    color: var(--light-gray);
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logo-placeholder {
+        width: 140px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .client-logos {
+        padding: 4rem 0;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    .logo-placeholder {
+        width: 120px;
+        height: 45px;
+        font-size: 0.8rem;
+    }
+
+    .logos-scroll {
+        gap: 1.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .logo-item {
+        padding: 0.5rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat-item {
+        padding: 1.5rem;
+    }
+
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+}
+
+/* Pause animation when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .logos-scroll {
+        animation: none;
+    }
+}

@@ -1,0 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:general.header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "show_promo_banner": true,
+        "promo_text": "CUSTOMIZE YOUR TRUNK NOW!",
+        "promo_font": "sans_serif_n4",
+        "promo_text_color": "#2e2e2e",
+        "promo_bg_color": "#ffffff",
+        "menu": ""
+      }
+    }
+  },
+  "order": [
+    "header"
+  ]
+}

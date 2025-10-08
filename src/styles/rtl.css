@@ -1,0 +1,390 @@
+RTL Support Styles
+
+/* Root RTL Adjustments */
+[dir="rtl"] {
+    direction: rtl;
+}
+
+[dir="ltr"] {
+    direction: ltr;
+}
+
+/* Text Alignment */
+[dir="rtl"] * {
+    text-align: right;
+}
+
+[dir="rtl"] .center-text,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+    text-align: center;
+}
+
+/* Header RTL */
+[dir="rtl"] .header {
+    left: 6rem;
+    right: 5.5rem;
+}
+
+[dir="rtl"] .header-container {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-list {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .mobile-nav-link,
+[dir="rtl"] .mobile-language-toggle {
+    text-align: right;
+    border-left: none;
+    border-right: 3px solid transparent;
+}
+
+[dir="rtl"] .mobile-nav-link:hover,
+[dir="rtl"] .mobile-language-toggle:hover {
+    border-left-color: transparent;
+    border-right-color: var(--crimson-red);
+    transform: translateX(-10px);
+}
+
+/* Flexbox RTL Reversals */
+[dir="rtl"] .flex-row {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-container,
+[dir="rtl"] .approach-content,
+[dir="rtl"] .contact-container {
+    flex-direction: row-reverse;
+}
+
+/* Grid RTL */
+[dir="rtl"] .values-grid,
+[dir="rtl"] .services-grid {
+    direction: rtl;
+}
+
+/* Footer RTL */
+[dir="rtl"] .footer {
+    text-align: start;
+}
+
+[dir="rtl"] .footer-grid {
+    direction: rtl;
+}
+
+[dir="rtl"] .footer-section {
+    text-align: start;
+}
+
+[dir="rtl"] .footer-section h3,
+[dir="rtl"] .footer-section h4 {
+    text-align: start;
+}
+
+[dir="rtl"] .footer-section ul {
+    padding-right: 0;
+    padding-left: 0;
+    text-align: start;
+}
+
+[dir="rtl"] .company-description {
+    text-align: start;
+}
+
+[dir="rtl"] .footer-links {
+    text-align: start;
+}
+
+[dir="rtl"] .footer-links a {
+    text-align: start;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-links a:hover {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+[dir="rtl"] .footer-nav-button {
+    text-align: start;
+}
+
+[dir="rtl"] .footer-nav-button:hover {
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+[dir="rtl"] .social-links {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .footer-bottom {
+    flex-direction: row-reverse;
+    text-align: start;
+}
+
+[dir="rtl"] .copyright {
+    text-align: start;
+}
+
+[dir="rtl"] .footer-bottom-links {
+    flex-direction: row-reverse;
+    text-align: start;
+}
+
+/* Newsletter RTL - Keep centered */
+[dir="rtl"] .newsletter-section {
+    text-align: center;
+}
+
+[dir="rtl"] .newsletter-section h4,
+[dir="rtl"] .newsletter-section p {
+    text-align: center;
+}
+
+/* Form RTL */
+[dir="rtl"] .form-group label {
+    text-align: right;
+}
+
+[dir="rtl"] .form-group input,
+[dir="rtl"] .form-group textarea {
+    text-align: right;
+}
+
+[dir="rtl"] .form-row {
+    flex-direction: row-reverse;
+}
+
+/* Contact Page RTL */
+[dir="rtl"] .contact-icon {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+[dir="rtl"] .contact-item {
+    flex-direction: row-reverse;
+}
+
+/* Stats RTL */
+[dir="rtl"] .stats {
+    direction: rtl;
+}
+
+/* Approach Cards RTL */
+[dir="rtl"] .approach-cards {
+    direction: rtl;
+}
+
+/* Animation Direction Adjustments */
+[dir="rtl"] .mobile-nav-link,
+[dir="rtl"] .mobile-nav-item {
+    transform-origin: right;
+}
+
+/* Icon Positioning RTL */
+[dir="rtl"] .footer-link-icon {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+/* Responsive RTL */
+@media (max-width: 768px) {
+    [dir="rtl"] .header {
+        left: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Service Cards RTL */
+[dir="rtl"] .service-card,
+[dir="rtl"] .value-card {
+    text-align: center;
+}
+
+[dir="rtl"] .feature-item {
+    text-align: right;
+}
+
+/* Newsletter Form RTL */
+[dir="rtl"] .newsletter-form {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .newsletter-input {
+    text-align: right;
+}
+
+/* Business Hours RTL */
+[dir="rtl"] .hours-item {
+    flex-direction: row-reverse;
+}
+
+/* Social Links RTL */
+[dir="rtl"] .social-link {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .social-link span {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+/* Hover Effects RTL */
+[dir="rtl"] .service-card:hover,
+[dir="rtl"] .value-card:hover {
+    transform: translateY(-8px);
+}
+
+[dir="rtl"] .approach-card:hover {
+    transform: translateX(-10px);
+}
+
+/* Ensure centered elements remain centered */
+[dir="rtl"] .hero-title,
+[dir="rtl"] .hero-subtitle,
+[dir="rtl"] .services-title,
+[dir="rtl"] .services-subtitle,
+[dir="rtl"] .values-title,
+[dir="rtl"] .values-subtitle,
+[dir="rtl"] .contact-hero-title,
+[dir="rtl"] .contact-hero-subtitle {
+    text-align: center;
+}
+
+/* Button RTL */
+[dir="rtl"] button {
+    direction: rtl;
+}
+
+[dir="rtl"] .header-cta,
+[dir="rtl"] .service-cta,
+[dir="rtl"] .submit-btn {
+    direction: ltr;
+}
+
+/* About Page Contact Section RTL */
+[dir="rtl"] .contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+[dir="rtl"] .contact-section .section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+[dir="rtl"] .contact-section .cta-button,
+[dir="rtl"] .contact-section .contact-button {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Services Page CTA Section RTL */
+[dir="rtl"] .cta-section {
+    text-align: center;
+}
+
+[dir="rtl"] .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+[dir="rtl"] .cta-content h2,
+[dir="rtl"] .cta-content p {
+    text-align: center;
+}
+
+[dir="rtl"] .cta-section .cta-button {
+    margin: 0 auto;
+    align-self: center;
+}
+
+/* Home Page Hero Section RTL */
+[dir="rtl"] .hero-tag,
+[dir="rtl"] .hero-title,
+[dir="rtl"] .hero-subtitle {
+    text-align: start;
+}
+
+/* Flip Hero Background Logo RTL */
+[dir="rtl"] .hero-normal::before {
+    background-position: right center;
+    left: 0;
+    right: 220px;
+}
+
+[dir="rtl"] .hero-left {
+    padding-right: 0;
+    padding-left: 2rem;
+}
+
+/* Services Component Cards RTL - aligned to start */
+[dir="rtl"] .service-description {
+    text-align: start;
+}
+
+[dir="rtl"] .service-features {
+    text-align: start;
+}
+
+[dir="rtl"] .feature-item {
+    text-align: start;
+}
+
+/* Value Descriptions RTL - aligned to end */
+[dir="rtl"] .value-subtitle {
+    text-align: end;
+}
+
+/* Why Choose Us Component Cards RTL - aligned to start */
+[dir="rtl"] .feature-title {
+    text-align: start;
+}
+
+[dir="rtl"] .feature-description {
+    text-align: start;
+}
+
+[dir="rtl"] .process-title {
+    text-align: start;
+}
+
+[dir="rtl"] .process-description {
+    text-align: start;
+}
+
+/* Client Logos Component RTL */
+[dir="rtl"] .client-logos .section-header h2 {
+    text-align: center !important;
+}
+
+[dir="rtl"] .client-logos .section-header p {
+    text-align: start !important;
+}
+
+/* Featured Projects Component RTL */
+[dir="rtl"] .featured-projects .section-header p {
+    text-align: center !important;
+}
+
+[dir="rtl"] .featured-projects .cta-container p {
+    text-align: center !important;
+}
+
+/* Preserve LTR for specific elements */
+[dir="rtl"] .logo-symbol,
+[dir="rtl"] .particle-canvas,
+[dir="rtl"] img {
+    direction: ltr;
+}
+

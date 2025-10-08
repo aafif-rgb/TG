@@ -1,0 +1,221 @@
+{% stylesheet %}
+.testimonials {
+  padding: 1rem 0;
+  background-color: #FFFFFF;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonials__container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.testimonials__track {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.testimonials__track.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonials__track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+
+.testimonials__track:hover {
+  animation-play-state: paused;
+}
+
+.testimonial {
+  width: 500px;
+  padding: 2rem;
+  background-color: #DAE3EA;
+  border-radius: 2px;
+  position: relative;
+}
+
+.testimonial__quote {
+  font-family: "Newsreader", serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  color: #2E2E2E;
+  text-align: center;
+  position: relative;
+}
+
+.testimonial__quote::before,
+.testimonial__quote::after {
+  content: '"';
+  font-family: "Georgia", serif;
+  font-size: 4rem;
+  line-height: 0;
+  position: absolute;
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+.testimonial__quote::before {
+  left: -1.5rem;
+  top: 1rem;
+}
+
+.testimonial__quote::after {
+  right: -1.5rem;
+  bottom: -0.5rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+/* Gradient overlays to hide scroll edges */
+.testimonials::before,
+.testimonials::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.testimonials::before {
+  left: 0;
+  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.testimonials::after {
+  right: 0;
+  background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .testimonials {
+    padding: 3rem 0;
+  }
+
+  .testimonial {
+    width: 300px;
+    padding: 1.5rem;
+  }
+
+  .testimonial__quote::before {
+    left: -1rem;
+    top: 0.5rem;
+  }
+
+  .testimonial__quote::after {
+    right: -1rem;
+    bottom: -0.75rem;
+  }
+}
+{% endstylesheet %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const track = entry.target.querySelector('.testimonials__track');
+        
+        if (track) track.classList.add('animate');
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe the testimonials container
+  const testimonialsContainer = document.querySelector('.testimonials');
+  if (testimonialsContainer) {
+    observer.observe(testimonialsContainer);
+  }
+});
+</script>
+
+<div class="testimonials">
+  <div class="testimonials__container">
+    <div class="testimonials__track">
+      {% for block in section.blocks %}
+        <div class="testimonial">
+          <p class="testimonial__quote">{{ block.settings.quote }}</p>
+        </div>
+      {% endfor %}
+      {% # Duplicate testimonials for seamless loop %}
+      {% for block in section.blocks %}
+        <div class="testimonial">
+          <p class="testimonial__quote">{{ block.settings.quote }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote",
+          "default": "The perfect way to preserve our wedding memories. Every detail is thoughtfully crafted with such elegance."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "The perfect way to preserve our wedding memories. Every detail is thoughtfully crafted with such elegance."
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "Our baby's first treasures are safely stored in this beautiful keepsake trunk. It's become a family heirloom already."
+          }
+        },
+        {
+          "type": "quote",
+          "settings": {
+            "quote": "The craftsmanship is exceptional. These trunks are truly designed to last generations."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

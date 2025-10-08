@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "type_primary_font": "cormorant_n4",
+    "font_heading": "cormorant_n4",
+    "font_body": "arapey_n4",
+    "max_page_width": "110rem",
+    "foreground_color": "#2e2e2e",
+    "font_color_1_label": "Navy",
+    "font_color_1": "#2E2E2E",
+    "font_color_2_label": "White",
+    "font_color_2": "#ffffff",
+    "font_color_2_icon": "shopify://shop_images/IMG_8518.jpg",
+    "font_color_3_label": "Hot Pink",
+    "font_color_3_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.19_PM_2.jpg",
+    "font_color_4_label": "Bubble Gum",
+    "font_color_4_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.18_PM_3.jpg",
+    "font_color_5_label": "Blue",
+    "font_color_5_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.20_PM_2.jpg",
+    "font_color_6_label": "Pink",
+    "font_color_6_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.19_PM.jpg",
+    "font_color_7_label": "Sage",
+    "font_color_7_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.18_PM_1.jpg",
+    "font_color_8_label": "Butter Yellow",
+    "font_color_8_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.18_PM.jpg",
+    "font_color_9_label": "Metallic Pink",
+    "font_color_9": "#f5e9f1",
+    "font_color_9_icon": "shopify://shop_images/IMG_7551_6eb0e51c-3be3-443a-91d2-52accadd691b.jpg",
+    "font_color_10_label": "Olive",
+    "font_color_10_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.20_PM_1.jpg",
+    "font_color_11_label": "Champagne",
+    "font_color_11_icon": "shopify://shop_images/WhatsApp_Image_2025-09-09_at_7.48.20_PM.jpg",
+    "font_color_12_label": "Metallic Pink",
+    "font_color_12": "#f1e0ed",
+    "font_color_12_icon": "shopify://shop_images/IMG_7551_6eb0e51c-3be3-443a-91d2-52accadd691b.jpg",
+    "content_for_index": []
+  }
+}

@@ -1,0 +1,592 @@
+{% stylesheet %}
+.featured-trunks {
+  padding: 1rem 0;
+  background-color: #FFFFFF;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+}
+
+.featured-trunks__container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.featured-trunks__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.featured-trunks__heading {
+  font-family: var(--font-heading--family);
+  font-size: clamp(calc(var(--font-size-heading-large) * 0.8), 5vw, var(--font-size-heading-large));
+  color: #2E2E2E;
+  margin-bottom: 1rem;
+  font-weight: var(--font-heading--weight);
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  transition: all 0.8s ease-out;
+}
+
+.featured-trunks__heading.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featured-trunks__heading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #DAE3EA;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  animation: scaleIn 0.6s ease-out 0.8s forwards;
+}
+
+.featured-trunks__subtitle {
+  font-family: var(--font-body--family);
+  font-style: italic;
+  font-size: clamp(var(--font-size-body), 2vw, var(--font-size-body-large));
+  color: #666666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.featured-trunks__subtitle.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featured-trunks__view-all {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-body--family);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-body--weight);
+  color: #2E2E2E;
+  text-decoration: none;
+  background: #DAE3EA;
+  border: 2px solid #DAE3EA;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  letter-spacing: 0.02em;
+}
+
+.featured-trunks__view-all.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.featured-trunks__view-all:hover {
+  color: #FFFFFF;
+  background: #DAE3EA;
+  transform: translateY(-2px);
+}
+
+.featured-trunks__button-container {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.featured-trunks__footer {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.featured-trunks__divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #EAEAEA, transparent);
+  margin: 0 auto;
+}
+
+.featured-trunks__footer-content {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.featured-trunks__footer-text {
+  font-family: "Newsreader", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #666666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-trunks__footer-features {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.featured-trunks__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.featured-trunks__feature-icon {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+.featured-trunks__feature-text {
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 0.9rem;
+  color: #2E2E2E;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.featured-trunks__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.trunk-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  border: 2px solid #DAE3EA;
+}
+
+.trunk-card.animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.trunk-card:hover {
+  transform: translateY(-10px);
+}
+
+.trunk-card__image {
+  position: relative;
+  padding-bottom: 60%;
+  background-color: #DAE3EA;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 8px;
+}
+
+.trunk-card__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  border-radius: 8px;
+}
+
+.trunk-card:hover .trunk-card__image img {
+  transform: scale(1.05);
+}
+
+.trunk-card__content {
+  padding: 1rem;
+}
+
+.trunk-card__title {
+  font-family: var(--font-heading--family);
+  font-size: var(--font-size-heading-small);
+  color: #2E2E2E;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-heading--weight);
+}
+
+.trunk-card__description {
+  font-family: var(--font-body--family);
+  font-style: italic;
+  font-size: var(--font-size-small);
+  color: #666666;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.trunk-card__price {
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 1.1rem;
+  color: #2E2E2E;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+.trunk-card__buttons {
+  text-align: center;
+  padding-top: 0.25rem;
+}
+
+.trunk-card__button--personalize {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body--family);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-body--weight);
+  color: #2E2E2E;
+  text-decoration: none;
+  background: #DAE3EA;
+  border: 1px solid #DAE3EA;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.trunk-card__button--personalize::after {
+  content: '✨';
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  filter: brightness(0) saturate(100%);
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+
+.trunk-card__button--personalize:hover {
+  color: #FFFFFF;
+  background: #DAE3EA;
+  transform: translateY(-2px);
+}
+
+.trunk-card__button--personalize:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+  filter: brightness(0) saturate(100%) invert(1);
+}
+
+@media screen and (max-width: 768px) {
+  .featured-trunks__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+    .trunk-card {
+    background: none;
+    border: 1px solid #e0e0e0;
+    box-shadow: none;
+    border-radius: 8px;
+  }
+  
+  .trunk-card__content {
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+  }
+  
+  .trunk-card__image {
+    height: 200px;
+    background: none;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .trunk-card__image img {
+    object-fit: contain;
+    border-radius: 0;
+  }
+  
+  .trunk-card__title {
+    font-size: 1rem;
+  }
+  
+  .trunk-card__description {
+    display: none;
+  }
+  
+  .trunk-card__price {
+    font-size: 1rem;
+  }
+  
+  .trunk-card__button--personalize {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .featured-trunks__footer-features {
+    gap: 2rem;
+  }
+  
+  .featured-trunks__footer-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+{% endstylesheet %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const heading = entry.target.querySelector('.featured-trunks__heading');
+        const subtitle = entry.target.querySelector('.featured-trunks__subtitle');
+        const viewAll = entry.target.querySelector('.featured-trunks__view-all');
+        const cards = entry.target.querySelectorAll('.trunk-card');
+        
+        if (heading) heading.classList.add('animate');
+        if (subtitle) subtitle.classList.add('animate');
+        if (viewAll) viewAll.classList.add('animate');
+        
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('animate');
+          }, index * 200);
+        });
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const container = document.querySelector('.featured-trunks');
+  if (container) {
+    observer.observe(container);
+  }
+});
+</script>
+
+<div class="featured-trunks">
+  <div class="featured-trunks__container">
+    <div class="featured-trunks__header">
+      <h2 class="featured-trunks__heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.subtitle != blank %}
+        <p class="featured-trunks__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+    
+    {% if section.settings.featured_collection != blank %}
+      <div class="featured-trunks__grid">
+        {% for product in section.settings.featured_collection.products limit: 6 %}
+          <div class="trunk-card">
+            <div class="trunk-card__image">
+              {% if product.featured_image != blank %}
+                <img src="{{ product.featured_image | image_url: width: 800 }}"
+                     alt="{{ product.title }}"
+                     loading="lazy"
+                     width="{{ product.featured_image.width }}"
+                     height="{{ product.featured_image.height }}">
+              {% else %}
+                <div style="width: 100%; height: 100%; background-color: #DAE3EA; display: flex; align-items: center; justify-content: center; color: #2E2E2E; font-family: 'Newsreader', serif; font-style: italic; text-align: center; padding: 1rem;">
+                  {{ product.title }}
+                </div>
+              {% endif %}
+            </div>
+            <div class="trunk-card__content">
+              <h3 class="trunk-card__title">{{ product.title }}</h3>
+              <p class="trunk-card__description">{{ product.description | strip_html | truncate: 120 }}</p>
+              <div class="trunk-card__price">{{ product.price | money }}</div>
+              <div class="trunk-card__buttons">
+                <a href="{{ product.url }}" class="trunk-card__button--personalize">View Product</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <!-- Fallback content if no collection is selected -->
+      <div class="featured-trunks__grid">
+        <div class="trunk-card">
+          <div class="trunk-card__image">
+            <div style="width: 100%; height: 100%; background-color: #DAE3EA; display: flex; align-items: center; justify-content: center; color: #2E2E2E; font-family: 'Newsreader', serif; font-style: italic; text-align: center; padding: 1rem;">
+              Select a Featured Collection
+            </div>
+          </div>
+          <div class="trunk-card__content">
+            <h3 class="trunk-card__title">Choose a Collection</h3>
+            <p class="trunk-card__description">Select a collection in the theme editor to display featured products here.</p>
+            <div class="trunk-card__price">$0</div>
+            <div class="trunk-card__buttons">
+              <a href="#" class="trunk-card__button--personalize">Personalize</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    
+    <div class="featured-trunks__button-container">
+      <a href="{% if section.settings.view_all_link != blank %}{{ section.settings.view_all_link }}{% else %}{% if section.settings.featured_collection != blank %}{{ section.settings.featured_collection.url }}{% else %}/collections{% endif %}{% endif %}" class="featured-trunks__view-all">{% if section.settings.view_all_text != blank %}{{ section.settings.view_all_text }}{% else %}View All Trunks{% endif %}</a>
+    </div>
+    
+    <div class="featured-trunks__footer">
+      <div class="featured-trunks__divider"></div>
+      <div class="featured-trunks__footer-content">
+        <p class="featured-trunks__footer-text">{{ section.settings.footer_text }}</p>
+        <div class="featured-trunks__footer-features">
+          <div class="featured-trunks__feature">
+            <span class="featured-trunks__feature-icon">{{ section.settings.feature_1_icon }}</span>
+            <span class="featured-trunks__feature-text">{{ section.settings.feature_1_text }}</span>
+          </div>
+          <div class="featured-trunks__feature">
+            <span class="featured-trunks__feature-icon">{{ section.settings.feature_2_icon }}</span>
+            <span class="featured-trunks__feature-text">{{ section.settings.feature_2_text }}</span>
+          </div>
+          <div class="featured-trunks__feature">
+            <span class="featured-trunks__feature-icon">{{ section.settings.feature_3_icon }}</span>
+            <span class="featured-trunks__feature-text">{{ section.settings.feature_3_text }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Trunks",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Featured Collection",
+      "info": "Select a collection to display featured products. This collection will not appear in the main categories section."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Featured Trunks"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Discover our handcrafted collection of premium memory trunks, each designed to preserve your most cherished moments with timeless elegance."
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Button Text",
+      "default": "View All Trunks"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Button Link (Optional - will use collection URL if not set)"
+    },
+    {
+      "type": "header",
+      "content": "Footer Content"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "Each trunk is handcrafted with care, ensuring your memories are preserved for generations to come."
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_icon",
+      "label": "Icon (emoji)",
+      "default": "✨"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_text",
+      "label": "Text",
+      "default": "Premium Materials"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_icon",
+      "label": "Icon (emoji)",
+      "default": "🎨"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_text",
+      "label": "Text",
+      "default": "Customizable"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_icon",
+      "label": "Icon (emoji)",
+      "default": "🏆"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_text",
+      "label": "Text",
+      "default": "Lifetime Quality"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Trunks",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}
