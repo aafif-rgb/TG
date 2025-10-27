@@ -8,8 +8,8 @@ import { useLanguage } from "../../contexts/LanguageContext";
 // Import brand images
 import faneImage from "../../assets/brands/fane.png";
 import unframedImage from "../../assets/brands/unframed.png";
-import pebbleImage from "../../assets/brands/pebble.png";
-import hmImage from "../../assets/brands/h&m.png";
+import pebbleImage from "../../assets/brands/Pebble.png";
+import hmImage from "../../assets/brands/H&M.png";
 import evolveImage from "../../assets/brands/evolve.png";
 
 const FeaturedProjects = () => {
