@@ -1,0 +1,197 @@
+{% comment %}
+  This section is used in the cart template to render /cart page with an
+  overview of the items in customer's cart.
+
+  https://shopify.dev/docs/storefronts/themes/architecture/templates/cart
+{% endcomment %}
+
+<div class="cart">
+  <div class="cart__header">
+    <h1 class="cart__title">{{ 'cart.title' | t }}</h1>
+    {% if cart.item_count > 0 %}
+      <p class="cart__count">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}</p>
+    {% endif %}
+  </div>
+
+  {% if cart.item_count == 0 %}
+    <div class="cart__empty">
+      <p>Your cart is empty</p>
+      <a href="{{ routes.all_products_collection_url }}" class="cart__continue-shopping">Continue Shopping</a>
+    </div>
+  {% else %}
+    <form action="{{ routes.cart_url }}" method="post" class="cart__form">
+      <div class="cart__items">
+        {% for item in cart.items %}
+          <div class="cart__item" style="display: flex;">
+            <div class="cart__item-image" style="width: 240px;height: 240px;">
+                {% render 'image', 
+                  image: item.image,
+                  url: item.url,
+                  class: 'cart__product-image',
+                  width: 240
+                %}
+
+            </div>
+            
+            <div class="cart__item-content">
+              <div class="cart__item-info">
+                <h3 class="cart__item-title">
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                </h3>
+                
+                {% if item.variant.title != 'Default Title' %}
+                  <p class="cart__item-variant">{{ item.variant.title }}</p>
+                {% endif %}
+                
+                {% if item.properties != blank %}
+                  <div class="cart__item-properties">
+                    {% for property in item.properties %}
+                      {% unless property.last == blank %}
+                        <div class="cart__item-property">
+                          <span class="cart__property-label">{{ property.first }}:</span>
+                          <span class="cart__property-value">{{ property.last }}</span>
+                        </div>
+                      {% endunless %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                
+                <div class="cart__item-price">
+                  <span class="cart__price">{{ item.final_line_price | money }}</span>
+                  {% if item.original_line_price > item.final_line_price %}
+                    <span class="cart__compare-price">{{ item.original_line_price | money }}</span>
+                  {% endif %}
+                </div>
+              </div>
+              
+              <div class="cart__item-actions">
+                <div class="cart__quantity-selector">
+                  <button type="button" class="cart__quantity-btn" data-action="decrease">-</button>
+                  <input type="number" 
+                         name="updates[]" 
+                         value="{{ item.quantity }}"
+                         min="0"
+                         class="cart__quantity-input"
+                         data-item-id="{{ item.key }}">
+                  <button type="button" class="cart__quantity-btn" data-action="increase">+</button>
+                </div>
+                
+                <a href="{{ item.url_to_remove }}" 
+                   class="cart__remove-btn"
+                   aria-label="Remove {{ item.product.title }}">
+                  Remove
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="cart__footer">
+        <div class="cart__summary">
+          {% if cart.total_discounts > 0 %}
+            <div class="cart__summary-row">
+              <span>Subtotal</span>
+              <span>{{ cart.original_total_price | money }}</span>
+            </div>
+            <div class="cart__summary-row">
+              <span>Discount</span>
+              <span>-{{ cart.total_discounts | money }}</span>
+            </div>
+          {% endif %}
+          
+          <div class="cart__summary-row cart__summary-row--total">
+            <span>Total</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+        </div>
+
+        <div class="cart__actions">
+          <button type="submit" 
+                  name="update" 
+                  class="cart__update-btn">
+            Update Cart
+          </button>
+          
+          <button type="submit" 
+                  name="checkout" 
+                  class="cart__checkout-btn">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </form>
+  {% endif %}
+</div>
+
+{{ 'cart.css' | asset_url | stylesheet_tag }}
+
+<script>
+  class CartPage {
+    constructor() {
+      this.quantityButtons = document.querySelectorAll('.cart__quantity-btn');
+      this.quantityInputs = document.querySelectorAll('.cart__quantity-input');
+      this.form = document.querySelector('.cart__form');
+      
+      this.initializeEventListeners();
+    }
+
+    initializeEventListeners() {
+      this.quantityButtons.forEach(button => {
+        button.addEventListener('click', (e) => this.handleQuantityChange(e));
+      });
+
+      this.quantityInputs.forEach(input => {
+        input.addEventListener('change', () => this.handleQuantityInput(input));
+      });
+    }
+
+    handleQuantityChange(event) {
+      const button = event.currentTarget;
+      const action = button.dataset.action;
+      const input = button.parentNode.querySelector('.cart__quantity-input');
+      const currentValue = parseInt(input.value) || 0;
+
+      if (action === 'increase') {
+        input.value = currentValue + 1;
+      } else if (action === 'decrease' && currentValue > 0) {
+        input.value = currentValue - 1;
+      }
+
+      // Auto-submit form on quantity change
+      if (this.form) {
+        const updateButton = this.form.querySelector('.cart__update-btn');
+        if (updateButton) {
+          updateButton.click();
+        }
+      }
+    }
+
+    handleQuantityInput(input) {
+      const value = parseInt(input.value);
+      if (value < 0) {
+        input.value = 0;
+      }
+
+      // Auto-submit form on quantity change
+      if (this.form) {
+        const updateButton = this.form.querySelector('.cart__update-btn');
+        if (updateButton) {
+          updateButton.click();
+        }
+      }
+    }
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new CartPage();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:general.cart",
+  "settings": []
+}
+{% endschema %}

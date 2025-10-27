@@ -1,0 +1,44 @@
+{% comment %}
+  Section Divider Section
+  Creates beautiful dividers between sections
+{% endcomment %}
+
+{% render 'section-divider', style: section.settings.style %}
+
+{% schema %}
+{
+  "name": "Section Divider",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Divider Style",
+      "options": [
+        {
+          "value": "wave",
+          "label": "Wave"
+        },
+        {
+          "value": "curve",
+          "label": "Curve"
+        },
+        {
+          "value": "line",
+          "label": "Line with Logo"
+        },
+        {
+          "value": "dots",
+          "label": "Animated Dots"
+        }
+      ],
+      "default": "line"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section Divider",
+      "category": "Layout"
+    }
+  ]
+}
+{% endschema %}

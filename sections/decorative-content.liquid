@@ -1,0 +1,479 @@
+{% comment %}
+  Decorative Content Section
+  Displays a headline with subtitle, button, and 3 feature cards with editable icons
+{% endcomment %}
+
+<section class="decorative-content"
+  {% if section.settings.background_image != blank %}
+    style="background-image: url({{ section.settings.background_image | image_url: width: 2000 }}); background-size: cover; background-position: center;"
+  {% endif %}>
+  {% if section.settings.background_image != blank %}
+    <div class="decorative-content__overlay"></div>
+  {% endif %}
+  <div class="decorative-content__container">
+    <div class="decorative-content__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="decorative-content__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      
+      {% if section.settings.subtitle != blank %}
+        <p class="decorative-content__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="decorative-content__button">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+    </div>
+    
+    <div class="decorative-content__content">
+      <div class="decorative-content__feature">
+        <div class="decorative-content__icon-container">
+          {% if section.settings.icon_1 != blank %}
+            <img src="{{ section.settings.icon_1 | image_url }}" alt="" class="decorative-content__icon" loading="lazy">
+          {% else %}
+            <div class="decorative-content__icon decorative-content__icon--placeholder">
+              {% render 'icon-monogram' %}
+            </div>
+          {% endif %}
+        </div>
+        {% if section.settings.feature_1_title != blank %}
+          <h3 class="decorative-content__feature-title">{{ section.settings.feature_1_title }}</h3>
+        {% endif %}
+        {% if section.settings.feature_1_text != blank %}
+          <p class="decorative-content__feature-text">{{ section.settings.feature_1_text }}</p>
+        {% endif %}
+      </div>
+      
+      <div class="decorative-content__feature">
+        <div class="decorative-content__icon-container">
+          {% if section.settings.icon_2 != blank %}
+            <img src="{{ section.settings.icon_2 | image_url }}" alt="" class="decorative-content__icon" loading="lazy">
+          {% else %}
+            <div class="decorative-content__icon decorative-content__icon--placeholder">
+              {% render 'icon-sewing' %}
+            </div>
+          {% endif %}
+        </div>
+        {% if section.settings.feature_2_title != blank %}
+          <h3 class="decorative-content__feature-title">{{ section.settings.feature_2_title }}</h3>
+        {% endif %}
+        {% if section.settings.feature_2_text != blank %}
+          <p class="decorative-content__feature-text">{{ section.settings.feature_2_text }}</p>
+        {% endif %}
+      </div>
+      
+      <div class="decorative-content__feature">
+        <div class="decorative-content__icon-container">
+          {% if section.settings.icon_3 != blank %}
+            <img src="{{ section.settings.icon_3 | image_url }}" alt="" class="decorative-content__icon">
+          {% else %}
+            <div class="decorative-content__icon decorative-content__icon--placeholder">
+              {% render 'icon-location' %}
+            </div>
+          {% endif %}
+        </div>
+        {% if section.settings.feature_3_title != blank %}
+          <h3 class="decorative-content__feature-title">{{ section.settings.feature_3_title }}</h3>
+        {% endif %}
+        {% if section.settings.feature_3_text != blank %}
+          <p class="decorative-content__feature-text">{{ section.settings.feature_3_text }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.decorative-content {
+  background-color: #f5f9fc;
+  padding: 6rem 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.decorative-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(218, 227, 234, 0.1) 25%, transparent 25%, transparent 50%, rgba(218, 227, 234, 0.1) 50%, rgba(218, 227, 234, 0.1) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.decorative-content__overlay {
+  position: absolute;
+  top: 0;
+  display : none;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.decorative-content__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.decorative-content__header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.decorative-content__heading {
+  {% if section.settings.heading_font %}
+    font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    font-weight: {{ section.settings.heading_font.weight }};
+    font-style: {{ section.settings.heading_font.style }};
+  {% else %}
+    font-family: var(--font-heading--family);
+    font-weight: var(--font-heading--weight);
+  {% endif %}
+  font-size: {{ section.settings.heading_size }}px;
+  color: #2E2E2E;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.decorative-content__subtitle {
+  {% if section.settings.body_font %}
+    font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
+    font-weight: {{ section.settings.body_font.weight }};
+    font-style: italic;
+  {% else %}
+    font-family: var(--font-body--family);
+    font-style: italic;
+  {% endif %}
+  font-size: {{ section.settings.body_size }}px;
+  color: #666666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.decorative-content__button {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  {% if section.settings.body_font %}
+    font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
+    font-weight: {{ section.settings.body_font.weight }};
+  {% else %}
+    font-family: var(--font-body--family);
+    font-weight: var(--font-body--weight);
+  {% endif %}
+  font-size: {{ section.settings.body_size }}px;
+  color: #2E2E2E;
+  text-decoration: none;
+  background: #DAE3EA;
+  border: 2px solid #DAE3EA;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.decorative-content__button:hover {
+  color: #FFFFFF;
+  background: #DAE3EA;
+  transform: translateY(-2px);
+}
+
+.decorative-content__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.decorative-content__feature {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(218, 227, 234, 0.5);
+}
+
+.decorative-content__feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.decorative-content__icon-container {
+  width: 80px;
+  height: 80px;
+  background-color: #DAE3EA;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.decorative-content__icon {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.decorative-content__icon--placeholder {
+  width: 40px;
+  height: 40px;
+  color: #FFFFFF;
+}
+
+.decorative-content__feature-title {
+  {% if section.settings.heading_font %}
+    font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};
+    font-weight: {{ section.settings.heading_font.weight }};
+  {% else %}
+    font-family: var(--font-heading--family);
+    font-weight: var(--font-heading--weight);
+  {% endif %}
+  font-size: {{ section.settings.feature_title_size }}px;
+  color: #2E2E2E;
+  margin-bottom: 1rem;
+}
+
+.decorative-content__feature-text {
+  {% if section.settings.body_font %}
+    font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};
+    font-weight: {{ section.settings.body_font.weight }};
+  {% else %}
+    font-family: var(--font-body--family);
+  {% endif %}
+  font-size: {{ section.settings.body_size }}px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .decorative-content {
+    padding: 4rem 0;
+    min-height: 70vh;
+  }
+  
+  .decorative-content__container {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .decorative-content {
+    padding: 3rem 0;
+    min-height: auto;
+  }
+  
+  .decorative-content__container {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .decorative-content__content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .decorative-content__feature {
+    padding: 1.5rem;
+  }
+  
+  .decorative-content__icon-container {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+  }
+  
+  .decorative-content__icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .decorative-content__icon--placeholder {
+    width: 35px;
+    height: 35px;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Decorative Content",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Classic, functional ways to cherish your keepsakes"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "FROM GENERATION TO GENERATION"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "READ OUR STORY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading font size",
+      "default": 32
+    },
+    {
+      "type": "font_picker",
+      "id": "body_font",
+      "label": "Body font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Body font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "feature_title_size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Feature title font size",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_1",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Title",
+      "default": "PICK YOUR PK"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_1_text",
+      "label": "Text",
+      "default": "Keepsake Trunks, coming home outfits, Celebration Crowns, and more - heirloom quality options are endless with Petite Keep!"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_2",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Title",
+      "default": "MAKE IT YOURS"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_text",
+      "label": "Text",
+      "default": "With 15+ PK Signature Prints, 20+ thread colors, and 8+ fonts, no two creations are alike! Personalized to perfection, your keepsake is uniquely made just for you!"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_3",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Title",
+      "default": "HANDCRAFTED IN MISSOURI"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_text",
+      "label": "Text",
+      "default": "We build your personalized heirloom with lots of PK love and send it on its way!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Decorative Content",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

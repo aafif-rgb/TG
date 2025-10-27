@@ -1,0 +1,440 @@
+<footer class="site-footer">
+  <div class="footer__container">
+    <!-- Main Footer Content -->
+    <div class="footer__main">
+      <!-- Company Info -->
+      <div class="footer__section">
+        <div class="footer__logo">
+          <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" class="footer__logo-img">
+        </div>
+        <p class="footer__tagline">Preserving life's most precious moments with timeless elegance and exceptional craftsmanship.</p>
+        <div class="footer__social">
+          {% if section.settings.show_social_icons %}
+            {% if section.settings.facebook_url != blank %}
+              <a href="{{ section.settings.facebook_url }}" class="footer__social-link" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            {% endif %}
+            {% if section.settings.instagram_url != blank %}
+              <a href="{{ section.settings.instagram_url }}" class="footer__social-link" aria-label="Instagram">
+                <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="currentColor" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.75-.88a1.13 1.13 0 1 1-2.25 0 1.13 1.13 0 0 1 2.25 0z"/>
+              </svg>
+              
+              </a>
+            {% endif %}
+            {% if section.settings.pinterest_url != blank %}
+              <a href="{{ section.settings.pinterest_url }}" class="footer__social-link" aria-label="Pinterest">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.718-1.297c-.875.807-2.026 1.297-3.323 1.297s-2.448-.49-3.323-1.297c-.928-.875-1.418-2.026-1.418-3.323s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.323z"/>
+                </svg>
+              </a>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__section">
+        <h3 class="footer__heading">Quick Links</h3>
+        <ul class="footer__links">
+          {% for link in section.settings.menu.links %}
+            <li class="footer__link-item">
+              <a href="{{ link.url }}" class="footer__link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Collections -->
+      <div class="footer__section">
+        <h3 class="footer__heading">Collections</h3>
+        <ul class="footer__links">
+          <li class="footer__link-item">
+            <a href="/collections/bridal" class="footer__link">Bridal Collection</a>
+          </li>
+          <li class="footer__link-item">
+            <a href="/collections/baby" class="footer__link">Baby Treasures</a>
+          </li>
+          <li class="footer__link-item">
+            <a href="/collections/bundles" class="footer__link">Curated Bundles</a>
+          </li>
+          <li class="footer__link-item">
+            <a href="/collections" class="footer__link">View All</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Customer Service -->
+      <div class="footer__section">
+        <h3 class="footer__heading">Customer Service</h3>
+        <ul class="footer__links">
+          <li class="footer__link-item">
+            <a href="/pages/contact" class="footer__link">Contact Us</a>
+          </li>
+          <li class="footer__link-item">
+            <a href="/pages/shipping" class="footer__link">Shipping Info</a>
+          </li>
+          <li class="footer__link-item">
+            <a href="/pages/returns" class="footer__link">Returns</a>
+          </li>
+          <li class="footer__link-item">
+            <a href="/pages/faq" class="footer__link">FAQ</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer__section">
+        <h3 class="footer__heading">Stay Connected</h3>
+        <p class="footer__newsletter-text">Get updates on new collections and exclusive offers.</p>
+        {% if section.settings.show_newsletter %}
+          <form class="footer__newsletter-form" action="/contact#contact_form" method="post">
+            <div class="footer__newsletter-input-group">
+              <input type="email" name="contact[email]" placeholder="Enter your email" class="footer__newsletter-input" required>
+              <button type="submit" class="footer__newsletter-button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer__bottom">
+      <div class="footer__bottom-content">
+        <div class="footer__copyright">
+          <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+        </div>
+        
+        <div class="footer__bottom-links">
+          <a href="/pages/privacy-policy" class="footer__bottom-link">Privacy Policy</a>
+          <a href="/pages/terms-of-service" class="footer__bottom-link">Terms of Service</a>
+        </div>
+
+        {% if section.settings.show_payment_icons %}
+          <div class="footer__payment">
+            <span class="footer__payment-label">We Accept:</span>
+            <div class="footer__payment-icons">
+              {% for type in shop.enabled_payment_types %}
+                {{ type | payment_type_svg_tag: class: 'footer__payment-icon' }}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% stylesheet %}
+.site-footer {
+  background-color: #DAE3EA;
+  color: #2E2E2E;
+  padding: 4rem 0 0 0;
+  margin-top: 4rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.footer__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer__main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__logo {
+  margin-bottom: 1.5rem;
+}
+
+.footer__logo-img {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(234%) hue-rotate(182deg) brightness(95%) contrast(90%);
+}
+
+.footer__tagline {
+  font-family: "Newsreader", serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666666;
+  margin-bottom: 2rem;
+  max-width: 300px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(46, 46, 46, 0.1);
+  border-radius: 50%;
+  color: #2E2E2E;
+  transition: all 0.3s ease;
+}
+
+.footer__social-link:hover {
+  background-color: #DAE3EA;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.footer__heading {
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #2E2E2E;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__link-item {
+  margin-bottom: 0.75rem;
+}
+
+.footer__link {
+  color: #666666;
+  text-decoration: none;
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #DAE3EA;
+}
+
+.footer__newsletter-text {
+  font-family: "Newsreader", serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.footer__newsletter-form {
+  margin-bottom: 1rem;
+}
+
+.footer__newsletter-input-group {
+  display: flex;
+  position: relative;
+}
+
+.footer__newsletter-input {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(46, 46, 46, 0.2);
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #2E2E2E;
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 0.9rem;
+}
+
+.footer__newsletter-input::placeholder {
+  color: #999999;
+}
+
+.footer__newsletter-input:focus {
+  outline: none;
+  border-color: #DAE3EA;
+  background-color: #FFFFFF;
+}
+
+.footer__newsletter-button {
+  padding: 0.875rem 1rem;
+  background-color: #DAE3EA;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer__newsletter-button:hover {
+  background-color: #c4a030;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(46, 46, 46, 0.1);
+  padding: 2rem 0;
+}
+
+.footer__bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__copyright p {
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0;
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer__bottom-link {
+  color: #666666;
+  text-decoration: none;
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer__bottom-link:hover {
+  color: #DAE3EA;
+}
+
+.footer__payment {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__payment-label {
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.footer__payment-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__payment-icon {
+  height: 24px;
+  width: auto;
+  filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(234%) hue-rotate(182deg) brightness(95%) contrast(90%);
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer__main {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .footer__section:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .site-footer {
+    padding: 3rem 0 0 0;
+    margin-top: 3rem;
+  }
+  
+  .footer__main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer__bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer__bottom-links {
+    justify-content: center;
+  }
+  
+  .footer__payment {
+    justify-content: center;
+  }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Quick Links Menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_icons",
+      "label": "Show Social Media Icons",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show Newsletter Signup",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show Payment Icons",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

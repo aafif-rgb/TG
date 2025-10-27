@@ -1,0 +1,406 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Treasure Trunk",
+    "theme_version": "0.1.0",
+    "theme_author": "Shopify",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://support.shopify.com/"
+  },
+  {
+    "name": "t:general.typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:general.fonts"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_primary_font",
+        "default": "work_sans_n4",
+        "label": "t:general.primary"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "default": "helvetica_n4",
+        "label": "Heading font"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "default": "work_sans_n4",
+        "label": "Body font"
+      },
+      {
+        "type": "header",
+        "content": "Font Sizes"
+      },
+      {
+        "type": "range",
+        "id": "font_size_heading_large",
+        "min": 24,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "label": "Large Heading Size",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "font_size_heading_medium",
+        "min": 18,
+        "max": 48,
+        "step": 2,
+        "unit": "px",
+        "label": "Medium Heading Size",
+        "default": 28
+      },
+      {
+        "type": "range",
+        "id": "font_size_heading_small",
+        "min": 14,
+        "max": 32,
+        "step": 1,
+        "unit": "px",
+        "label": "Small Heading Size",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "font_size_body_large",
+        "min": 14,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Large Body Text Size",
+        "default": 18
+      },
+      {
+        "type": "range",
+        "id": "font_size_body",
+        "min": 12,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "label": "Body Text Size",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "font_size_small",
+        "min": 10,
+        "max": 16,
+        "step": 1,
+        "unit": "px",
+        "label": "Small Text Size",
+        "default": 14
+      }
+    ]
+  },
+  {
+    "name": "t:general.layout",
+    "settings": [
+      {
+        "type": "select",
+        "id": "max_page_width",
+        "label": "t:labels.page_width",
+        "options": [
+          {
+            "value": "90rem",
+            "label": "t:options.page_width.narrow"
+          },
+          {
+            "value": "110rem",
+            "label": "t:options.page_width.wide"
+          }
+        ],
+        "default": "90rem"
+      },
+      {
+        "type": "range",
+        "id": "min_page_margin",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "t:labels.page_margin",
+        "default": 20
+      }
+    ]
+  },
+  {
+    "name": "t:general.colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "default": "#FFFFFF",
+        "label": "t:labels.background"
+      },
+      {
+        "type": "color",
+        "id": "foreground_color",
+        "default": "#333333",
+        "label": "t:labels.foreground"
+      },
+      {
+        "type": "range",
+        "id": "input_corner_radius",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "unit": "px",
+        "label": "t:labels.input_corner_radius",
+        "default": 4
+      }
+    ]
+  },
+  {
+    "name": "Custom Text Options",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Font Colors"
+      },
+      {
+        "type": "text",
+        "id": "font_color_1_label",
+        "label": "First Color Label",
+        "default": "Black"
+      },
+      {
+        "type": "color",
+        "id": "font_color_1",
+        "label": "First Color",
+        "default": "#2E2E2E"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_1_icon",
+        "label": "First Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_2_label",
+        "label": "Second Color Label",
+        "default": "Light Red"
+      },
+      {
+        "type": "color",
+        "id": "font_color_2",
+        "label": "Second Color",
+        "default": "#FFD9D7"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_2_icon",
+        "label": "Second Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_3_label",
+        "label": "Third Color Label",
+        "default": "Pastel Crimson"
+      },
+      {
+        "type": "color",
+        "id": "font_color_3",
+        "label": "Third Color",
+        "default": "#FC6B9B"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_3_icon",
+        "label": "Third Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_4_label",
+        "label": "Fourth Color Label",
+        "default": "Pastel Pink"
+      },
+      {
+        "type": "color",
+        "id": "font_color_4",
+        "label": "Fourth Color",
+        "default": "#F284A9"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_4_icon",
+        "label": "Fourth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_5_label",
+        "label": "Fifth Color Label",
+        "default": "Gray Blue"
+      },
+      {
+        "type": "color",
+        "id": "font_color_5",
+        "label": "Fifth Color",
+        "default": "#393E5C"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_5_icon",
+        "label": "Fifth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_6_label",
+        "label": "Sixth Color Label",
+        "default": "Pastel Gray Crimson"
+      },
+      {
+        "type": "color",
+        "id": "font_color_6",
+        "label": "Sixth Color",
+        "default": "#DEB9C1"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_6_icon",
+        "label": "Sixth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_7_label",
+        "label": "Seventh Color Label",
+        "default": "Gray Yellow"
+      },
+      {
+        "type": "color",
+        "id": "font_color_7",
+        "label": "Seventh Color",
+        "default": "#A7AC6D"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_7_icon",
+        "label": "Seventh Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_8_label",
+        "label": "Eighth Color Label",
+        "default": "Light Yellow"
+      },
+      {
+        "type": "color",
+        "id": "font_color_8",
+        "label": "Eighth Color",
+        "default": "#FFF6AD"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_8_icon",
+        "label": "Eighth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_9_label",
+        "label": "Ninth Color Label",
+        "default": "Gray Azure"
+      },
+      {
+        "type": "color",
+        "id": "font_color_9",
+        "label": "Ninth Color",
+        "default": "#798E9F"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_9_icon",
+        "label": "Ninth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_10_label",
+        "label": "Tenth Color Label",
+        "default": "Dark Green"
+      },
+      {
+        "type": "color",
+        "id": "font_color_10",
+        "label": "Tenth Color",
+        "default": "#244A1D"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_10_icon",
+        "label": "Tenth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_11_label",
+        "label": "Eleventh Color Label",
+        "default": "Gray Orange"
+      },
+      {
+        "type": "color",
+        "id": "font_color_11",
+        "label": "Eleventh Color",
+        "default": "#C5AE87"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_11_icon",
+        "label": "Eleventh Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_12_label",
+        "label": "Twelfth Color Label",
+        "default": "Gold"
+      },
+      {
+        "type": "color",
+        "id": "font_color_12",
+        "label": "Twelfth Color",
+        "default": "#B8860B"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_12_icon",
+        "label": "Twelfth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_13_label",
+        "label": "Thirteenth Color Label",
+        "default": "Bronze"
+      },
+      {
+        "type": "color",
+        "id": "font_color_13",
+        "label": "Thirteenth Color",
+        "default": "#CD7F32"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_13_icon",
+        "label": "Thirteenth Color Icon (optional)"
+      },
+      {
+        "type": "text",
+        "id": "font_color_14_label",
+        "label": "Fourteenth Color Label",
+        "default": "Silver"
+      },
+      {
+        "type": "color",
+        "id": "font_color_14",
+        "label": "Fourteenth Color",
+        "default": "#C0C0C0"
+      },
+      {
+        "type": "image_picker",
+        "id": "font_color_14_icon",
+        "label": "Fourteenth Color Icon (optional)"
+      }
+    ]
+  }
+]

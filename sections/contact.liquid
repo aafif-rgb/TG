@@ -1,0 +1,285 @@
+{%- style -%}
+  .contact {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .contact__header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .contact__title {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2E2E2E;
+    margin: 0;
+  }
+
+  .contact__subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 1rem 0 0;
+    font-weight: 300;
+  }
+
+  .contact__form {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .contact__field {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .contact__label {
+    font-size: 0.9rem;
+    color: #2E2E2E;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .contact__input,
+  .contact__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: #FAFAFA;
+    border: 1px solid #EAEAEA;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #2E2E2E;
+    transition: all 0.3s ease;
+  }
+
+  .contact__input:focus,
+  .contact__textarea:focus {
+    outline: none;
+    background: #FFFFFF;
+    border-color: #2E2E2E;
+  }
+
+  .contact__textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .contact__submit {
+    width: 100%;
+    padding: 1rem;
+    background: #2E2E2E;
+    color: #FFFFFF;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact__submit:hover {
+    background: #1A1A1A;
+  }
+
+  .contact__info {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .contact__info-item {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .contact__info-title {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .contact__info-content {
+    font-size: 1.1rem;
+    color: #2E2E2E;
+  }
+
+  .contact__info-content a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact__info-content a:hover {
+    color: #666;
+  }
+
+  @media screen and (max-width: 768px) {
+    .contact {
+      padding: 3rem 1.5rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="contact">
+  <div class="contact__header">
+    <h1 class="contact__title">{{ section.settings.title }}</h1>
+    {% if section.settings.subtitle != blank %}
+      <p class="contact__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  {% form 'contact' %}
+    <div class="contact__form">
+      {% if form.posted_successfully? %}
+        <p class="contact__success">{{ 'contact.success' | t }}</p>
+      {% endif %}
+
+      {% if form.errors %}
+        <div class="contact__errors">
+          {{ form.errors | default_errors }}
+        </div>
+      {% endif %}
+
+      <div class="contact__field">
+        <label class="contact__label" for="ContactName">{{ 'contact.name' | t }}</label>
+        <input type="text"
+               id="ContactName"
+               name="contact[name]"
+               class="contact__input"
+               value="{{ form.name }}"
+               autocomplete="name"
+               required>
+      </div>
+
+      <div class="contact__field">
+        <label class="contact__label" for="ContactEmail">{{ 'contact.email' | t }}</label>
+        <input type="email"
+               id="ContactEmail"
+               name="contact[email]"
+               class="contact__input"
+               value="{{ form.email }}"
+               autocomplete="email"
+               required>
+      </div>
+
+      {% if section.settings.show_phone %}
+        <div class="contact__field">
+          <label class="contact__label" for="ContactPhone">{{ 'contact.phone' | t }}</label>
+          <input type="tel"
+                 id="ContactPhone"
+                 name="contact[phone]"
+                 class="contact__input"
+                 value="{{ form.phone }}"
+                 autocomplete="tel">
+        </div>
+      {% endif %}
+
+      <div class="contact__field">
+        <label class="contact__label" for="ContactMessage">{{ 'contact.message' | t }}</label>
+        <textarea id="ContactMessage"
+                  name="contact[body]"
+                  class="contact__textarea"
+                  required>{{ form.body }}</textarea>
+      </div>
+
+      <button type="submit" class="contact__submit">
+        {{ 'contact.send' | t }}
+      </button>
+    </div>
+  {% endform %}
+
+  {% if section.settings.show_info %}
+    <div class="contact__info">
+      {% if section.settings.address != blank %}
+        <div class="contact__info-item">
+          <span class="contact__info-title">{{ 'contact.address' | t }}</span>
+          <span class="contact__info-content">{{ section.settings.address }}</span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.email != blank %}
+        <div class="contact__info-item">
+          <span class="contact__info-title">{{ 'contact.email' | t }}</span>
+          <span class="contact__info-content">
+            <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+          </span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.phone != blank %}
+        <div class="contact__info-item">
+          <span class="contact__info-title">{{ 'contact.phone' | t }}</span>
+          <span class="contact__info-content">
+            <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
+          </span>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+    },
+    {
+      "type": "header",
+      "content": "Form Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phone",
+      "label": "Show phone field",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_info",
+      "label": "Show contact information",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form",
+      "category": "Forms"
+    }
+  ]
+}
+{% endschema %}
+

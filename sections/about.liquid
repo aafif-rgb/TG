@@ -1,0 +1,337 @@
+{%- style -%}
+  .about {
+    padding: 4rem 0;
+  }
+
+  .about__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .about__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .about__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #2E2E2E;
+  }
+
+  .about__subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .about__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .about__card {
+    text-align: center;
+  }
+
+  .about__card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .about__card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #2E2E2E;
+  }
+
+  .about__card-text {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .about__content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about__text {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .about__cta {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    border: 1px solid #2E2E2E;
+    color: #2E2E2E;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: white;
+    cursor: pointer;
+  }
+
+  .about__cta:hover {
+    background: #2E2E2E;
+    color: white;
+  }
+
+  .about__team {
+    margin-top: 4rem;
+  }
+
+  .about__team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .about__team-member {
+    text-align: center;
+  }
+
+  .about__team-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+
+  .about__team-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #2E2E2E;
+  }
+
+  .about__team-role {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .about {
+      padding: 3rem 0;
+    }
+
+    .about__title {
+      font-size: 2rem;
+    }
+
+    .about__grid {
+      gap: 2rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="about">
+  <div class="about__container">
+    <header class="about__header">
+      <h1 class="about__title">{{ section.settings.title }}</h1>
+      <p class="about__subtitle">{{ section.settings.subtitle }}</p>
+    </header>
+
+    <div class="about__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="about__card">
+            <div class="about__card-icon">{{ block.settings.icon }}</div>
+            <h3 class="about__card-title">{{ block.settings.title }}</h3>
+            <p class="about__card-text">{{ block.settings.text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="about__content">
+      <div class="about__text">{{ section.settings.content }}</div>
+      {% if section.settings.show_cta %}
+        <a href="{{ section.settings.cta_link }}" class="about__cta">
+          {{ section.settings.cta_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.show_team %}
+      <div class="about__team">
+        <h2 class="about__title">{{ section.settings.team_title }}</h2>
+        <div class="about__team-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'team_member' %}
+              <div class="about__team-member">
+                {% if block.settings.image != blank %}
+                  <img 
+                    src="{{ block.settings.image | image_url: width: 300 }}"
+                    alt="{{ block.settings.name }}"
+                    class="about__team-image"
+                    width="150"
+                    height="150"
+                    loading="lazy"
+                  >
+                {% endif %}
+                <h3 class="about__team-name">{{ block.settings.name }}</h3>
+                <p class="about__team-role">{{ block.settings.role }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Story"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Discover the passion and craftsmanship behind our unique trunks"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>We are dedicated to creating beautiful, handcrafted trunks that combine traditional craftsmanship with modern design. Each piece is carefully made to bring joy and functionality to your space.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show Call to Action",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Explore Our Collection"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Team Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_team",
+      "label": "Show Team Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "team_title",
+      "label": "Team Section Title",
+      "default": "Meet Our Team"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Enter an emoji or symbol",
+          "default": "✨"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Craftsmanship"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Each trunk is handcrafted with attention to detail and premium materials"
+        }
+      ]
+    },
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Team Member"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "Craftsperson"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Page",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "✨",
+            "title": "Craftsmanship",
+            "text": "Each trunk is handcrafted with attention to detail and premium materials"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🌿",
+            "title": "Sustainability",
+            "text": "We use eco-friendly materials and sustainable practices in our production"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🎨",
+            "title": "Design",
+            "text": "Modern designs that blend seamlessly with any interior style"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

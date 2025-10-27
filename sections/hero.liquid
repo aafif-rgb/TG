@@ -1,0 +1,320 @@
+{%- style -%}
+.hero {
+  background-color: transparent;
+  padding: 1rem 0 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  position: relative;
+  height: 500px; /* Reduced height to decrease bottom white space */
+}
+
+.hero__bg-logo {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.8;
+  filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(234%) hue-rotate(182deg) brightness(95%) contrast(90%);
+  z-index: 2;
+}
+
+.hero__bg-logo--small {
+  width: 60px;
+  height: 60px;
+  opacity: 0.4;
+  filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(234%) hue-rotate(182deg) brightness(95%) contrast(90%);
+}
+
+.hero__bg-logo--tiny {
+  width: 40px;
+  height: 40px;
+  opacity: 0.3;
+  filter: brightness(0) saturate(100%) invert(89%) sepia(11%) saturate(234%) hue-rotate(182deg) brightness(95%) contrast(90%);
+}
+
+/* Overlay removed as requested */
+
+.hero__bg-logo--1 { top: 10%; left: 10%; }
+.hero__bg-logo--2 { top: 20%; left: 25%; transform: rotate(25deg); }
+.hero__bg-logo--3 { bottom: 15%; left: 15%; transform: rotate(-15deg); }
+.hero__bg-logo--4 { bottom: 25%; left: 30%; transform: rotate(-25deg); }
+.hero__bg-logo--5 { top: 30%; left: 20%; transform: rotate(45deg); }
+.hero__bg-logo--6 { top: 40%; left: 35%; transform: rotate(-35deg); }
+.hero__bg-logo--7 { bottom: 35%; left: 25%; transform: rotate(15deg); }
+.hero__bg-logo--8 { bottom: 20%; left: 40%; transform: rotate(-25deg); }
+.hero__bg-logo--9 { top: 15%; left: 45%; transform: rotate(60deg); }
+.hero__bg-logo--10 { top: 50%; left: 15%; transform: rotate(-20deg); }
+.hero__bg-logo--11 { top: 65%; left: 30%; transform: rotate(30deg); }
+.hero__bg-logo--12 { bottom: 40%; left: 20%; transform: rotate(-40deg); }
+.hero__bg-logo--13 { bottom: 10%; left: 35%; transform: rotate(50deg); }
+
+.hero__container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content { opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease-out forwards; }
+
+.hero__heading {
+  font-family: var(--font-heading--family);
+  font-size: clamp(calc(var(--font-size-heading-large) * 0.8), 5vw, var(--font-size-heading-large));
+  line-height: 1.2;
+  color: {{ section.settings.heading_color }};
+  margin-bottom: 1.5rem;
+  position: relative;
+  font-weight: var(--font-heading--weight);
+  letter-spacing: -0.02em;
+}
+
+.hero__heading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background-color: {{ section.settings.accent_color }};
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: scaleIn 0.6s ease-out 0.8s forwards;
+}
+
+.hero__text {
+  font-family: var(--font-body--family);
+  font-style: italic;
+  font-size: clamp(var(--font-size-body), 2vw, var(--font-size-body-large));
+  line-height: 1.7;
+  color: {{ section.settings.text_color }};
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  max-width: 540px;
+}
+
+.hero__cta {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-family: "Frutiger Serif Light", serif;
+  font-weight: 300;
+  color: #2E2E2E;
+  background-color: #DAE3EA;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  box-shadow: 0 4px 15px rgba(218, 227, 234, 0.3);
+  letter-spacing: 0.02em;
+  position: relative; /* Ensure position context */
+  z-index: 5; /* Base z-index for desktop */
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1); /* Add tap highlight for feedback */
+  touch-action: manipulation; /* Improve touch handling */
+}
+.hero__cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(218, 227, 234, 0.4); background-color: #c8d4dc; }
+
+.hero__animation { position: relative; width: 100%; height: 450px; display: flex; align-items: center; justify-content: center; opacity: 0; animation: fadeIn 1s ease-out 0.2s forwards; }
+.hero__animation-container {
+  width: 500px; height: 450px; position: relative; margin-top: 100px;
+}
+.hero__animation img { width: 100%; height: 80%; object-fit: cover; }
+
+/* Decorative elements */
+.hero__decoration {
+  position: absolute;
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-color: #DAE3EA;
+  opacity: 0.1;
+  border-radius: 50%;
+}
+
+.hero__decoration:nth-child(1) { top: 20%; left: 10%; animation: float 4s ease-in-out infinite; }
+.hero__decoration:nth-child(2) { top: 60%; right: 15%; animation: float 5s ease-in-out infinite 1s; }
+.hero__decoration:nth-child(3) { bottom: 15%; left: 20%; animation: float 4.5s ease-in-out infinite 0.5s; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
+@keyframes fadeIn { from { opacity: 0;} to { opacity: 1;} }
+@keyframes scaleIn { from { transform: scaleX(0);} to { transform: scaleX(1);} }
+@keyframes float { 0%,100% { transform: translateY(0) scale(0.9);} 50% { transform: translateY(-20px) scale(0.9);} }
+
+@media screen and (max-width: 768px) {
+  .hero { 
+    padding: 1rem 0 0.5rem 0; 
+    height: auto;
+    margin-bottom: -1rem;
+  }
+  .hero__container { 
+    grid-template-columns: 1fr; 
+    gap: 1rem; 
+    text-align: center;
+    padding-top: 1rem;
+  }
+  .hero__heading::after { 
+    left: 50%; 
+    transform: translateX(-50%) scaleX(0); 
+  }
+  .hero__text {
+    margin-bottom: 1rem;
+  }
+  .hero__animation { 
+    height: 30px;
+    margin-top: 0.5rem;
+  }
+  .hero__animation-container { 
+    width: 250px; 
+    height: 250px;
+    margin-top: 0;
+  }
+  .hero__content {
+    order: -1;
+    margin-top: 80px; /* Add top margin to push content down on mobile */
+    position: relative;
+    z-index: 10; /* Ensure content is above all other elements on mobile */
+  }
+  
+  .hero__cta {
+    position: relative;
+    z-index: 20; /* Higher z-index to ensure button is tappable */
+    display: inline-block;
+    width: auto;
+    min-width: 180px; /* Ensure button has sufficient tap target size */
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+  }
+}
+{%- endstyle -%}
+
+{%- comment -%}
+  Build the logo URL once so we can use it inline (Liquid inside style attributes always works).
+{%- endcomment -%}
+{% if section.settings.logo_asset != blank %}
+  {% assign bg_logo = section.settings.logo_asset | image_url: width: 160 %}
+{% else %}
+  {% assign bg_logo = 'logo.png' | asset_url %}
+{% endif %}
+
+<div class="hero"
+  {% if section.settings.background_image != blank %}
+    style="background-image: url({{ section.settings.background_image | image_url: width: 2000 }}); background-size: cover; background-position: center;"
+  {% endif %}>
+  
+  <div class="hero__container">
+    <div class="hero__content">
+      <h1 class="hero__heading">{{ section.settings.heading }}</h1>
+      <div class="hero__text">{{ section.settings.text }}</div>
+      <a href="{{ section.settings.button_link }}" class="hero__cta">{{ section.settings.button_text }}</a>
+    </div>
+
+    <div class="hero__animation">
+      <div class="hero__animation-container">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 1000 }}"
+            alt="Treasure Trunk"
+            loading="eager"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        {% endif %}
+      </div>
+      <div class="hero__decoration"></div>
+      <div class="hero__decoration"></div>
+      <div class="hero__decoration"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section Divider -->
+{% render 'section-divider', style: 'line' %}
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Will be displayed as a full-width background"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_asset",
+      "label": "Background logo (stamps)",
+      "info": "Upload your monogram/crest. If empty, the section will try assets/logo.png."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Home for Every Memory Worth Keeping"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Hand-crafted keepsake trunks designed to preserve life's most meaningful moments — from first steps to wedding vows.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Explore Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero product image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color (underline)",
+      "default": "#DAE3EA"
+    }
+  ],
+  "presets": [
+    { "name": "Hero", "category": "Hero" }
+  ]
+}
+{% endschema %}

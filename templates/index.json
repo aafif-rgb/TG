@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "background_image": "shopify://shop_images/Untitled_design_png.jpg",
+        "heading": "A Home for Every Memory Worth Keeping",
+        "text": "<p>Hand-crafted memory trunks designed to preserve life's most meaningful moments from first steps to wedding vows</p>",
+        "button_text": "Explore Collection",
+        "button_link": "shopify://collections/all",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "accent_color": "#dae3ea"
+      }
+    },
+    "featured_trunks": {
+      "type": "featured-trunks",
+      "settings": {
+        "featured_collection": "featured",
+        "heading": "Our  Trunks Are Almost Here",
+        "subtitle": "Our handcrafted trunks are in the making. The wait is almost over, follow us on instagram to be the first to know when they launch!",
+        "view_all_text": "View All Trunks",
+        "view_all_link": "",
+        "footer_text": "Each trunk is handcrafted with care, ensuring your memories are preserved for generations to come.",
+        "feature_1_icon": "✨",
+        "feature_1_text": "Choose Your trunk",
+        "feature_2_icon": "🎨",
+        "feature_2_text": "Select a Pattern",
+        "feature_3_icon": "🪡",
+        "feature_3_text": "Add your Personal Touch"
+      }
+    },
+    "decorative_content": {
+      "type": "decorative-content",
+      "settings": {
+        "background_image": "shopify://shop_images/Untitled_design_3_png.jpg",
+        "heading": "Crafted with Timeless Elegance",
+        "subtitle": "Where memories find their forever home",
+        "button_text": "Shop Now",
+        "button_link": "/collections/all",
+        "heading_font": "sans_serif_n4",
+        "heading_size": 32,
+        "body_font": "sans_serif_n4",
+        "body_size": 16,
+        "feature_title_size": 20,
+        "icon_1": "shopify://shop_images/Handcrafted_in_jeddah_4_png.png",
+        "feature_1_title": "MAKE IT YOURS",
+        "feature_1_text": "Select timeless colors, elegant prints, and refined lettering.. A Bespoke trunk, crafted just for you.",
+        "icon_2": "shopify://shop_images/Handcrafted_in_jeddah_5_png.png",
+        "feature_2_title": "THE PERFECT GIFT",
+        "feature_2_text": "Share the love in every occasion, Birthdays, Baby Welcoming, Weddings, or even just because.. your trunks are uniquely made just for you!",
+        "icon_3": "shopify://shop_images/Handcrafted_in_jeddah_2_png.png",
+        "feature_3_title": "HANDCRAFTED IN JEDDAH",
+        "feature_3_text": "Handcrafted with love in           \n\nJeddah, Saudi Arabia"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured_trunks",
+    "decorative_content"
+  ]
+}

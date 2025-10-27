@@ -1,0 +1,428 @@
+{% stylesheet %}
+.promo-banner {
+  background-color: {{ section.settings.promo_bg_color | default: 'white' }};
+  color: {{ section.settings.promo_text_color | default: '#2E2E2E' }};
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  {% if section.settings.promo_font %}
+    font-family: {{ section.settings.promo_font.family }}, {{ section.settings.promo_font.fallback_families }};
+    font-weight: {{ section.settings.promo_font.weight }};
+    font-style: {{ section.settings.promo_font.style }};
+  {% else %}
+    font-family: "Frutiger Serif Light", serif;
+    font-weight: 300;
+  {% endif %}
+}
+
+{% if section.settings.promo_font %}
+  {{ section.settings.promo_font | font_face: display: 'swap' }}
+{% endif %}
+
+/* Mobile Navigation */
+.header__mobile-nav {
+  display: block;
+}
+
+.header__hamburger {
+  display: none;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2E2E2E;
+}
+
+.header__mobile-menu {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 4rem);
+  background-color: #DAE3EA;
+  padding: 2rem;
+  z-index: 99;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  visibility: hidden;
+}
+
+.header__mobile-menu.is-active {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.header__mobile-nav-link {
+  display: block;
+  color: #2E2E2E;
+  text-decoration: none;
+  padding: 1rem 0;
+  font-family: "Frutiger Serif Light", serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header__mobile-nav-link:last-child {
+  border-bottom: none;
+}
+.header {
+  background-color: rgba(218, 227, 234, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  position: fixed;
+  top: 2.5rem;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Add padding to body to prevent content from jumping when header becomes fixed */
+body {
+  padding-top: 10.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 6.5rem;
+  }
+}
+
+.header__container {
+  width: 100%;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 7rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header__logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.header__nav {
+  display: flex;
+  gap: 2rem;
+  margin-right: auto;
+}
+
+.header__nav-link {
+  color: #2E2E2E;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+  font-family: "Frutiger Serif Light", serif;
+  font-weight: 300;
+  font-size: 1rem;
+  position: relative;
+  white-space: nowrap;
+}
+
+.header__nav-link:hover {
+  color: #666666;
+}
+
+.header__nav-link.active {
+  color: #2E2E2E;
+  font-weight: 400;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header__icon {
+  color: #2E2E2E;
+  text-decoration: none;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.header__icon:hover {
+  color: #666666;
+}
+
+.header__cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2s infinite;
+  border: 2px solid white;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .header__nav {
+    display: none;
+  }
+  
+  .header__search {
+    display: none;
+  }
+  
+  .header__container {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    height: 5rem;
+    position: relative;
+    justify-content: center;
+  }
+
+  .header__logo {
+    width: 120px;
+    height: 60px;
+  }
+
+  .header__hamburger {
+    display: flex;
+    position: absolute;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+
+  .header__right {
+    position: absolute;
+    right: 0;
+  }
+
+  .header__icon[aria-label="Account"] {
+    display: none;
+  }
+
+  .header__nav {
+    display: none;
+  }
+}
+{% endstylesheet %}
+
+{% if section.settings.show_promo_banner %}
+<div class="promo-banner">
+  {{ section.settings.promo_text | default: "Sign up for 10% discount" }}
+</div>
+{% endif %}
+
+<header class="header">
+  <div class="header__container">
+    <!-- Hamburger Menu Button -->
+    <button class="header__hamburger" aria-label="Menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="header__logo">
+      <a href="{{ routes.root_url }}">
+        <img src="{{ 'logo.png' | asset_url }}" alt="Treasure Trunk Logo" loading="eager">
+      </a>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="header__nav">
+      <a href="/collections/all" class="header__nav-link">Shop</a>
+      <a href="/pages/about" class="header__nav-link">About</a>
+      <a href="/pages/contact" class="header__nav-link">Contact</a>
+    </nav>
+    
+    <div class="header__right">
+      {% if shop.customer_accounts_enabled %}
+        <a href="{{ routes.account_url }}" class="header__icon" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </a>
+      {% endif %}
+      
+      <a href="{{ routes.cart_url }}" class="header__icon" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+        {% if cart.item_count > 0 %}
+          <span class="header__cart-count">{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="header__mobile-menu">
+    <nav class="header__mobile-nav">
+      <a href="/collections/all" class="header__mobile-nav-link">Shop</a>
+      <a href="/pages/about" class="header__mobile-nav-link">About</a>
+      <a href="/pages/contact" class="header__mobile-nav-link">Contact</a>
+      {% if shop.customer_accounts_enabled %}
+        <a href="{{ routes.account_url }}" class="header__mobile-nav-link">Account</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.header');
+  const hamburger = document.querySelector('.header__hamburger');
+  const mobileMenu = document.querySelector('.header__mobile-menu');
+  
+  let lastScroll = 0;
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+      header.style.transform = 'translateY(0)';
+      return;
+    }
+    
+    if (currentScroll > lastScroll && !mobileMenu.classList.contains('is-active')) {
+      // Scrolling down & menu is closed
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      // Scrolling up
+      header.style.transform = 'translateY(0)';
+    }
+    
+    lastScroll = currentScroll;
+  });
+  
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function() {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('is-active');
+      
+      // Update hamburger icon to X when menu is open
+      if (!isExpanded) {
+        hamburger.innerHTML = `
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        `;
+      } else {
+        hamburger.innerHTML = `
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        `;
+      }
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Promotional Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_promo_banner",
+      "label": "Show promotional banner",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Promotional text",
+      "default": "Sign up for 10% discount"
+    },
+    {
+      "type": "font_picker",
+      "id": "promo_font",
+      "label": "Promotional banner font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "color",
+      "id": "promo_text_color",
+      "label": "Text color",
+      "default": "#2E2E2E"
+    },
+    {
+      "type": "color",
+      "id": "promo_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %}
