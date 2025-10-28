@@ -9,6 +9,10 @@ import {
   FaUsers,
   FaCode,
   FaMobileAlt,
+  FaBullhorn,
+  FaPalette,
+  FaVideo,
+  FaBolt,
 } from "react-icons/fa";
 // import logoBig from '../assets/logo-big.svg';
 import logoBig from "../../assets/logo-big.svg";
@@ -206,81 +210,6 @@ const AboutPage = () => {
           </motion.div>
         </section>
 
-        {/* Timeline Section */}
-        {/* <section className="timeline-section">
-          <motion.div
-            className="section-container"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2>Our Journey</h2>
-            <p className="section-description">
-              A decade of innovation and digital excellence
-            </p>
-            <div className="timeline">
-              {[
-                {
-                  year: "2013",
-                  title: "Foundation",
-                  description:
-                    "Started our journey with a vision to transform digital landscapes.",
-                  icon: <FaRocket />,
-                },
-                {
-                  year: "2015",
-                  title: "Regional Expansion",
-                  description:
-                    "Extended our presence across the MENA region, serving diverse markets.",
-                  icon: <FaUsers />,
-                },
-                {
-                  year: "2018",
-                  title: "Innovation Hub",
-                  description:
-                    "Launched our state-of-the-art innovation center in Dubai.",
-                  icon: <FaLightbulb />,
-                },
-                {
-                  year: "2020",
-                  title: "Digital Leadership",
-                  description:
-                    "Recognized as a leading digital transformation partner in MENA.",
-                  icon: <FaCode />,
-                },
-                {
-                  year: "2023",
-                  title: "Global Recognition",
-                  description:
-                    "Achieved international acclaim for digital excellence and innovation.",
-                  icon: <FaMobileAlt />,
-                },
-              ].map((milestone, index) => (
-                <motion.div
-                  key={index}
-                  className="timeline-item"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="timeline-content">
-                    <div className="timeline-icon">{milestone.icon}</div>
-                    <div className="timeline-date">
-                      <span className="year">{milestone.year}</span>
-                    </div>
-                    <div className="timeline-info">
-                      <h3>{milestone.title}</h3>
-                      <p>{milestone.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </section> */}
-
         {/* Services Section */}
         <section className="services-section">
           <motion.div
@@ -299,22 +228,22 @@ const AboutPage = () => {
             <div className="services-grid">
               {[
                 {
-                  icon: "📣",
+                  icon: <FaBullhorn />,
                   title: t("services.marketing.title"),
                   description: t("services.marketing.description"),
                 },
                 {
-                  icon: "🎨",
+                  icon: <FaPalette />,
                   title: t("services.creative.title"),
                   description: t("services.creative.description"),
                 },
                 {
-                  icon: "🎥",
+                  icon: <FaVideo />,
                   title: t("services.production.title"),
                   description: t("services.production.description"),
                 },
                 {
-                  icon: "⚡",
+                  icon: <FaBolt />,
                   title: t("services.tech.title"),
                   description: t("services.tech.description"),
                 },
