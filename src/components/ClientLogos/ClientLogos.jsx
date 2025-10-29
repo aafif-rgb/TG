@@ -10,8 +10,11 @@ const ClientLogos = () => {
       name: "TAHKEEM",
       logo: "../../../public/partners/Tahkeem_Logo_White.svg",
     },
-    { name: "UNFRAMED", logo: "../../../public/partners/Unframed.svg" },
-    { name: "ARENA", logo: "../../../public/partners/Arena Logo White.svg" },
+    { name: "UNFRAMED", logo: "../../../public/assets/partners/Unframed.svg" },
+    {
+      name: "ARENA",
+      logo: "../../../public/assets/partners/Arena Logo White.svg",
+    },
   ];
 
   return (
