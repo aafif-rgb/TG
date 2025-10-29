@@ -10,12 +10,12 @@ const ClientLogos = () => {
   const companies = [
     {
       name: "TAHKEEM",
-      logo: "../../../public/partners/Tahkeem_Logo_White.svg",
+      logo: "../../../public/assets/partners/Tahkeem_Logo_White.svg",
     },
-    { name: "UNFRAMED", logo: "../../../public/partners/Unframed.svg" },
+    { name: "UNFRAMED", logo: "../../../public/assets/partners/Unframed.svg" },
     {
       name: "ARENA",
-      logo: "../../../public/partners/Arena Logo White.svg",
+      logo: "../../../public/assets/partners/Arena_Logo_White.svg",
     },
   ];
 
