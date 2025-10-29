@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./ClientLogos.css";
-import TahkeemLogo from "../../../public/assets/partners/Tahkeem_Logo_White.svg";
+import TahkeemLogo from "../../../public/assets/partners/Tahkeem_Logo.svg";
 import UnframedLogo from "../../../public/assets/partners/Unframed.svg";
-import ArenaLogo from "../../../public/assets/partners/Arena_Logo_White.svg";
+import ArenaLogo from "../../../public/assets/partners/Arena_Logo.svg";
 
 const ClientLogos = () => {
   const { t } = useTranslation();
