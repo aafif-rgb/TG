@@ -53,7 +53,7 @@
 }
 
 .logo-big {
-    width: 300%;
+    width: 100%;
     height: auto;
     object-fit: contain;
     transform: translateX(-20%);
@@ -130,27 +130,35 @@
     }
 
     .hero-content {
-        flex-direction: column;
-        gap: 2rem;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
     }
 
     .logo-container {
-        flex: none;
-        width: 100%;
-        justify-content: center;
+        flex: 1;
+        justify-content: flex-start;
     }
 
     .logo-big {
-        width: 200%;
+        width: 100%;
         transform: translateX(0);
     }
 
     .text-container {
-        flex: none;
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 2rem;
+        flex: 1.5;
+        width: auto;
+        max-width: none;
+        margin-left: -3rem;
+        padding: 1.5rem;
+    }
+    
+    .text-container h1 {
+        font-size: 1.3rem;
+    }
+    
+    .text-container p {
+        font-size: 0.75rem;
     }
 }
 
@@ -159,34 +167,90 @@
         padding: 2rem 1rem;
     }
 
+    .hero-content {
+        gap: 0.5rem;
+    }
+
     .logo-container {
-        margin-bottom: -2rem;
+        flex: 1;
+        margin-bottom: 0;
     }
 
     .logo-big {
-        width: 180%;
+        width: 100%;
     }
 
     .text-container {
-        padding: 1.5rem;
+        flex: 1.5;
+        margin-left: -2rem;
+        padding: 1.25rem;
+    }
+    
+    .text-container h1 {
+        font-size: 1.1rem;
+    }
+    
+    .text-container p {
+        font-size: 0.7rem;
     }
 }
 
 @media (max-width: 480px) {
     .about-hero {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0.75rem;
+    }
+
+    .hero-content {
+        gap: 0.25rem;
     }
 
     .logo-container {
-        margin-bottom: -1rem;
+        flex: 1;
     }
 
     .logo-big {
-        width: 160%;
+        width: 100%;
     }
 
     .text-container {
-        padding: 1.25rem;
+        flex: 1.5;
+        margin-left: -1.5rem;
+        padding: 1rem;
+        border-radius: 16px;
+    }
+    
+    .text-container h1 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .text-container p {
+        font-size: 0.65rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 375px) {
+    .about-hero {
+        padding: 1.25rem 0.5rem;
+    }
+
+    .text-container {
+        margin-left: -1rem;
+        padding: 0.85rem;
+    }
+    
+    .text-container h1 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .text-container p {
+        font-size: 0.6rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.4;
     }
 }
 

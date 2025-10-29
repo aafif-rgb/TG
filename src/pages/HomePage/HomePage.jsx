@@ -183,6 +183,7 @@ const HomePage = () => {
             <div className="hero-container">
               <motion.div
                 className="hero-left"
+                style={{ marginInline: "25px" }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
