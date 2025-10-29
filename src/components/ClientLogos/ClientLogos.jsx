@@ -2,13 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./ClientLogos.css";
-
+// import '../../../public/partners/'
 const ClientLogos = () => {
   const { t } = useTranslation();
   const companies = [
-    { name: "TAHKEEM", logo: "/assets/partners/Tahkeem_Logo_White.svg" },
-    { name: "UNFRAMED", logo: "/assets/partners/Unframed.svg" },
-    { name: "ARENA", logo: "/assets/partners/Arena Logo White.svg" },
+    {
+      name: "TAHKEEM",
+      logo: "../../../public/partners/Tahkeem_Logo_White.svg",
+    },
+    { name: "UNFRAMED", logo: "../../../public/partners/Unframed.svg" },
+    { name: "ARENA", logo: "../../../public/partners/Arena Logo White.svg" },
   ];
 
   return (
