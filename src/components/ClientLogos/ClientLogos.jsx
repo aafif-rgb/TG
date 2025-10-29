@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./ClientLogos.css";
 // import '../../../public/partners/'
+
+// import '../../../public/partners/'
 const ClientLogos = () => {
   const { t } = useTranslation();
   const companies = [
@@ -10,10 +12,10 @@ const ClientLogos = () => {
       name: "TAHKEEM",
       logo: "../../../public/partners/Tahkeem_Logo_White.svg",
     },
-    { name: "UNFRAMED", logo: "../../../public/assets/partners/Unframed.svg" },
+    { name: "UNFRAMED", logo: "../../../public/partners/Unframed.svg" },
     {
       name: "ARENA",
-      logo: "../../../public/assets/partners/Arena Logo White.svg",
+      logo: "../../../public/partners/Arena Logo White.svg",
     },
   ];
 
