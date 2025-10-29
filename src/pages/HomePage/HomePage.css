@@ -418,7 +418,7 @@ body {
 
     .hero-normal {
         height: auto;
-        min-height: 65vh;
+        min-height: 20vh;
     }
 
     /* Hide background image on mobile */
@@ -432,24 +432,25 @@ body {
 
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1.5rem 1.25rem;
+        gap: 1rem;
+        padding: 1rem 1rem;
         height: auto;
-        min-height: 65vh;
+        min-height: 30vh;
         position: relative;
     }
 
     .hero-left {
         text-align: center;
         padding-right: 0;
+        padding: 0;
         max-width: 100%;
         z-index: 10;
     }
 
     .hero-tag {
         align-self: center;
-        margin-bottom: 0.75rem;
-        padding: 0.4rem 0.8rem;
+        margin-bottom: 0.5rem;
+        padding: 0.35rem 0.7rem;
     }
 
     .tag-text {
@@ -460,7 +461,7 @@ body {
     .hero-title {
         font-size: 2rem;
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
         line-height: 1.2;
     }
 
@@ -468,9 +469,9 @@ body {
         font-size: 0.95rem;
         text-align: center;
         max-width: 100%;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         line-height: 1.6;
-        padding: 0 0.5rem;
+        padding: 0;
     }
 
     .cursor {
@@ -511,7 +512,7 @@ body {
     }
 
     .hero-normal {
-        min-height: 55vh;
+        min-height: 50vh;
     }
 
     /* Ensure background image stays hidden on small screens */
@@ -520,14 +521,18 @@ body {
     }
 
     .hero-container {
-        min-height: 55vh;
-        padding: 1.25rem 1rem;
-        gap: 1rem;
+        min-height: 50vh;
+        padding: 0.75rem 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .hero-left {
+        padding: 0;
     }
 
     .hero-tag {
-        margin-bottom: 0.5rem;
-        padding: 0.35rem 0.7rem;
+        margin-bottom: 0.4rem;
+        padding: 0.3rem 0.6rem;
     }
 
     .tag-text {
@@ -536,15 +541,15 @@ body {
 
     .hero-title {
         font-size: 1.5rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
         line-height: 1.3;
     }
 
     .hero-subtitle {
         font-size: 0.85rem;
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.75rem;
         line-height: 1.5;
-        padding: 0 0.25rem;
+        padding: 0;
     }
 
     .cursor {
@@ -559,6 +564,10 @@ body {
 
 /* Extra small devices (landscape phones) */
 @media (max-width: 375px) {
+    .hero-container {
+        padding: 0.5rem 0.5rem;
+    }
+
     .hero-title {
         font-size: 1.35rem;
     }

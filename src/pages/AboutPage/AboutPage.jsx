@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../contexts/LanguageContext";
 import Header from "../../components/Header/Header";
 import {
   FaRocket,
@@ -23,6 +24,7 @@ const AboutPage = () => {
   const canvasRef = useRef(null);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
   // Particle animation code...
   useEffect(() => {
@@ -110,7 +112,9 @@ const AboutPage = () => {
 
       <main className="about-content">
         <section className="about-hero">
-          <div className="hero-content">
+          <div
+            className={`hero-content ${language === "ar" ? "hero-rtl" : ""}`}
+          >
             <motion.div
               className="logo-container"
               initial={{ opacity: 0, x: -50 }}

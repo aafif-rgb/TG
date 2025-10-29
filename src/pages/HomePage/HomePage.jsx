@@ -259,7 +259,7 @@ const HomePage = () => {
               <div className="stats">
                 {[
                   { number: "2+", label: t("approach.stats.years") },
-                  { number: "8+", label: t("approach.stats.projects") },
+                  { number: "20+", label: t("approach.stats.projects") },
                   { number: "15+", label: t("approach.stats.team") },
                 ].map((stat, index) => (
                   <motion.div
