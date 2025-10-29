@@ -98,7 +98,7 @@ const Header = () => {
 
         {/* Navigation */}
         <nav className="header-nav">
-          <ul className="nav-list">
+          <ul className="nav-list" style={{ direction: "ltr" }}>
             {navItems.map((item, index) => (
               <motion.li
                 key={item.name}

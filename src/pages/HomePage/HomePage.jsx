@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../contexts/LanguageContext";
 import "./HomePage.css";
 import Header from "../../components/Header/Header";
 import Values from "../../components/Values/Values";
@@ -13,6 +14,7 @@ import Footer from "../../components/Footer/Footer";
 const HomePage = () => {
   const canvasRef = useRef(null);
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
   // Particle animation
   useEffect(() => {
@@ -177,7 +179,7 @@ const HomePage = () => {
       <main className="main-content">
         {/* Hero Section */}
         <section className="hero">
-          <div className="hero-normal">
+          <div className={`hero-normal ${language === "ar" ? "hero-rtl" : ""}`}>
             <div className="hero-container">
               <motion.div
                 className="hero-left"
