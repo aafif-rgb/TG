@@ -385,7 +385,7 @@ const AboutPage = () => {
                           transition={{ duration: 0.3 }}
                         >
                           <img
-                            src={`/assets/team/${member.image}`}
+                            src={`./assets/team/${member.image}`}
                             alt={member.name}
                             className="team-photo"
                           />
