@@ -282,36 +282,134 @@ const AboutPage = () => {
             <p className="section-description">{t("about.team.subtitle")}</p>
             <div className="team-grid">
               {[
+                // CEO & Founder
                 {
                   name: "Mouhammad Al-Rifai",
-                  // role: "CEO & Founder",
-                  // description: "15+ years of digital transformation expertise",
+                  role: t("about.team.members.mouhammad.role"),
+                  skills: t("about.team.members.mouhammad.skills"),
+                  motto: t("about.team.members.mouhammad.motto"),
+                  image: "Rifaii.png",
                 },
+                // Director Level
                 {
-                  name: "Abdelelah Bamarouf",
-                  // role: "Technical Director",
-                  // description: "Expert in emerging technologies",
+                  name: "Abdullelah Bamarouf",
+                  role: t("about.team.members.abdullelah.role"),
+                  skills: t("about.team.members.abdullelah.skills"),
+                  motto: t("about.team.members.abdullelah.motto"),
+                  image: "Abdalelah.png",
+                },
+                // Manager Level
+                // {
+                //   name: "ALJ Sharif",
+                //   role: t("about.team.members.alj.role"),
+                //   // skills: t("about.team.members.alj.skills"),
+                //   // motto: t("about.team.members.alj.motto"),
+                //   image: "ALJ.png",
+                // },
+                // Team Lead Level
+                {
+                  name: "Ahmad Afif",
+                  role: t("about.team.members.ahmad.role"),
+                  skills: t("about.team.members.ahmad.skills"),
+                  motto: t("about.team.members.ahmad.motto"),
+                  image: "Ahmad.png",
                 },
                 {
                   name: "Tarik Bamarouf",
-                  // role: "Creative Director",
-                  // description: "Award-winning design professional",
+                  role: t("about.team.members.tarik.role"),
+                  skills: t("about.team.members.tarik.skills"),
+                  motto: t("about.team.members.tarik.motto"),
+                  image: "Tarik.png",
+                },
+                // Senior Level
+                {
+                  name: "Haytham Nashawati",
+                  role: t("about.team.members.haytham.role"),
+                  skills: t("about.team.members.haytham.skills"),
+                  motto: t("about.team.members.haytham.motto"),
+                  image: "Haytham.png",
+                },
+                // Developer Level
+                {
+                  name: "Michael Zakka",
+                  role: t("about.team.members.michael.role"),
+                  skills: t("about.team.members.michael.skills"),
+                  motto: t("about.team.members.michael.motto"),
+                  image: "Michael.png",
+                },
+                {
+                  name: "Kareem Rijjal",
+                  role: t("about.team.members.kareem.role"),
+                  skills: t("about.team.members.kareem.skills"),
+                  motto: t("about.team.members.kareem.motto"),
+                  image: "Kareem.png",
+                },
+                // Content & Design Level
+                {
+                  name: "Wessam Dalil",
+                  role: t("about.team.members.wessam.role"),
+                  skills: t("about.team.members.wessam.skills"),
+                  motto: t("about.team.members.wessam.motto"),
+                  image: "Wissam.png",
+                },
+                {
+                  name: "Abdullah Jeneyat",
+                  role: t("about.team.members.abdullah.role"),
+                  skills: t("about.team.members.abdullah.skills"),
+                  motto: t("about.team.members.abdullah.motto"),
+                  image: "Jenyat.png",
+                },
+                {
+                  name: "Ebaa Abo-Elaenine",
+                  role: t("about.team.members.ebaa.role"),
+                  skills: t("about.team.members.ebaa.skills"),
+                  motto: t("about.team.members.ebaa.motto"),
+                  image: "Ebaa.png",
                 },
               ].map((member, index) => (
                 <motion.div
                   key={index}
-                  className="team-card"
+                  className="team-card-container"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="member-image">
-                    <div className="image-placeholder" />
+                  <div className="team-card">
+                    <div className="team-card-inner">
+                      {/* Front of card */}
+                      <div className="team-card-front">
+                        <motion.div
+                          className="member-image"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <img
+                            src={`/assets/team/${member.image}`}
+                            alt={member.name}
+                            className="team-photo"
+                          />
+                          <div className="image-overlay" />
+                        </motion.div>
+                        <div className="member-info">
+                          <h3>{member.name}</h3>
+                          <span className="member-role">{member.role}</span>
+                        </div>
+                      </div>
+
+                      {/* Back of card */}
+                      {member.motto && (
+                        <div className="team-card-back">
+                          <div className="motto-content">
+                            <p className="member-motto">{member.motto}</p>
+                            {/* {member.skills && (
+                              <p className="member-skills">{member.skills}</p>
+                            )} */}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <h3>{member.name}</h3>
-                  <span className="member-role">{member.role}</span>
-                  <p>{member.description}</p>
                 </motion.div>
               ))}
             </div>

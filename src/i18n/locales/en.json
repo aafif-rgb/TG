@@ -199,7 +199,64 @@
     },
     "team": {
       "title": "Our Team",
-      "subtitle": "Meet the experts behind our success"
+      "subtitle": "Meet the experts behind our success",
+      "members": {
+        "mouhammad": {
+          "role": "CEO & Founder",
+          "skills": "Leadership, Vision, Strategy, Innovation",
+          "motto": "Building excellence isn't just about what we create – it's about who we become in the process"
+        },
+        "michael": {
+          "role": "Full Stack Developer",
+          "skills": "React.js || Next.js || Shopify",
+          "motto": "Code is poetry written in logic"
+        },
+        "tarik": {
+          "role": "Making Things Work",
+          "skills": "Organization • Teamwork • Problem Solving • Communication • Creative Thinking • Continuous Learning",
+          "motto": "I don't like complications — I like to keep things simple, make them work right, and get better every day"
+        },
+        "ahmad": {
+          "role": "Technical Team Lead | Full Stack Engineer",
+          "skills": "Node.js, Flutter, Next.js, Shopify, Hosting and VPS Management",
+          "motto": "Great code is not written, it's architected with purpose"
+        },
+        "kareem": {
+          "role": "Full Stack Engineer",
+          "skills": "Laravel, React.js, Flutter, Webflow, WordPress",
+          "motto": "Every line of code is an opportunity to solve a problem elegantly"
+        },
+        "abdullelah": {
+          "role": "Marketing Director",
+          "skills": "Digital Marketing, Leadership, Creative Strategy",
+          "motto": "Marketing isn't selling – it's storytelling with purpose"
+        },
+        "alj": {
+          "role": "Account Manager",
+          "skills": "Relations, Project Management, Planning",
+          "motto": "Delivering excellence isn't a task, it's a rhythm"
+        },
+        "wessam": {
+          "role": "Content Writer",
+          "skills": "Storytelling, Content Strategy, SEO Writing, Creative Ideation",
+          "motto": "Writing to fill minds, not space"
+        },
+        "haytham": {
+          "role": "Senior Graphic Designer",
+          "skills": "Creative, High Attention to Details, Branding, Digital and Web Graphics",
+          "motto": "Don't design to impress. Design to express"
+        },
+        "abdullah": {
+          "role": "Graphic Designer",
+          "skills": "Photo Editing, Manipulation, Branding, Digital and Web Graphics, Print Design",
+          "motto": "Design begins where words end"
+        },
+        "ebaa": {
+          "role": "Graphic Designer",
+          "skills": "Brand Systems, Illustrations, Print Design",
+          "motto": "Simplicity is my language. Design is how I speak it"
+        }
+      }
     },
     "contactSection": {
       "title": "Get in Touch",
