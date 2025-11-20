@@ -376,39 +376,32 @@ const AboutPage = () => {
                   viewport={{ once: true }}
                 >
                   <div className="team-card">
-                    <div className="team-card-inner">
-                      {/* Front of card */}
-                      <div className="team-card-front">
-                        <motion.div
-                          className="member-image"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <img
-                            src={`./assets/team/${member.image}`}
-                            alt={member.name}
-                            className="team-photo"
-                          />
-                          <div className="image-overlay" />
-                        </motion.div>
-                        <div className="member-info">
-                          <h3>{member.name}</h3>
-                          <span className="member-role">{member.role}</span>
-                        </div>
+                    <motion.div
+                      className="member-image-wrapper"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <img
+                        src={`./assets/team/${member.image}`}
+                        alt={member.name}
+                        className="team-photo"
+                      />
+                      <div className="image-overlay" />
+                      <div className="member-info-overlay">
+                        <h3>{member.name}</h3>
+                        <span className="member-role">{member.role}</span>
                       </div>
-
-                      {/* Back of card */}
                       {member.motto && (
-                        <div className="team-card-back">
-                          <div className="motto-content">
+                        <div className="member-details-overlay">
+                          <div className="details-content">
                             <p className="member-motto">{member.motto}</p>
-                            {/* {member.skills && (
+                            {member.skills && (
                               <p className="member-skills">{member.skills}</p>
-                            )} */}
+                            )}
                           </div>
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}
