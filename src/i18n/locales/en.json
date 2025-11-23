@@ -200,61 +200,118 @@
     "team": {
       "title": "Our Team",
       "subtitle": "Meet the experts behind our success",
+      "categories": {
+        "management": "Management",
+        "tech": "Technology",
+        "marketing": "Marketing",
+        "design": "Design",
+        "accountant": "Accounting & Finance"
+      },
       "members": {
         "mouhammad": {
           "role": "CEO & Founder",
-          "skills": "Leadership, Vision, Strategy, Innovation",
+          "skills": "Leadership | Vision | Strategy | Innovation",
           "motto": "Building excellence isn't just about what we create – it's about who we become in the process"
         },
         "michael": {
-          "role": "Full Stack Developer",
-          "skills": "React.js || Next.js || Shopify",
+          "role": "Fullstack Developer",
+          "skills": "React.js | Next.js | Shopify",
           "motto": "Code is poetry written in logic"
         },
         "tarik": {
           "role": "Making Things Work",
-          "skills": "Organization • Teamwork • Problem Solving • Communication • Creative Thinking • Continuous Learning",
+          "skills": "Organization | Teamwork | Problem Solving | Communication | Creative Thinking | Continuous Learning",
           "motto": "I don't like complications — I like to keep things simple, make them work right, and get better every day"
         },
         "ahmad": {
-          "role": "Technical Team Lead | Full Stack Engineer",
-          "skills": "Node.js, Flutter, Next.js, Shopify, Hosting and VPS Management",
+          "role": "Technical Team Lead | Fullstack Developer",
+          "skills": "Node.js | Flutter | Next.js | Shopify | Hosting and VPS Management",
           "motto": "Great code is not written, it's architected with purpose"
         },
         "kareem": {
-          "role": "Full Stack Engineer",
-          "skills": "Laravel, React.js, Flutter, Webflow, WordPress",
+          "role": "Fullstack Developer",
+          "skills": "Laravel | React.js | Flutter | Webflow | WordPress",
           "motto": "Every line of code is an opportunity to solve a problem elegantly"
         },
         "abdullelah": {
           "role": "Marketing Director",
-          "skills": "Digital Marketing, Leadership, Creative Strategy",
+          "skills": "Digital Marketing | Leadership | Creative Strategy",
           "motto": "Marketing isn't selling – it's storytelling with purpose"
         },
         "alj": {
           "role": "Account Manager",
-          "skills": "Relations, Project Management, Planning",
+          "skills": "Relations | Project Management | Planning",
           "motto": "Delivering excellence isn't a task, it's a rhythm"
         },
         "wessam": {
           "role": "Content Writer",
-          "skills": "Storytelling, Content Strategy, SEO Writing, Creative Ideation",
+          "skills": "Storytelling | Content Strategy | SEO Writing | Creative Ideation",
           "motto": "Writing to fill minds, not space"
         },
         "haytham": {
           "role": "Senior Graphic Designer",
-          "skills": "Creative, High Attention to Details, Branding, Digital and Web Graphics",
+          "skills": "Creative | High Attention to Details | Branding | Digital and Web Graphics",
           "motto": "Don't design to impress. Design to express"
         },
         "abdullah": {
           "role": "Graphic Designer",
-          "skills": "Photo Editing, Manipulation, Branding, Digital and Web Graphics, Print Design",
+          "skills": "Photo Editing | Manipulation | Branding | Digital and Web Graphics | Print Design",
           "motto": "Design begins where words end"
         },
         "ebaa": {
           "role": "Graphic Designer",
-          "skills": "Brand Systems, Illustrations, Print Design",
+          "skills": "Brand Systems | Illustrations | Print Design",
           "motto": "Simplicity is my language. Design is how I speak it"
+        },
+        "yasser": {
+          "role": "Project Manager",
+          "skills": "Management | Communication | Flutter",
+          "motto": "Success is never an accident — it's managed"
+        },
+        "fauzi": {
+          "role": "Production Director",
+          "skills": "Media Production | On-set Direction | Creative Planning | Team Management",
+          "motto": "Production isn't about control — It's about creating harmony"
+        },
+        "yazan": {
+          "role": "Fullstack Developer",
+          "skills": "Laravel | HTML | CSS | JavaScript",
+          "motto": "Innovation begins where good code meets great aims"
+        },
+        "ayham": {
+          "role": "Fullstack Developer",
+          "skills": "Laravel | HTML | CSS | JavaScript | Database",
+          "motto": "Code is canvas, solutions are arts"
+        },
+        "jawad": {
+          "role": "Fullstack Developer",
+          "skills": "Laravel | HTML | CSS | JavaScript | Database",
+          "motto": "Your code is a mirror of your signature"
+        },
+        "abdulhamid": {
+          "role": "CTO",
+          "skills": "IT Infrastructure | Cybersecurity | Tech Operations | Scalability Planning | Cloud Solutions",
+          "motto": "Don't follow trends — build what's next"
+        },
+        "faris": {
+          "role": "HR",
+          "skills": "Employee Care | Training | Development | Communication | HR Operations",
+          "motto": "Every employee deserves to feel seen, heard, and valued"
+        },
+        "alj": {
+          "role": "Account Manager",
+          "skills": "Relations | Project Management | Planning",
+          "motto": "Delivering excellence isn't a task, it's a rhythm"
+        },
+        "ahmadismaeel": {
+          "role": "Accountant",
+          "skills": "Strategic Finance | Cost Analysis | Budgeting | Management Accounting | Process Optimization",
+          "motto": "Accuracy builds trust and trust builds growth"
+        },
+        "lara": {
+          "role": "Accountant",
+          "skills": "Financial Management | Budgeting | Reporting | Data Analysis | Business Planning",
+          "motto": "Numbers tell a story so I just make sure it's a clear one"
         }
       }
     },

@@ -457,6 +457,47 @@ section h2 {
     background: rgba(229, 9, 20, 0.05);
 }
 
+.team-category {
+    margin-bottom: 4rem;
+}
+
+.team-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    position: relative;
+    text-align: left;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #E50914, transparent);
+}
+
+/* RTL Support for Arabic */
+.category-title.rtl {
+    text-align: right;
+}
+
+.category-title.rtl::after {
+    left: auto;
+    right: 0;
+    background: linear-gradient(-90deg, #E50914, transparent);
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -721,9 +762,26 @@ section h2 {
 .image-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg,
-            rgba(229, 9, 20, 0.2),
+    min-height: 350px;
+    background: linear-gradient(135deg,
+            rgba(229, 9, 20, 0.3),
             rgba(229, 9, 20, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+}
+
+.placeholder-initials {
+    font-size: 5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .member-info {
@@ -1206,6 +1264,15 @@ section h2 {
         font-size: 2rem;
     }
 
+    .category-title {
+        font-size: 1.7rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .category-title::after {
+        width: 80px;
+    }
+
     .section-description {
         font-size: 1.1rem;
     }
@@ -1249,6 +1316,20 @@ section h2 {
         font-size: 1.8rem;
     }
 
+    .category-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .category-title::after {
+        width: 70px;
+        height: 2px;
+    }
+
+    .team-category {
+        margin-bottom: 3rem;
+    }
+
     .section-description {
         font-size: 1rem;
     }
@@ -1275,6 +1356,14 @@ section h2 {
 
     .team-photo {
         min-height: 280px;
+    }
+
+    .image-placeholder {
+        min-height: 280px;
+    }
+
+    .placeholder-initials {
+        font-size: 3.5rem;
     }
 
     .member-info-overlay {
