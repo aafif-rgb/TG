@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../contexts/LanguageContext";
 import Header from "../../components/Header/Header";
 import {
   FaRocket,
@@ -9,6 +10,10 @@ import {
   FaUsers,
   FaCode,
   FaMobileAlt,
+  FaBullhorn,
+  FaPalette,
+  FaVideo,
+  FaBolt,
 } from "react-icons/fa";
 // import logoBig from '../assets/logo-big.svg';
 import logoBig from "../../assets/logo-big.svg";
@@ -19,6 +24,16 @@ const AboutPage = () => {
   const canvasRef = useRef(null);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { language } = useLanguage();
+
+  // Handle image loading errors
+  const handleImageError = (e) => {
+    e.target.style.display = "none";
+    const placeholder = e.target.nextElementSibling;
+    if (placeholder && placeholder.classList.contains("image-placeholder")) {
+      placeholder.style.display = "flex";
+    }
+  };
 
   // Particle animation code...
   useEffect(() => {
@@ -106,7 +121,9 @@ const AboutPage = () => {
 
       <main className="about-content">
         <section className="about-hero">
-          <div className="hero-content">
+          <div
+            className={`hero-content ${language === "ar" ? "hero-rtl" : ""}`}
+          >
             <motion.div
               className="logo-container"
               initial={{ opacity: 0, x: -50 }}
@@ -206,81 +223,6 @@ const AboutPage = () => {
           </motion.div>
         </section>
 
-        {/* Timeline Section */}
-        {/* <section className="timeline-section">
-          <motion.div
-            className="section-container"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2>Our Journey</h2>
-            <p className="section-description">
-              A decade of innovation and digital excellence
-            </p>
-            <div className="timeline">
-              {[
-                {
-                  year: "2013",
-                  title: "Foundation",
-                  description:
-                    "Started our journey with a vision to transform digital landscapes.",
-                  icon: <FaRocket />,
-                },
-                {
-                  year: "2015",
-                  title: "Regional Expansion",
-                  description:
-                    "Extended our presence across the MENA region, serving diverse markets.",
-                  icon: <FaUsers />,
-                },
-                {
-                  year: "2018",
-                  title: "Innovation Hub",
-                  description:
-                    "Launched our state-of-the-art innovation center in Dubai.",
-                  icon: <FaLightbulb />,
-                },
-                {
-                  year: "2020",
-                  title: "Digital Leadership",
-                  description:
-                    "Recognized as a leading digital transformation partner in MENA.",
-                  icon: <FaCode />,
-                },
-                {
-                  year: "2023",
-                  title: "Global Recognition",
-                  description:
-                    "Achieved international acclaim for digital excellence and innovation.",
-                  icon: <FaMobileAlt />,
-                },
-              ].map((milestone, index) => (
-                <motion.div
-                  key={index}
-                  className="timeline-item"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="timeline-content">
-                    <div className="timeline-icon">{milestone.icon}</div>
-                    <div className="timeline-date">
-                      <span className="year">{milestone.year}</span>
-                    </div>
-                    <div className="timeline-info">
-                      <h3>{milestone.title}</h3>
-                      <p>{milestone.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </section> */}
-
         {/* Services Section */}
         <section className="services-section">
           <motion.div
@@ -299,22 +241,22 @@ const AboutPage = () => {
             <div className="services-grid">
               {[
                 {
-                  icon: "📣",
+                  icon: <FaBullhorn />,
                   title: t("services.marketing.title"),
                   description: t("services.marketing.description"),
                 },
                 {
-                  icon: "🎨",
+                  icon: <FaPalette />,
                   title: t("services.creative.title"),
                   description: t("services.creative.description"),
                 },
                 {
-                  icon: "🎥",
+                  icon: <FaVideo />,
                   title: t("services.production.title"),
                   description: t("services.production.description"),
                 },
                 {
-                  icon: "⚡",
+                  icon: <FaBolt />,
                   title: t("services.tech.title"),
                   description: t("services.tech.description"),
                 },
@@ -347,40 +289,485 @@ const AboutPage = () => {
           >
             <div className="about-team-title">{t("about.team.title")}</div>
             <p className="section-description">{t("about.team.subtitle")}</p>
-            <div className="team-grid">
-              {[
-                {
-                  name: "Mouhammad Al-Rifai",
-                  // role: "CEO & Founder",
-                  // description: "15+ years of digital transformation expertise",
-                },
-                {
-                  name: "Abdelelah Bamarouf",
-                  // role: "Technical Director",
-                  // description: "Expert in emerging technologies",
-                },
-                {
-                  name: "Tarik Bamarouf",
-                  // role: "Creative Director",
-                  // description: "Award-winning design professional",
-                },
-              ].map((member, index) => (
-                <motion.div
-                  key={index}
-                  className="team-card"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="member-image">
-                    <div className="image-placeholder" />
-                  </div>
-                  <h3>{member.name}</h3>
-                  <span className="member-role">{member.role}</span>
-                  <p>{member.description}</p>
-                </motion.div>
-              ))}
+
+            {/* Management Team */}
+            <div className="team-category">
+              <motion.h3
+                className={`category-title ${language === "ar" ? "rtl" : ""}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {t("about.team.categories.management")}
+              </motion.h3>
+              <div className="team-grid">
+                {[
+                  {
+                    name: "Abdullelah Bamarouf",
+                    role: t("about.team.members.abdullelah.role"),
+                    skills: t("about.team.members.abdullelah.skills"),
+                    motto: t("about.team.members.abdullelah.motto"),
+                    image: "Abdalelah.png",
+                  },
+                  {
+                    name: "Mouhammad Al-Rifai",
+                    role: t("about.team.members.mouhammad.role"),
+                    skills: t("about.team.members.mouhammad.skills"),
+                    motto: t("about.team.members.mouhammad.motto"),
+                    image: "Rifaii.png",
+                  },
+                  {
+                    name: "Tarik Bamarouf",
+                    role: t("about.team.members.tarik.role"),
+                    skills: t("about.team.members.tarik.skills"),
+                    motto: t("about.team.members.tarik.motto"),
+                    image: "Tarik.png",
+                  },
+                ].map((member, index) => (
+                  <motion.div
+                    key={index}
+                    className="team-card-container"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="team-card">
+                      <motion.div
+                        className="member-image-wrapper"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img
+                          src={`./assets/team/${member.image}`}
+                          alt={member.name}
+                          className="team-photo"
+                          onError={handleImageError}
+                        />
+                        <div
+                          className="image-placeholder"
+                          style={{ display: "none" }}
+                        >
+                          <div className="placeholder-initials">
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")
+                              .slice(0, 2)}
+                          </div>
+                        </div>
+                        <div className="image-overlay" />
+                        <div className="member-info-overlay">
+                          <h3>{member.name}</h3>
+                          <span className="member-role">{member.role}</span>
+                        </div>
+                        {member.motto && (
+                          <div className="member-details-overlay">
+                            <div className="details-content">
+                              <p className="member-motto">{member.motto}</p>
+                              {member.skills && (
+                                <p className="member-skills">{member.skills}</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tech Team */}
+            <div className="team-category">
+              <motion.h3
+                className={`category-title ${language === "ar" ? "rtl" : ""}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {t("about.team.categories.tech")}
+              </motion.h3>
+              <div className="team-grid">
+                {[
+                  {
+                    name: "Abdulhamid Khan",
+                    role: t("about.team.members.abdulhamid.role"),
+                    skills: t("about.team.members.abdulhamid.skills"),
+                    motto: t("about.team.members.abdulhamid.motto"),
+                    image: "Khan.png",
+                  },
+                  {
+                    name: "Ahmad Afif",
+                    role: t("about.team.members.ahmad.role"),
+                    skills: t("about.team.members.ahmad.skills"),
+                    motto: t("about.team.members.ahmad.motto"),
+                    image: "Ahmad.png",
+                  },
+                  {
+                    name: "Ayham Arafeh",
+                    role: t("about.team.members.ayham.role"),
+                    skills: t("about.team.members.ayham.skills"),
+                    motto: t("about.team.members.ayham.motto"),
+                    image: "Ayham.png",
+                  },
+                  {
+                    name: "Jawad Mortada",
+                    role: t("about.team.members.jawad.role"),
+                    skills: t("about.team.members.jawad.skills"),
+                    motto: t("about.team.members.jawad.motto"),
+                    image: "Jawad.png",
+                  },
+                  {
+                    name: "Kareem Rijjal",
+                    role: t("about.team.members.kareem.role"),
+                    skills: t("about.team.members.kareem.skills"),
+                    motto: t("about.team.members.kareem.motto"),
+                    image: "Kareem.png",
+                  },
+                  {
+                    name: "Michael Zakka",
+                    role: t("about.team.members.michael.role"),
+                    skills: t("about.team.members.michael.skills"),
+                    motto: t("about.team.members.michael.motto"),
+                    image: "Michael.png",
+                  },
+                  {
+                    name: "Yasser Awad",
+                    role: t("about.team.members.yasser.role"),
+                    skills: t("about.team.members.yasser.skills"),
+                    motto: t("about.team.members.yasser.motto"),
+                    image: "Yasser.png",
+                  },
+                  {
+                    name: "Yazan Rashwani",
+                    role: t("about.team.members.yazan.role"),
+                    skills: t("about.team.members.yazan.skills"),
+                    motto: t("about.team.members.yazan.motto"),
+                    image: "Yazan.png",
+                  },
+                ].map((member, index) => (
+                  <motion.div
+                    key={index}
+                    className="team-card-container"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="team-card">
+                      <motion.div
+                        className="member-image-wrapper"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img
+                          src={`./assets/team/${member.image}`}
+                          alt={member.name}
+                          className="team-photo"
+                          onError={handleImageError}
+                        />
+                        <div
+                          className="image-placeholder"
+                          style={{ display: "none" }}
+                        >
+                          <div className="placeholder-initials">
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")
+                              .slice(0, 2)}
+                          </div>
+                        </div>
+                        <div className="image-overlay" />
+                        <div className="member-info-overlay">
+                          <h3>{member.name}</h3>
+                          <span className="member-role">{member.role}</span>
+                        </div>
+                        {member.motto && (
+                          <div className="member-details-overlay">
+                            <div className="details-content">
+                              <p className="member-motto">{member.motto}</p>
+                              {member.skills && (
+                                <p className="member-skills">{member.skills}</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Marketing Team */}
+            <div className="team-category">
+              <motion.h3
+                className={`category-title ${language === "ar" ? "rtl" : ""}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {t("about.team.categories.marketing")}
+              </motion.h3>
+              <div className="team-grid">
+                {[
+                  {
+                    name: "ALJ Sharif",
+                    role: t("about.team.members.alj.role"),
+                    skills: t("about.team.members.alj.skills"),
+                    motto: t("about.team.members.alj.motto"),
+                    image: "ALJ.png",
+                  },
+                  {
+                    name: "Fauzi",
+                    role: t("about.team.members.fauzi.role"),
+                    skills: t("about.team.members.fauzi.skills"),
+                    motto: t("about.team.members.fauzi.motto"),
+                    image: "Fauzi.png",
+                  },
+                  {
+                    name: "Wessam Dalil",
+                    role: t("about.team.members.wessam.role"),
+                    skills: t("about.team.members.wessam.skills"),
+                    motto: t("about.team.members.wessam.motto"),
+                    image: "Wissam.png",
+                  },
+                ].map((member, index) => (
+                  <motion.div
+                    key={index}
+                    className="team-card-container"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="team-card">
+                      <motion.div
+                        className="member-image-wrapper"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img
+                          src={`./assets/team/${member.image}`}
+                          alt={member.name}
+                          className="team-photo"
+                          onError={handleImageError}
+                        />
+                        <div
+                          className="image-placeholder"
+                          style={{ display: "none" }}
+                        >
+                          <div className="placeholder-initials">
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")
+                              .slice(0, 2)}
+                          </div>
+                        </div>
+                        <div className="image-overlay" />
+                        <div className="member-info-overlay">
+                          <h3>{member.name}</h3>
+                          <span className="member-role">{member.role}</span>
+                        </div>
+                        {member.motto && (
+                          <div className="member-details-overlay">
+                            <div className="details-content">
+                              <p className="member-motto">{member.motto}</p>
+                              {member.skills && (
+                                <p className="member-skills">{member.skills}</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Design Team */}
+            <div className="team-category">
+              <motion.h3
+                className={`category-title ${language === "ar" ? "rtl" : ""}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {t("about.team.categories.design")}
+              </motion.h3>
+              <div className="team-grid">
+                {[
+                  {
+                    name: "Abdullah Jeneyat",
+                    role: t("about.team.members.abdullah.role"),
+                    skills: t("about.team.members.abdullah.skills"),
+                    motto: t("about.team.members.abdullah.motto"),
+                    image: "Jenyat.png",
+                  },
+                  {
+                    name: "Ebaa Abo-Elaenine",
+                    role: t("about.team.members.ebaa.role"),
+                    skills: t("about.team.members.ebaa.skills"),
+                    motto: t("about.team.members.ebaa.motto"),
+                    image: "Ebaa.png",
+                  },
+                  {
+                    name: "Haytham Nashawati",
+                    role: t("about.team.members.haytham.role"),
+                    skills: t("about.team.members.haytham.skills"),
+                    motto: t("about.team.members.haytham.motto"),
+                    image: "Haytham.png",
+                  },
+                ].map((member, index) => (
+                  <motion.div
+                    key={index}
+                    className="team-card-container"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="team-card">
+                      <motion.div
+                        className="member-image-wrapper"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img
+                          src={`./assets/team/${member.image}`}
+                          alt={member.name}
+                          className="team-photo"
+                          onError={handleImageError}
+                        />
+                        <div
+                          className="image-placeholder"
+                          style={{ display: "none" }}
+                        >
+                          <div className="placeholder-initials">
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")
+                              .slice(0, 2)}
+                          </div>
+                        </div>
+                        <div className="image-overlay" />
+                        <div className="member-info-overlay">
+                          <h3>{member.name}</h3>
+                          <span className="member-role">{member.role}</span>
+                        </div>
+                        {member.motto && (
+                          <div className="member-details-overlay">
+                            <div className="details-content">
+                              <p className="member-motto">{member.motto}</p>
+                              {member.skills && (
+                                <p className="member-skills">{member.skills}</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Accountant Team */}
+            <div className="team-category">
+              <motion.h3
+                className={`category-title ${language === "ar" ? "rtl" : ""}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                {t("about.team.categories.accountant")}
+              </motion.h3>
+              <div className="team-grid">
+                {[
+                  {
+                    name: "Ahmad Ismaeel",
+                    role: t("about.team.members.ahmadismaeel.role"),
+                    skills: t("about.team.members.ahmadismaeel.skills"),
+                    motto: t("about.team.members.ahmadismaeel.motto"),
+                    image: "AhmadIsmaeel.png",
+                  },
+                  {
+                    name: "Faris",
+                    role: t("about.team.members.faris.role"),
+                    skills: t("about.team.members.faris.skills"),
+                    motto: t("about.team.members.faris.motto"),
+                    image: "Fares.png",
+                  },
+                  {
+                    name: "Lara",
+                    role: t("about.team.members.lara.role"),
+                    skills: t("about.team.members.lara.skills"),
+                    motto: t("about.team.members.lara.motto"),
+                    image: "Lara.png",
+                  },
+                ].map((member, index) => (
+                  <motion.div
+                    key={index}
+                    className="team-card-container"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="team-card">
+                      <motion.div
+                        className="member-image-wrapper"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img
+                          src={`./assets/team/${member.image}`}
+                          alt={member.name}
+                          className="team-photo"
+                          onError={handleImageError}
+                        />
+                        <div
+                          className="image-placeholder"
+                          style={{ display: "none" }}
+                        >
+                          <div className="placeholder-initials">
+                            {member.name
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")
+                              .slice(0, 2)}
+                          </div>
+                        </div>
+                        <div className="image-overlay" />
+                        <div className="member-info-overlay">
+                          <h3>{member.name}</h3>
+                          <span className="member-role">{member.role}</span>
+                        </div>
+                        {member.motto && (
+                          <div className="member-details-overlay">
+                            <div className="details-content">
+                              <p className="member-motto">{member.motto}</p>
+                              {member.skills && (
+                                <p className="member-skills">{member.skills}</p>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </section>

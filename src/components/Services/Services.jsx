@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { FaBullhorn, FaPalette, FaVideo, FaBolt } from "react-icons/fa";
 import "./Services.css";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +15,7 @@ const Services = () => {
 
   const services = [
     {
-      icon: "📣",
+      icon: <FaBullhorn />,
       title: t("services.marketing.title"),
       description: t("services.marketing.description"),
       items: [
@@ -27,7 +28,7 @@ const Services = () => {
       ],
     },
     {
-      icon: "🎨",
+      icon: <FaPalette />,
       title: t("services.creative.title"),
       description: t("services.creative.description"),
       items: [
@@ -39,7 +40,7 @@ const Services = () => {
       ],
     },
     {
-      icon: "🎥",
+      icon: <FaVideo />,
       title: t("services.production.title"),
       description: t("services.production.description"),
       items: [
@@ -51,7 +52,7 @@ const Services = () => {
       ],
     },
     {
-      icon: "⚡",
+      icon: <FaBolt />,
       title: t("services.tech.title"),
       description: t("services.tech.description"),
       items: [
@@ -221,7 +222,6 @@ const Services = () => {
         <motion.div
           className="services-grid"
           ref={servicesGridRef}
-          // variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -260,6 +260,7 @@ const Services = () => {
                 </motion.span>
                 <motion.h3
                   className="service-title"
+                  style={{ color: isMobile ? "#FFFFFF" : undefined }}
                   // variants={titleVariants}
                 >
                   {service.title}

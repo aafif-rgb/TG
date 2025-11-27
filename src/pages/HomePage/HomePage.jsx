@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../contexts/LanguageContext";
 import "./HomePage.css";
 import Header from "../../components/Header/Header";
 import Values from "../../components/Values/Values";
@@ -13,6 +14,7 @@ import Footer from "../../components/Footer/Footer";
 const HomePage = () => {
   const canvasRef = useRef(null);
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
   // Particle animation
   useEffect(() => {
@@ -177,10 +179,11 @@ const HomePage = () => {
       <main className="main-content">
         {/* Hero Section */}
         <section className="hero">
-          <div className="hero-normal">
+          <div className={`hero-normal ${language === "ar" ? "hero-rtl" : ""}`}>
             <div className="hero-container">
               <motion.div
                 className="hero-left"
+                style={{ marginInline: "25px" }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -257,7 +260,7 @@ const HomePage = () => {
               <div className="stats">
                 {[
                   { number: "2+", label: t("approach.stats.years") },
-                  { number: "8+", label: t("approach.stats.projects") },
+                  { number: "20+", label: t("approach.stats.projects") },
                   { number: "15+", label: t("approach.stats.team") },
                 ].map((stat, index) => (
                   <motion.div

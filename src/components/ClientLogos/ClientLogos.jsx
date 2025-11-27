@@ -2,13 +2,22 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./ClientLogos.css";
+import TahkeemLogo from "../../../public/assets/partners/Tahkeem_Logo.svg";
+import UnframedLogo from "../../../public/assets/partners/Unframed.svg";
+import ArenaLogo from "../../../public/assets/partners/Arena_Logo.svg";
 
 const ClientLogos = () => {
   const { t } = useTranslation();
   const companies = [
-    { name: "TAHKEEM", logo: "/assets/partners/Tahkeem_Logo_White.svg" },
-    { name: "UNFRAMED", logo: "/assets/partners/Unframed.svg" },
-    { name: "ARENA", logo: "/assets/partners/Arena Logo White.svg" },
+    {
+      name: "TAHKEEM",
+      logo: TahkeemLogo,
+    },
+    { name: "UNFRAMED", logo: UnframedLogo },
+    {
+      name: "ARENA",
+      logo: ArenaLogo,
+    },
   ];
 
   return (
