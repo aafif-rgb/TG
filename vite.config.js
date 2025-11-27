@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',
   build: {
     assetsDir: 'assets',
     rollupOptions: {
@@ -14,5 +14,16 @@ export default defineConfig({
         entryFileNames: 'assets/[name]-[hash].js',
       },
     },
+  },
+  preview: {
+    // Configure preview server to handle SPA routing
+    // This ensures that refreshing on any route works correctly
+    port: 4173,
+    strictPort: false,
+  },
+  server: {
+    // Configure dev server to handle SPA routing
+    port: 5173,
+    strictPort: false,
   },
 })
