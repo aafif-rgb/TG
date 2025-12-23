@@ -20,6 +20,56 @@ import logoBig from "../../assets/logo-big.svg";
 import "./AboutPage.css";
 import Footer from "../../components/Footer/Footer";
 
+// Team images mapping - WebP with PNG fallback for better performance
+const getTeamImageSrc = (imageName) => {
+  const baseName = imageName.replace(/\.(png|jpg|jpeg)$/i, "");
+  return {
+    webp: `/assets/team/${baseName}.webp`,
+    png: `/assets/team/${imageName}`,
+  };
+};
+
+const teamImages = {
+  "Abdalelah.png": getTeamImageSrc("Abdalelah.png"),
+  "Rifaii.png": getTeamImageSrc("Rifaii.png"),
+  "Tarik.png": getTeamImageSrc("Tarik.png"),
+  "Khan.png": getTeamImageSrc("Khan.png"),
+  "Ahmad.png": getTeamImageSrc("Ahmad.png"),
+  "Ayham.png": getTeamImageSrc("Ayham.png"),
+  "Jawad.png": getTeamImageSrc("Jawad.png"),
+  "Kareem.png": getTeamImageSrc("Kareem.png"),
+  "Michael.png": getTeamImageSrc("Michael.png"),
+  "Yasser.png": getTeamImageSrc("Yasser.png"),
+  "Yazan.png": getTeamImageSrc("Yazan.png"),
+  "ALJ.png": getTeamImageSrc("ALJ.png"),
+  "Fauzi.png": getTeamImageSrc("Fauzi.png"),
+  "Wissam.png": getTeamImageSrc("Wissam.png"),
+  "Jenyat.png": getTeamImageSrc("Jenyat.png"),
+  "Ebaa.png": getTeamImageSrc("Ebaa.png"),
+  "Haytham.png": getTeamImageSrc("Haytham.png"),
+  "AhmadIsmaeel.png": getTeamImageSrc("AhmadIsmaeel.png"),
+  "Fares.png": getTeamImageSrc("Fares.png"),
+  "Lara.png": getTeamImageSrc("Lara.png"),
+};
+
+// Helper component for optimized image loading with WebP fallback
+const OptimizedImage = ({ imageName, alt, className, loading, onError }) => {
+  const imageSrc = teamImages[imageName];
+  const pngSrc = imageSrc?.png || `/assets/team/${imageName}`;
+  
+  // For now, use PNG directly. WebP support will be added when WebP files are created
+  // The picture element will be used once WebP files are available
+  return (
+    <img
+      src={pngSrc}
+      alt={alt}
+      className={className}
+      loading={loading}
+      onError={onError}
+    />
+  );
+};
+
 const AboutPage = () => {
   const canvasRef = useRef(null);
   const navigate = useNavigate();
@@ -339,10 +389,11 @@ const AboutPage = () => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <img
-                          src={`./assets/team/${member.image}`}
+                        <OptimizedImage
+                          imageName={member.image}
                           alt={member.name}
                           className="team-photo"
+                          loading="lazy"
                           onError={handleImageError}
                         />
                         <div
@@ -463,10 +514,11 @@ const AboutPage = () => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <img
-                          src={`./assets/team/${member.image}`}
+                        <OptimizedImage
+                          imageName={member.image}
                           alt={member.name}
                           className="team-photo"
+                          loading="lazy"
                           onError={handleImageError}
                         />
                         <div
@@ -552,10 +604,11 @@ const AboutPage = () => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <img
-                          src={`./assets/team/${member.image}`}
+                        <OptimizedImage
+                          imageName={member.image}
                           alt={member.name}
                           className="team-photo"
+                          loading="lazy"
                           onError={handleImageError}
                         />
                         <div
@@ -641,10 +694,11 @@ const AboutPage = () => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <img
-                          src={`./assets/team/${member.image}`}
+                        <OptimizedImage
+                          imageName={member.image}
                           alt={member.name}
                           className="team-photo"
+                          loading="lazy"
                           onError={handleImageError}
                         />
                         <div
@@ -730,10 +784,11 @@ const AboutPage = () => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <img
-                          src={`./assets/team/${member.image}`}
+                        <OptimizedImage
+                          imageName={member.image}
                           alt={member.name}
                           className="team-photo"
+                          loading="lazy"
                           onError={handleImageError}
                         />
                         <div
