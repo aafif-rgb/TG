@@ -470,10 +470,6 @@
       "mediaProduction": "Media Production"
     },
     "projects": {
-      "Toys Lab":{
-        "description":"Toys Lab is a playful and creative concept brand that delivers imaginative experiences through toys and family entertainment. The brand connects with both kids and parents through colorful, fun, and engaging content.",
-        "tech":["Retail E-Commerce" , "Social Media Management" , "Content Creation"]
-      },
       "Barnda":{
         "description":"Barnda is an international high-end shisha lounge and restaurant that offers a premium dining and social experience. Known for its elegant ambiance and luxurious setting, Barnda combines exceptional cuisine with refined lounge culture.",
         "tech":["Restaurant" , "F&B Media Production" , "Content Creation" , "Photography"]
@@ -482,13 +478,41 @@
         "description":"The Saudi Wrestling Federation is the official governing body for wrestling in Saudi Arabia, dedicated to promoting and developing the sport across the Kingdom.",
         "tech" :["Sports" , "Media Production" ,"Content Creation" , "Video Production","Campaigns" ]
       },
-      "Hadiha":{
-        "description":" Hadiha is an e-commerce brand focused on stress balls and fidget toys — the name itself plays on the Arabic word “هادئة,” meaning calm. The brand aims to bring humor, playfulness, and relief to everyday stress through fun, interactive products.",
-        "tech":["E-Commerce" ,"Branding" ,"Social Media Management" , "Content Creation" , "Media Production" , "Paid Advertising"] 
-      },
       "the feast": {
         "description" :"The Feast is an American diner-style restaurant founded by Chef Abbas, inspired by his university days with friends. The menu celebrates comfort food favorites such as cheesesteaks and gourmet burgers, blending nostalgia with flavor.",
         "tech": ["Restaurant", "Marketing","Social media", "Media Production" , "Launch Campaign"]
+      },
+      "tinyTots": {
+        "description": "We developed a clean and user-friendly website for Tiny Tots, designed to clearly communicate the brand offering and support audience engagement. The platform focuses on responsive design, clarity of content, and ease of navigation across all devices.",
+        "tech": ["Website"]
+      },
+      "cashCup": {
+        "description": "We developed a dedicated website for Cash Cup focused on performance, accessibility, and user engagement. The platform supports the brand's digital presence through a clear structure and responsive experience.",
+        "tech": ["Website"]
+      },
+      "toyslab": {
+        "description": "We supported Toyslab with a comprehensive digital and visual presence, including social media content, printed materials, and website development. The project ensured brand consistency across all touchpoints while enhancing visibility and audience engagement.",
+        "tech": ["Social Media", "Printings", "Website"]
+      },
+      "hadiha": {
+        "description": "We developed a complete brand identity for Hadiha alongside a cohesive website and social media presence. The project focused on expressing the brand's character consistently while supporting its digital growth.",
+        "tech": ["Brand Identity", "Website", "Social Media"]
+      },
+      "salmina": {
+        "description": "We created a distinctive brand identity for Salmina and translated it into a modern, functional website. The project reflects the brand's positioning while providing a seamless user experience.",
+        "tech": ["Brand Identity", "Website"]
+      },
+      "samSign": {
+        "description": "We developed a streamlined website for Sam Sign focused on clarity, accessibility, and effective communication. The platform supports the brand's digital presence with an intuitive user experience.",
+        "tech": ["Website"]
+      },
+      "groundKings": {
+        "description": "We delivered a modern website for Ground Kings that supports clear content presentation and responsive performance. The project enhances the brand's online presence across all devices.",
+        "tech": ["Website"]
+      },
+      "newLogo": {
+        "description": "We developed a website for NewLogo that reflects the brand's visual direction and supports consistent digital communication. The project focused on clarity, usability, and clean design.",
+        "tech": ["Website"]
       },
       "fane": {
         "description": "We handled full account management for FANE, shaping a digital presence that matched their bold, street-smart identity. From content planning to daily execution, every detail was aligned with their brand culture.",
