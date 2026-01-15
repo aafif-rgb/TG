@@ -28,6 +28,7 @@ import pebbleImage from "../../assets/brands/Pebble.png";
 import tahkeemImage from "../../assets/brands/Tahkeem.png";
 import eventekImage from "../../assets/brands/Eventek.jpeg";
 import evolveImage from "../../assets/brands/evolve.png";
+import hadihaImage from "../../assets/brands/Hadiha.png";
 
 const WorkPage = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -239,7 +240,7 @@ const WorkPage = () => {
     {
       title: "Toyslab",
       category: "social media",
-      image: "/assets/brands/Toyslab.png", // Using placeholder image
+      image: "/assets/brands/Toys-lab.png",
       icon: <FaMobileAlt />,
       description: t("workPage.projects.toyslab.description"),
       technologies: t("workPage.projects.toyslab.tech", {
@@ -250,7 +251,7 @@ const WorkPage = () => {
     {
       title: "Barnda",
       category: "media production",
-      image: "/assets/brands/barnda.png", // Using placeholder image
+      image: "/assets/brands/Barnda.png",
       icon: <FaPaintBrush />,
       description: t("workPage.projects.Barnda.description"),
       technologies: t("workPage.projects.Barnda.tech", {
@@ -258,23 +259,23 @@ const WorkPage = () => {
       }),
       link: "#",
     },
-    {
-      title: "Saudi Wrestling Federation",
-      category: "media production",
-      image: "/assets/brands/swf.png", // Using placeholder image
-      icon: <FaPaintBrush />,
-      description: t(
-        "workPage.projects.Saudi Wrestling Federation.description"
-      ),
-      technologies: t("workPage.projects.Saudi Wrestling Federation.tech", {
-        returnObjects: true,
-      }),
-      link: "#",
-    },
+    // {
+    //   title: "Saudi Wrestling Federation",
+    //   category: "media production",
+    //   image: "/assets/brands/swf.png", // Using placeholder image
+    //   icon: <FaPaintBrush />,
+    //   description: t(
+    //     "workPage.projects.Saudi Wrestling Federation.description"
+    //   ),
+    //   technologies: t("workPage.projects.Saudi Wrestling Federation.tech", {
+    //     returnObjects: true,
+    //   }),
+    //   link: "#",
+    // },
     {
       title: "Hadiha",
       category: "design",
-      image: "/assets/brands/Hadiha.png", // Using placeholder image
+      image: hadihaImage,
       icon: <FaPaintBrush />,
       description: t("workPage.projects.hadiha.description"),
       technologies: t("workPage.projects.hadiha.tech", {
@@ -285,7 +286,7 @@ const WorkPage = () => {
     {
       title: "The Feast",
       category: "social media",
-      image: "/assets/brands/the_feast.png", // Using placeholder image
+      image: "/assets/brands/the-feast.png",
       icon: <FaMobileAlt />,
       description: t("workPage.projects.the feast.description"),
       technologies: t("workPage.projects.the feast.tech", {
@@ -296,7 +297,7 @@ const WorkPage = () => {
     {
       title: "Tiny Tots",
       category: "web",
-      image: "/assets/brands/tiny_tots.png", // Using placeholder image
+      image: "/assets/brands/Tiny-tots.png",
       icon: <FaGlobe />,
       description: t("workPage.projects.tinyTots.description"),
       technologies: t("workPage.projects.tinyTots.tech", {
@@ -307,7 +308,7 @@ const WorkPage = () => {
     {
       title: "Cash Cup",
       category: "web",
-      image: "/assets/brands/cash_cup.png", // Using placeholder image
+      image: "/assets/brands/Cash-cup.png",
       icon: <FaGlobe />,
       description: t("workPage.projects.cashCup.description"),
       technologies: t("workPage.projects.cashCup.tech", {
@@ -318,7 +319,7 @@ const WorkPage = () => {
     {
       title: "Salmina",
       category: "design",
-      image: "/assets/brands/salmina.png", // Using placeholder image
+      image: "/assets/brands/salmina.png",
       icon: <FaPaintBrush />,
       description: t("workPage.projects.salmina.description"),
       technologies: t("workPage.projects.salmina.tech", {
@@ -329,7 +330,7 @@ const WorkPage = () => {
     {
       title: "Sam Sign",
       category: "web",
-      image: "/assets/brands/sam_sign.png", // Using placeholder image
+      image: "/assets/brands/SAM.png",
       icon: <FaGlobe />,
       description: t("workPage.projects.samSign.description"),
       technologies: t("workPage.projects.samSign.tech", {
@@ -338,9 +339,9 @@ const WorkPage = () => {
       link: "#",
     },
     {
-      title: "Ground Kings",
+      title: "Ground Kingz",
       category: "web",
-      image: "/assets/brands/ground_kings.png", // Using placeholder image
+      image: "/assets/brands/GKZ.png",
       icon: <FaGlobe />,
       description: t("workPage.projects.groundKings.description"),
       technologies: t("workPage.projects.groundKings.tech", {
@@ -351,7 +352,7 @@ const WorkPage = () => {
     {
       title: "NewLogo",
       category: "web",
-      image: "/assets/brands/newlogo.png", // Using placeholder image
+      image: "/assets/brands/Newlogo.png",
       icon: <FaGlobe />,
       description: t("workPage.projects.newLogo.description"),
       technologies: t("workPage.projects.newLogo.tech", {
