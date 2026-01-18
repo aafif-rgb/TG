@@ -25,7 +25,6 @@ import hmImage from "../../assets/brands/H&M.png";
 import shiftImage from "../../assets/brands/shift.png";
 import saccessImage from "../../assets/brands/saccess.png";
 import pebbleImage from "../../assets/brands/Pebble.png";
-import tahkeemImage from "../../assets/brands/Tahkeem.png";
 import eventekImage from "../../assets/brands/Eventek.jpeg";
 import evolveImage from "../../assets/brands/evolve.png";
 import hadihaImage from "../../assets/brands/Hadiha.png";
@@ -207,7 +206,7 @@ const WorkPage = () => {
     {
       title: "منصة تحكيم",
       category: "web",
-      image: tahkeemImage,
+      image: "/assets/brands/Tahkeem.png",
       icon: <FaPaintBrush />,
       description: t("workPage.projects.tahkeem.description"),
       technologies: t("workPage.projects.tahkeem.tech", {
@@ -259,19 +258,19 @@ const WorkPage = () => {
       }),
       link: "#",
     },
-    // {
-    //   title: "Saudi Wrestling Federation",
-    //   category: "media production",
-    //   image: "/assets/brands/swf.png", // Using placeholder image
-    //   icon: <FaPaintBrush />,
-    //   description: t(
-    //     "workPage.projects.Saudi Wrestling Federation.description"
-    //   ),
-    //   technologies: t("workPage.projects.Saudi Wrestling Federation.tech", {
-    //     returnObjects: true,
-    //   }),
-    //   link: "#",
-    // },
+    {
+      title: "Saudi Wrestling Federation",
+      category: "media production",
+      image: "/assets/brands/wrestling.png",
+      icon: <FaPaintBrush />,
+      description: t(
+        "workPage.projects.Saudi Wrestling Federation.description"
+      ),
+      technologies: t("workPage.projects.Saudi Wrestling Federation.tech", {
+        returnObjects: true,
+      }),
+      link: "#",
+    },
     {
       title: "Hadiha",
       category: "design",
