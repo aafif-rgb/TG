@@ -21,12 +21,12 @@ const Header = () => {
   useEffect(() => {
     const updateWidth = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth <= 1200) {
+      if (screenWidth <= 900) {
         setHeaderWidth("calc(100% - 4rem)");
-      } else if (screenWidth > 1200 && screenWidth <= 1400) {
+      } else if (screenWidth > 900 && screenWidth <= 1000) {
         setHeaderWidth("calc(100% - 11.5rem)");
       } else {
-        setHeaderWidth("1200px");
+        setHeaderWidth("800px");
       }
     };
     

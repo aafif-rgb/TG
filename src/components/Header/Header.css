@@ -3,7 +3,7 @@
     position: fixed;
     top: 2rem;
     transform: translateX(-50%);
-    max-width: 1200px;
+    max-width: 800px;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
@@ -419,7 +419,7 @@
 
 /* Responsive Design */
 /* Small laptops and tablets - show mobile menu */
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
     .header {
         left: 2rem;
         right: 2rem;
