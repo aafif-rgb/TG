@@ -2,13 +2,13 @@
 .header {
     position: fixed;
     top: 2rem;
-    left: 5.5rem;
-    right: 6rem;
+    transform: translateX(-50%);
+    max-width: 1200px;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-radius: 16px;
 
     /* Glassmorphism effect */
@@ -21,6 +21,15 @@
             rgba(255, 255, 255, 0.1) 0%,
             rgba(255, 255, 255, 0.05) 50%,
             rgba(0, 0, 0, 0.1) 100%);
+    
+    /* Ensure proper centering */
+    margin: 0 auto;
+    
+    /* Performance optimizations */
+    will-change: transform, width;
+    transform-origin: center;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 .header.scrolled {
@@ -32,7 +41,7 @@
 }
 
 .header-container {
-    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 1.5rem;
     height: 60px;
@@ -42,7 +51,11 @@
     position: relative;
     background: rgba(255, 255, 255, 0.02);
     border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: 60px;
+    will-change: justify-content;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 /* Remove height change on scroll */
@@ -51,18 +64,17 @@
 }
 
 /* Logo Styles */
-.logo-symbol {
-    cursor: pointer;
+.header-logo {
+    z-index: 10;
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 10;
-    padding: 0.5rem;
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    will-change: transform, left, position;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: position 0.3s ease, left 0.3s ease;
 }
 
-
 .logo-symbol {
     cursor: pointer;
     display: flex;
@@ -71,20 +83,24 @@
     z-index: 10;
     padding: 0.5rem;
     border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
 .logo-symbol img {
-    height: 125px;
+    height: 50px;
     width: auto;
     object-fit: contain;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Remove logo size change on scroll */
 .header.scrolled .logo-symbol img {
-    height: 85px;
+    height: 50px;
 }
 
 .logo-symbol:hover img {
@@ -104,6 +120,10 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex: 1;
+    justify-content: flex-end;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .nav-list {
@@ -400,6 +420,13 @@
 /* Responsive Design */
 /* Small laptops and tablets - show mobile menu */
 @media (max-width: 1200px) {
+    .header {
+        left: 2rem;
+        right: 2rem;
+        transform: none;
+        width: calc(100% - 4rem) !important;
+    }
+
     .header-container {
         padding: 0 1rem;
         height: 70px;
@@ -482,6 +509,8 @@
         top: 1rem;
         left: 1rem;
         right: 1rem;
+        width: calc(100% - 2rem);
+        transform: none;
     }
 
     .header-container {
@@ -490,11 +519,11 @@
     }
 
     .logo-symbol img {
-        height: 80px;
+        height: 50px;
     }
 
     .header.scrolled .logo-symbol img {
-        height: 60px;
+        height: 50px;
     }
 
     .hamburger-line {

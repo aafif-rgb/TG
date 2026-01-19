@@ -3,17 +3,37 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../../contexts/LanguageContext";
-import logo from "../../assets/logo.svg";
+const logo = "/assets/Logo (1).png";
 import "./Header.css";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [headerWidth, setHeaderWidth] = useState("200px");
+  const [logoAnimationComplete, setLogoAnimationComplete] = useState(false);
   const { scrollY } = useScroll();
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
   const { language, toggleLanguage } = useLanguage();
+
+  // Set responsive header width
+  useEffect(() => {
+    const updateWidth = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 1200) {
+        setHeaderWidth("calc(100% - 4rem)");
+      } else if (screenWidth > 1200 && screenWidth <= 1400) {
+        setHeaderWidth("calc(100% - 11.5rem)");
+      } else {
+        setHeaderWidth("1200px");
+      }
+    };
+    
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   // Transform header background based on scroll
   const headerBackground = useTransform(
@@ -65,21 +85,66 @@ const Header = () => {
         background: headerBackground,
         backdropFilter: headerBlur,
       }}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ 
+        y: -100,
+        width: "200px"
+      }}
+      animate={{ 
+        y: 0,
+        width: headerWidth
+      }}
+      transition={{ 
+        y: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+        width: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }
+      }}
     >
-      <div className="header-container">
+      <motion.div 
+        className="header-container"
+        initial={{ 
+          justifyContent: "center"
+        }}
+        animate={{ 
+          justifyContent: "space-between"
+        }}
+        transition={{ 
+          duration: 1.2, 
+          ease: [0.16, 1, 0.3, 1], 
+          delay: 0.6 
+        }}
+      >
         <motion.div
           className="header-logo"
+          initial={{ 
+            position: "absolute",
+            left: "50%",
+            x: "-50%"
+          }}
+          animate={{ 
+            position: logoAnimationComplete ? "relative" : "absolute",
+            left: logoAnimationComplete ? "auto" : "1.5rem",
+            x: "0"
+          }}
+          transition={{ 
+            duration: 1.2, 
+            ease: [0.16, 1, 0.3, 1], 
+            delay: 0.6,
+            onComplete: () => {
+              // Switch to relative positioning after animation completes
+              setTimeout(() => {
+                setLogoAnimationComplete(true);
+              }, 100);
+            }
+          }}
           whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
           onClick={() => navigate("/")}
           style={{ cursor: "pointer" }}
         >
           <motion.div
             className="logo-symbol"
-            animate={{
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ 
+              scale: 1, 
+              opacity: 1,
               filter: [
                 "drop-shadow(0 0 20px rgba(229, 9, 20, 0.3))",
                 "drop-shadow(0 0 30px rgba(229, 9, 20, 0.6))",
@@ -87,9 +152,14 @@ const Header = () => {
               ],
             }}
             transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
+              scale: { type: "spring", stiffness: 350, damping: 30, mass: 0.9, delay: 0.1 },
+              opacity: { duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 },
+              filter: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2
+              }
             }}
           >
             <img src={logo} alt="TG MENA" className="header-logo" />
@@ -97,7 +167,12 @@ const Header = () => {
         </motion.div>
 
         {/* Navigation */}
-        <nav className="header-nav">
+        <motion.nav 
+          className="header-nav"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
+        >
           <ul className="nav-list" style={{ direction: "ltr" }}>
             {navItems.map((item, index) => (
               <motion.li
@@ -105,7 +180,7 @@ const Header = () => {
                 className="nav-item"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.7, delay: 1.4 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
               >
                 <motion.a
                   className={`nav-link ${
@@ -139,13 +214,13 @@ const Header = () => {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.7, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="language-text">
               {language === "en" ? "AR" : "EN"}
             </span>
           </motion.button>
-        </nav>
+        </motion.nav>
 
         {/* Mobile Menu Toggle */}
         <motion.button
@@ -178,7 +253,7 @@ const Header = () => {
             transition={{ duration: 0.3 }}
           />
         </motion.button>
-      </div>
+      </motion.div>
 
       {/* Mobile Menu */}
       <motion.div
