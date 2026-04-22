@@ -1,0 +1,25 @@
+.text-type {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.text-type-content {
+  white-space: pre-line;
+}
+
+.text-type-cursor {
+  margin-inline-start: 0.06em;
+  animation: text-type-cursor-blink 0.9s steps(1, end) infinite;
+  opacity: 0.9;
+}
+
+@keyframes text-type-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}

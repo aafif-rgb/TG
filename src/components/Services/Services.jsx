@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { FaBullhorn, FaPalette, FaVideo, FaBolt } from "react-icons/fa";
+import { FaBullhorn, FaPalette, FaBolt } from "react-icons/fa";
 import "./Services.css";
-import { useNavigate } from "react-router-dom";
 
 const Services = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -15,51 +13,40 @@ const Services = () => {
 
   const services = [
     {
-      icon: <FaBullhorn />,
-      title: t("services.marketing.title"),
-      description: t("services.marketing.description"),
-      items: [
-        t("services.marketing.items.brandStrategy"),
-        t("services.marketing.items.socialMedia"),
-        t("services.marketing.items.contentCreation"),
-        t("services.marketing.items.accountsManagement"),
-        t("services.marketing.items.communicationPlanning"),
-        t("services.marketing.items.businessConcept"),
-      ],
-    },
-    {
-      icon: <FaPalette />,
-      title: t("services.creative.title"),
-      description: t("services.creative.description"),
-      items: [
-        t("services.creative.items.branding"),
-        t("services.creative.items.logo"),
-        t("services.creative.items.guideline"),
-        t("services.creative.items.presentation"),
-        t("services.creative.items.socialMedia"),
-      ],
-    },
-    {
-      icon: <FaVideo />,
-      title: t("services.production.title"),
-      description: t("services.production.description"),
-      items: [
-        t("services.production.items.videography"),
-        t("services.production.items.photography"),
-        t("services.production.items.motionGraphics"),
-        t("services.production.items.cgi"),
-        t("services.production.items.props"),
-      ],
-    },
-    {
       icon: <FaBolt />,
       title: t("services.tech.title"),
       description: t("services.tech.description"),
       items: [
         t("services.tech.items.websites"),
         t("services.tech.items.shopify"),
+        t("services.tech.items.mobileApplications"),
+        t("services.tech.items.webApplications"),
         t("services.tech.items.uiux"),
-        t("services.tech.items.customApps"),
+      ],
+    },
+    {
+      icon: <FaPalette />,
+      title: t("services.designProduction.title"),
+      description: t("services.designProduction.description"),
+      items: [
+        t("services.designProduction.items.branding"),
+        t("services.designProduction.items.creativeDesign"),
+        t("services.designProduction.items.videography"),
+        t("services.designProduction.items.photography"),
+        t("services.designProduction.items.eventCoverage"),
+        t("services.designProduction.items.signagePrinting"),
+      ],
+    },
+    {
+      icon: <FaBullhorn />,
+      title: t("services.marketing.title"),
+      description: t("services.marketing.description"),
+      items: [
+        t("services.marketing.items.socialMedia"),
+        t("services.marketing.items.contentStrategy"),
+        t("services.marketing.items.campaignManagement"),
+        t("services.marketing.items.digitalMarketing"),
+        t("services.marketing.items.performanceMarketing"),
       ],
     },
   ];

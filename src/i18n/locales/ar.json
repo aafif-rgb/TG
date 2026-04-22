@@ -36,48 +36,38 @@
   "services": {
     "title": "خدماتنا",
     "subtitle": "حلول مبتكرة للأعمال الحديثة",
-    "marketing": {
-      "title": "التسويق والاتصالات",
-      "description": "نساعد العلامات التجارية على سرد قصتها، والوصول إلى الجمهور المناسب، وبناء علاقات قوية من خلال استراتيجيات ذكية.",
-      "items": {
-        "brandStrategy": "استراتيجية العلامة التجارية",
-        "socialMedia": "حملات وسائل التواصل الاجتماعي (مدفوعة/عضوية)",
-        "contentCreation": "إنشاء المحتوى",
-        "accountsManagement": "إدارة الحسابات",
-        "communicationPlanning": "تخطيط الاتصالات",
-        "businessConcept": "إنشاء مفهوم تجاري"
-      }
-    },
-    "creative": {
-      "title": "التصاميم الإبداعية",
-      "description": "إحياء الأفكار من خلال رؤى بصرية تلهم وتشرك وتترك انطباعاً دائماً.",
-      "items": {
-        "branding": "العلامة التجارية",
-        "logo": "الشعار",
-        "guideline": "دليل العلامة",
-        "presentation": "العروض التقديمية أو الملف التعريفي",
-        "socialMedia": "وسائل التواصل الاجتماعي"
-      }
-    },
-    "production": {
-      "title": "الإنتاج الإعلامي",
-      "description": "من الفيديوهات إلى التصوير الفوتوغرافي، نصنع محتوى عالي الجودة يجذب الانتباه ويحقق التأثير.",
-      "items": {
-        "videography": "تصوير الفيديو",
-        "photography": "التصوير الفوتوغرافي",
-        "motionGraphics": "الرسوم المتحركة",
-        "cgi": "CGI / 3D",
-        "props": "الدعائم والمجموعات"
-      }
-    },
     "tech": {
       "title": "التقنية",
       "description": "تقديم حلول رقمية مبتكرة تجعل عملك أكثر ذكاءً وسرعة واتصالاً.",
       "items": {
         "websites": "مواقع الويب والصفحات المقصودة",
         "shopify": "متاجر Shopify",
-        "uiux": "تصميم UI/UX",
-        "customApps": "تطبيقات مخصصة"
+        "mobileApplications": "تطبيقات الموبايل",
+        "webApplications": "تطبيقات الويب والمنصات",
+        "uiux": "تصميم UI/UX"
+      }
+    },
+    "designProduction": {
+      "title": "التصميم والإنتاج",
+      "description": "كل ما يتعلق بالهوية البصرية والإبداع والإنتاج ضمن مظلة واحدة، من الهوية إلى التصوير والتنفيذ الطباعي.",
+      "items": {
+        "branding": "العلامة التجارية والهوية البصرية",
+        "creativeDesign": "التصميم الإبداعي",
+        "videography": "التصوير والإنتاج",
+        "photography": "التصوير وصور المنتجات",
+        "eventCoverage": "تغطية الفعاليات والمقابلات",
+        "signagePrinting": "اللوحات والطباعة"
+      }
+    },
+    "marketing": {
+      "title": "التسويق",
+      "description": "استراتيجيات نمو واتصال وحملات تنفيذية ترفع حضور العلامة وتحقق نتائج ملموسة.",
+      "items": {
+        "socialMedia": "إدارة وسائل التواصل الاجتماعي",
+        "contentStrategy": "استراتيجية المحتوى",
+        "campaignManagement": "إدارة الحملات",
+        "digitalMarketing": "التسويق الرقمي",
+        "performanceMarketing": "تسويق الأداء"
       }
     },
     "learnMore": "اعرف المزيد"
@@ -460,16 +450,59 @@
       "titleHighlight": "المميزة",
       "description": "استكشف محفظتنا المتنوعة من المشاريع الناجحة عبر مختلف الصناعات"
     },
-    "categories": {
-      "all": "جميع المشاريع",
-      "web": "تطوير الويب",
-      "mobile": "تطبيقات الموبايل",
-      "shopify": "Shopify والتجارة الإلكترونية",
-      "socialMedia": "وسائل التواصل الاجتماعي",
-      "design": "العلامة التجارية والتصميم",
-      "mediaProduction": "الإنتاج الإعلامي"
+    "pillars": {
+      "tech": "التقنية",
+      "design": "التصميم",
+      "production": "الإنتاج",
+      "marketing": "التسويق"
+    },
+    "subcategories": {
+      "all": "الكل",
+      "websites": "المواقع الإلكترونية",
+      "shopifyEcommerce": "Shopify / التجارة الإلكترونية",
+      "mobileApplications": "تطبيقات الموبايل",
+      "webApplicationsPlatforms": "تطبيقات الويب / المنصات",
+      "uiUxDesign": "تصميم UI/UX",
+      "brandingBrandIdentity": "العلامة التجارية / الهوية البصرية",
+      "creativeDesign": "التصميم الإبداعي",
+      "videographyProduction": "التصوير / الإنتاج",
+      "photography": "التصوير الفوتوغرافي",
+      "productShoots": "تصوير المنتجات",
+      "lifestyleShoots": "تصوير نمط الحياة",
+      "talkingHeadInterviews": "المقابلات / Talking Head",
+      "eventCoverage": "تغطية الفعاليات",
+      "signagePrinting": "اللوحات والطباعة",
+      "socialMediaManagement": "إدارة وسائل التواصل",
+      "contentStrategy": "استراتيجية المحتوى",
+      "campaignManagement": "إدارة الحملات",
+      "digitalMarketing": "التسويق الرقمي",
+      "performanceMarketing": "تسويق الأداء"
+    },
+    "neuralMap": {
+      "legend": "مجمعة حسب القطاع. مرر فوق النقاط لمعاينة المشاريع.",
+      "resetView": "إعادة العرض",
+      "industries": {
+        "technologyProducts": "منتجات تقنية",
+        "governmentCorporate": "حكومي وشركات",
+        "retailEcommerce": "التجزئة والتجارة الإلكترونية",
+        "hospitalityFb": "الضيافة والمطاعم",
+        "sportsFitness": "الرياضة واللياقة",
+        "lifestyleFashion": "نمط الحياة والموضة"
+      }
     },
     "projects": {
+      "eliteEdition": {
+        "description": "قمنا بتطوير نظام هوية بصرية متكامل لـ Elite Edition من اللغة البصرية حتى التطبيقات التنفيذية، بما يضمن اتساقاً فاخراً عبر جميع نقاط التواصل.",
+        "tech": ["هوية بصرية", "توجيه إبداعي", "نظام بصري"]
+      },
+      "xelerate": {
+        "description": "قمنا بتصميم وتطوير موقع Xelerate ببنية واضحة تركز على المنتج وتجربة مستخدم حديثة مبنية على الأداء والوضوح.",
+        "tech": ["موقع إلكتروني", "UI/UX", "تجربة منتج"]
+      },
+      "origin": {
+        "description": "أنشأنا متجر Origin للعطور على Shopify مع رحلة مستخدم سلسة من الاستكشاف حتى إتمام الشراء، ومهيأ للتحويل وعرض العلامة بشكل قوي.",
+        "tech": ["Shopify", "تجارة إلكترونية", "UI/UX"]
+      },
       "fane": {
         "description": "قمنا بإدارة الحساب الكاملة لـ FANE، وشكلنا حضوراً رقمياً يتناسب مع هويتهم الجريئة والذكية. من تخطيط المحتوى إلى التنفيذ اليومي، تم مواءمة كل تفاصيل مع ثقافة علامتهم التجارية.",
         "tech": ["نمط الحياة", "وسائل التواصل الاجتماعي", "صالون حلاقة"]

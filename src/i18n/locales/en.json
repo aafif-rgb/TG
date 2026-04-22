@@ -36,48 +36,38 @@
   "services": {
     "title": "Our Services",
     "subtitle": "Innovative solutions for modern businesses",
-    "marketing": {
-      "title": "Marketing & Communication",
-      "description": "Helping brands tell their story, reach the right audience, and build strong connections through smart strategies.",
-      "items": {
-        "brandStrategy": "Brand Strategy",
-        "socialMedia": "Social media campaigns (paid/org)",
-        "contentCreation": "Content creation",
-        "accountsManagement": "Accounts management",
-        "communicationPlanning": "Communication Planning",
-        "businessConcept": "Create a business concept"
-      }
-    },
-    "creative": {
-      "title": "Creative designs",
-      "description": "Bringing ideas to life with visuals that inspire, engage, and leave a lasting impression.",
-      "items": {
-        "branding": "Branding",
-        "logo": "Logo",
-        "guideline": "Guideline",
-        "presentation": "Presentation or profile",
-        "socialMedia": "Social media"
-      }
-    },
-    "production": {
-      "title": "Media Production",
-      "description": "From videos to photography, we craft high-quality content that captures attention and drives impact.",
-      "items": {
-        "videography": "Videography",
-        "photography": "Photography",
-        "motionGraphics": "Motion Graphics",
-        "cgi": "CGI / 3D",
-        "props": "Props & Sets"
-      }
-    },
     "tech": {
       "title": "Tech",
       "description": "Delivering innovative digital solutions that make your business smarter, faster, and more connected.",
       "items": {
         "websites": "Websites & Landing Pages",
         "shopify": "Shopify Stores",
-        "uiux": "UI/UX Design",
-        "customApps": "Custom Applications"
+        "mobileApplications": "Mobile Applications",
+        "webApplications": "Web Applications & Platforms",
+        "uiux": "UI/UX Design"
+      }
+    },
+    "designProduction": {
+      "title": "Design & Production",
+      "description": "Everything visual under one pillar, from identity systems and creative assets to production and signage execution.",
+      "items": {
+        "branding": "Branding & Brand Identity",
+        "creativeDesign": "Creative Design Assets",
+        "videography": "Videography & Production",
+        "photography": "Photography & Product Shoots",
+        "eventCoverage": "Event Coverage & Interviews",
+        "signagePrinting": "Signage & Printing"
+      }
+    },
+    "marketing": {
+      "title": "Marketing",
+      "description": "Growth-focused strategy, communication, and campaigns that build visibility and deliver measurable impact.",
+      "items": {
+        "socialMedia": "Social Media Management",
+        "contentStrategy": "Content Strategy",
+        "campaignManagement": "Campaign Management",
+        "digitalMarketing": "Digital Marketing",
+        "performanceMarketing": "Performance Marketing"
       }
     },
     "learnMore": "Learn More"
@@ -460,16 +450,59 @@
       "titleHighlight": "Projects",
       "description": "Explore our diverse portfolio of successful projects across various industries"
     },
-    "categories": {
-      "all": "All Projects",
-      "web": "Web Development",
-      "mobile": "Mobile Apps",
-      "shopify": "Shopify & E-commerce",
-      "socialMedia": "Social Media",
-      "design": "Branding & Design",
-      "mediaProduction": "Media Production"
+    "pillars": {
+      "tech": "Tech",
+      "design": "Design",
+      "production": "Production",
+      "marketing": "Marketing"
+    },
+    "subcategories": {
+      "all": "All",
+      "websites": "Websites",
+      "shopifyEcommerce": "Shopify / E-commerce",
+      "mobileApplications": "Mobile Applications",
+      "webApplicationsPlatforms": "Web Applications / Platforms",
+      "uiUxDesign": "UI/UX Design",
+      "brandingBrandIdentity": "Branding / Brand Identity",
+      "creativeDesign": "Creative Design",
+      "videographyProduction": "Videography / Production",
+      "photography": "Photography",
+      "productShoots": "Product Shoots",
+      "lifestyleShoots": "Lifestyle Shoots",
+      "talkingHeadInterviews": "Talking Head / Interviews",
+      "eventCoverage": "Event Coverage",
+      "signagePrinting": "Signage & Printing",
+      "socialMediaManagement": "Social Media Management",
+      "contentStrategy": "Content Strategy",
+      "campaignManagement": "Campaign Management",
+      "digitalMarketing": "Digital Marketing",
+      "performanceMarketing": "Performance Marketing"
+    },
+    "neuralMap": {
+      "legend": "Clustered by industry. Hover dots to preview projects.",
+      "resetView": "Reset View",
+      "industries": {
+        "technologyProducts": "Technology Products",
+        "governmentCorporate": "Government & Corporate",
+        "retailEcommerce": "Retail & E-commerce",
+        "hospitalityFb": "Hospitality & F&B",
+        "sportsFitness": "Sports & Fitness",
+        "lifestyleFashion": "Lifestyle & Fashion"
+      }
     },
     "projects": {
+      "eliteEdition": {
+        "description": "We developed a complete brand identity system for Elite Edition, from visual language to applications, ensuring premium consistency across all touchpoints.",
+        "tech": ["Brand Identity", "Creative Direction", "Visual System"]
+      },
+      "xelerate": {
+        "description": "We designed and delivered the Xelerate website with a clear product-first structure and a modern user experience built for performance and clarity.",
+        "tech": ["Website", "UI/UX", "Product Experience"]
+      },
+      "origin": {
+        "description": "We built Origin's Shopify perfume store with a smooth customer journey from discovery to checkout, optimized for conversion and brand presentation.",
+        "tech": ["Shopify", "E-commerce", "UI/UX"]
+      },
       "Barnda":{
         "description":"Barnda is an international high-end shisha lounge and restaurant that offers a premium dining and social experience. Known for its elegant ambiance and luxurious setting, Barnda combines exceptional cuisine with refined lounge culture.",
         "tech":["Restaurant" , "F&B Media Production" , "Content Creation" , "Photography"]
