@@ -140,7 +140,6 @@ const WorkPage = () => {
   const pillarLabels = useMemo(
     () => ({
       tech: t("workPage.pillars.tech"),
-      design: t("workPage.pillars.design"),
       production: t("workPage.pillars.production"),
       marketing: t("workPage.pillars.marketing"),
     }),
@@ -183,21 +182,9 @@ const WorkPage = () => {
     return label;
   }, [
     pillarLabels.tech,
-    pillarLabels.design,
     pillarLabels.production,
     pillarLabels.marketing,
   ]);
-
-  const neuralIndustryLabels = {
-    "Technology Products": t("workPage.neuralMap.industries.technologyProducts"),
-    "Government & Corporate": t(
-      "workPage.neuralMap.industries.governmentCorporate"
-    ),
-    "Retail & E-commerce": t("workPage.neuralMap.industries.retailEcommerce"),
-    "Hospitality & F&B": t("workPage.neuralMap.industries.hospitalityFb"),
-    "Sports & Fitness": t("workPage.neuralMap.industries.sportsFitness"),
-    "Lifestyle & Fashion": t("workPage.neuralMap.industries.lifestyleFashion"),
-  };
 
   const formatCardText = (value) => {
     if (typeof value !== "string") return value;
@@ -303,10 +290,9 @@ const WorkPage = () => {
   };
 
   const pillarNodePositions = {
-    tech: { x: 22, y: 25 },
-    design: { x: 78, y: 25 },
-    production: { x: 22, y: 76 },
-    marketing: { x: 78, y: 76 },
+    tech: { x: 20, y: 25 },
+    production: { x: 80, y: 25 },
+    marketing: { x: 50, y: 76 },
   };
 
   const getPillarHalfSize = useCallback(
@@ -450,10 +436,9 @@ const WorkPage = () => {
     }
 
     const focusAnchors = {
-      tech: { x: 34, y: 40 },
-      design: { x: 66, y: 40 },
-      production: { x: 34, y: 62 },
-      marketing: { x: 66, y: 62 },
+      tech: { x: 37, y: 42 },
+      production: { x: 63, y: 42 },
+      marketing: { x: 50, y: 61 },
     };
 
     const anchor = focusAnchors[focusedPillar] || { x: 50, y: 48 };
@@ -656,17 +641,6 @@ const WorkPage = () => {
       y: targetY - focusY * scale,
     };
   }, [focusedPillar, mapDimensions.height, mapDimensions.width, viewportWidth]);
-
-  const visibleIndustries = useMemo(() => {
-    if (!focusedPillar) {
-      return new Set(neuralProjects.map((project) => project.industry));
-    }
-    return new Set(
-      neuralProjects
-        .filter((project) => project.connections.includes(focusedPillar))
-        .map((project) => project.industry)
-    );
-  }, [focusedPillar, neuralProjects]);
 
   const pillarDisplayLabels = useMemo(
     () =>
@@ -973,21 +947,6 @@ const WorkPage = () => {
                           </span>
                         </div>
                       </button>
-                    );
-                  })}
-
-                  {Object.entries(industryClusterCenters).map(([industry, pos]) => {
-                    const isRelatedIndustry = visibleIndustries.has(industry);
-                    return (
-                      <div
-                        key={industry}
-                        className={`industry-cluster-label ${
-                          focusedPillar && !isRelatedIndustry ? "dimmed" : ""
-                        }`}
-                        style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-                      >
-                        {neuralIndustryLabels[industry] || industry}
-                      </div>
                     );
                   })}
 

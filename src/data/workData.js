@@ -1,29 +1,29 @@
-export const workPillars = ["tech", "design", "production", "marketing"];
+export const workPillars = ["tech", "production", "marketing"];
 
 export const clientConnections = {
   tahkeem: ["tech"],
-  newlogo: ["tech", "design"],
+  newlogo: ["tech", "marketing"],
   "tiny-tots": ["tech"],
   cashcup: ["tech"],
   samsign: ["tech"],
   groundkings: ["tech"],
   saccess: ["tech"],
-  pebble: ["tech", "design"],
+  pebble: ["tech", "marketing"],
   eventek: ["tech"],
   evolve: ["tech"],
-  salmina: ["design", "tech"],
-  unframed: ["design"],
-  "tarta-de-amor": ["design"],
+  salmina: ["marketing", "tech"],
+  unframed: ["marketing"],
+  "tarta-de-amor": ["marketing"],
   hm: ["production"],
-  "shift-inc": ["production", "marketing"],
-  barnda: ["production", "marketing"],
-  "saudi-wrestling-federation": ["production", "marketing"],
-  toyslab: ["tech", "design", "marketing"],
-  hadiha: ["tech", "design", "marketing"],
-  fane: ["marketing", "design"],
-  huqqabaz: ["marketing", "design"],
-  dpc: ["marketing"],
-  "the-feast": ["marketing", "production"],
+  "shift-inc": ["production"],
+  barnda: ["production"],
+  "saudi-wrestling-federation": ["production"],
+  toyslab: ["tech", "marketing", "production"],
+  hadiha: ["tech", "marketing", "production"],
+  fane: ["marketing", "production"],
+  huqqabaz: ["marketing", "production"],
+  dpc: ["production"],
+  "the-feast": ["production"],
 };
 
 export const workProjects = [
@@ -150,7 +150,7 @@ export const workProjects = [
   {
     id: "salmina",
     clientId: "salmina",
-    pillar: "design",
+    pillar: "marketing",
     subcategory: "branding-brand-identity",
     client: "Salmina",
     title: "Salmina Brand Identity",
@@ -162,7 +162,7 @@ export const workProjects = [
   {
     id: "unframed",
     clientId: "unframed",
-    pillar: "design",
+    pillar: "marketing",
     subcategory: "branding-brand-identity",
     client: "Unframed",
     title: "Unframed Brand Identity",
@@ -174,7 +174,7 @@ export const workProjects = [
   {
     id: "tarta",
     clientId: "tarta-de-amor",
-    pillar: "design",
+    pillar: "marketing",
     subcategory: "branding-brand-identity",
     client: "Tarta de Amor",
     title: "Tarta de Amor Branding",
@@ -234,7 +234,7 @@ export const workProjects = [
   {
     id: "toyslab",
     clientId: "toyslab",
-    pillar: "design",
+    pillar: "marketing",
     subcategory: "signage-printing",
     client: "Toyslab",
     title: "Toyslab Print and Visual Assets",
@@ -246,7 +246,7 @@ export const workProjects = [
   {
     id: "hadiha",
     clientId: "hadiha",
-    pillar: "design",
+    pillar: "marketing",
     subcategory: "branding-brand-identity",
     client: "Hadiha",
     title: "Hadiha Brand Identity",
@@ -258,7 +258,7 @@ export const workProjects = [
   {
     id: "fane",
     clientId: "fane",
-    pillar: "marketing",
+    pillar: "production",
     subcategory: "social-media-management",
     client: "Fane",
     title: "Fane Social Media Management",
@@ -270,7 +270,7 @@ export const workProjects = [
   {
     id: "huqqabaz",
     clientId: "huqqabaz",
-    pillar: "marketing",
+    pillar: "production",
     subcategory: "content-strategy",
     client: "HuQQabaz",
     title: "HuQQabaz Content and Management",
@@ -282,7 +282,7 @@ export const workProjects = [
   {
     id: "dpc",
     clientId: "dpc",
-    pillar: "marketing",
+    pillar: "production",
     subcategory: "campaign-management",
     client: "Diamond Padel Club",
     title: "Diamond Padel Campaign Management",
@@ -294,7 +294,7 @@ export const workProjects = [
   {
     id: "the-feast",
     clientId: "the-feast",
-    pillar: "marketing",
+    pillar: "production",
     subcategory: "digital-marketing",
     client: "The Feast",
     title: "The Feast Launch Campaign",
