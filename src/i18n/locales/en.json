@@ -61,7 +61,7 @@
     },
     "marketing": {
       "title": "Marketing",
-      "description": "Growth-focused strategy, communication, and campaigns that build visibility and deliver measurable impact.",
+      "description": "Growth focused strategy, communication, and campaigns that build visibility and deliver measurable impact.",
       "items": {
         "socialMedia": "Social Media Management",
         "contentStrategy": "Content Strategy",
@@ -78,22 +78,22 @@
     "features": {
       "creativeExcellence": {
         "title": "Creative Excellence",
-        "description": "Our in-house creative team brings fresh perspectives and innovative ideas to every project."
+        "description": "Our in house creative team brings fresh perspectives and innovative ideas to every project."
       },
       "dedicatedTeam": {
         "title": "Dedicated Team",
-        "description": "Work with our experienced in-house team committed to your project's success."
+        "description": "Work with our experienced in house team committed to your project's success."
       },
       "industryFocus": {
         "title": "Industry Focus",
-        "description": "Deep expertise in MENA region's digital landscape and industry-specific solutions."
+        "description": "Deep expertise in MENA region's digital landscape and industry specific solutions."
       },
       "customSolutions": {
         "title": "Custom Solutions",
         "description": "Tailored digital solutions that perfectly align with your business objectives."
       },
       "dataDriven": {
-        "title": "Data-Driven",
+        "title": "Data Driven",
         "description": "Strategic decisions backed by analytics and market insights."
       },
       "qualityAssured": {
@@ -112,7 +112,7 @@
       },
       "development": {
         "title": "Design & Development",
-        "description": "Expert execution of your project with cutting-edge technologies and best practices."
+        "description": "Expert execution of your project with cutting edge technologies and best practices."
       },
       "testing": {
         "title": "Testing & Refinement",
@@ -122,7 +122,7 @@
   },
   "clients": {
     "title": "Trusted by Industry Leaders",
-    "subtitle": "Trusted by our partners to innovate, connect, and grow — delivering powerful media, tech, and marketing solutions that inspire success."
+    "subtitle": "Trusted by our partners to innovate, connect, and grow delivering powerful media, tech, and marketing solutions that inspire success."
   },
   "featuredProjects": {
     "title": "Featured Projects",
@@ -136,32 +136,32 @@
       "fane": {
         "title": "Fane",
         "category": "Social Media & Lifestyle",
-        "description": "We handled full account management for FANE, shaping a digital presence that matched their bold, street-smart identity. From content planning to daily execution, every detail was aligned with their brand culture"
+        "description": "We handled full account management for FANE, shaping a digital presence that matched their bold, street smart identity. From content planning to daily execution, every detail was aligned with their brand culture"
       },
       "unframed": {
         "title": "Unframed breaks the mold",
         "category": "Branding & Design",
-        "description": "We built a bold brand identity that reflects its cutting-edge printing tech and transformative potential. From logo to story, every element was designed to speak innovation without borders"
+        "description": "We built a bold brand identity that reflects its cutting edge printing tech and transformative potential. From logo to story, every element was designed to speak innovation without borders"
       },
       "pebble": {
         "title": "Pebble",
         "category": "Web development & UI/UX",
-        "description": "We developed a high-performing landing page for Pebble Life, built to drive action and engagement. From layout to responsiveness, every detail was crafted for clarity and speed. A focused digital experience designed to convert."
+        "description": "We developed a high performing landing page for Pebble Life, built to drive action and engagement. From layout to responsiveness, every detail was crafted for clarity and speed. A focused digital experience designed to convert."
       },
       "hm": {
         "title": "H&M",
         "category": "Video production",
-        "description": "We delivered full in-house video production for H&M, from concept to final cut. The shoot captured their bold, expressive style with energy and precision."
+        "description": "We delivered full in house video production for H&M, from concept to final cut. The shoot captured their bold, expressive style with energy and precision."
       },
       "origin": {
         "title": "ORIGIN",
-        "category": "Shopify & E-commerce",
-        "description": "We built a fully customized Shopify store for Sports Origin, tailored to their brand and audience. Our team handled everything from UX structure to responsive design and optimized checkout. A high-impact e-commerce experience built for performance, speed, and style."
+        "category": "Shopify & E commerce",
+        "description": "We built a fully customized Shopify store for Sports Origin, tailored to their brand and audience. Our team handled everything from UX structure to responsive design and optimized checkout. A high impact e commerce experience built for performance, speed, and style."
       },
       "evolve": {
         "title": "Evolve",
         "category": "Mobile application & UI/UX",
-        "description": "We created a smart, user-first fitness platform. From UI/UX design to development, every step was handled in-house to ensure a seamless, intuitive experience that empowers users to train smarter, eat better, and stay on track."
+        "description": "We created a smart, user first fitness platform. From UI/UX design to development, every step was handled in house to ensure a seamless, intuitive experience that empowers users to train smarter, eat better, and stay on track."
       }
     }
   },
@@ -180,7 +180,7 @@
       },
       "mission": {
         "title": "Our Mission",
-        "description": "To empower businesses through cutting-edge digital solutions, fostering growth and innovation while delivering exceptional value to our clients and partners."
+        "description": "To empower businesses through cutting edge digital solutions, fostering growth and innovation while delivering exceptional value to our clients and partners."
       }
     },
     "services": {
@@ -260,7 +260,7 @@
         },
         "fauzi": {
           "role": "Production Director",
-          "skills": "Media Production | On-set Direction | Creative Planning | Team Management",
+          "skills": "Media Production | On set Direction | Creative Planning | Team Management",
           "motto": "Production isn't about control, It's about creating harmony"
         },
         "yazan": {
@@ -287,11 +287,6 @@
           "role": "HR",
           "skills": "Employee Care | Training | Development | Communication | HR Operations",
           "motto": "Every employee deserves to feel seen, heard, and valued"
-        },
-        "alj": {
-          "role": "Account Manager",
-          "skills": "Relations | Project Management | Planning",
-          "motto": "Delivering excellence isn't a task, it's a rhythm"
         },
         "ahmadismaeel": {
           "role": "Accountant",
@@ -327,62 +322,122 @@
       "digitalMarketing": {
         "title": "Digital Marketing",
         "description": "Strategic digital marketing solutions to boost your online presence and drive growth.",
-        "features": ["Search Engine Optimization (SEO)", "Pay-Per-Click Advertising (PPC)", "Content Marketing Strategy", "Marketing Analytics & Reporting"]
+        "features": [
+          "Search Engine Optimization (SEO)",
+          "Pay Per Click Advertising (PPC)",
+          "Content Marketing Strategy",
+          "Marketing Analytics & Reporting"
+        ]
       },
       "socialMedia": {
         "title": "Social Media Marketing",
         "description": "Comprehensive social media management and marketing campaigns.",
-        "features": ["Social Media Strategy", "Content Creation & Curation", "Community Management", "Social Media Advertising"]
+        "features": [
+          "Social Media Strategy",
+          "Content Creation & Curation",
+          "Community Management",
+          "Social Media Advertising"
+        ]
       },
       "brandDevelopment": {
         "title": "Brand Development",
         "description": "Build and strengthen your brand identity across all digital platforms.",
-        "features": ["Brand Strategy", "Visual Identity Design", "Brand Guidelines", "Brand Voice Development"]
+        "features": [
+          "Brand Strategy",
+          "Visual Identity Design",
+          "Brand Guidelines",
+          "Brand Voice Development"
+        ]
       },
       "influencer": {
         "title": "Influencer Marketing",
         "description": "Connect with influential voices to amplify your brand message.",
-        "features": ["Influencer Outreach", "Campaign Management", "Performance Tracking", "ROI Analysis"]
+        "features": [
+          "Influencer Outreach",
+          "Campaign Management",
+          "Performance Tracking",
+          "ROI Analysis"
+        ]
       },
       "contentCreation": {
         "title": "Content Creation",
         "description": "Engaging multimedia content that tells your brand story.",
-        "features": ["Video Production", "Photography", "Graphic Design", "Animation"]
+        "features": [
+          "Video Production",
+          "Photography",
+          "Graphic Design",
+          "Animation"
+        ]
       },
       "copywriting": {
         "title": "Copywriting & Content",
         "description": "Compelling content that engages your audience and drives action.",
-        "features": ["Website Copy", "Blog Writing", "Email Marketing", "Social Media Content"]
+        "features": [
+          "Website Copy",
+          "Blog Writing",
+          "Email Marketing",
+          "Social Media Content"
+        ]
       },
       "webDev": {
         "title": "Web Development",
-        "description": "Custom web applications with cutting-edge technologies and modern frameworks.",
-        "features": ["Responsive Design", "Progressive Web Apps", "E-commerce Solutions", "Content Management Systems"]
+        "description": "Custom web applications with cutting edge technologies and modern frameworks.",
+        "features": [
+          "Responsive Design",
+          "Progressive Web Apps",
+          "E commerce Solutions",
+          "Content Management Systems"
+        ]
       },
       "mobileDev": {
         "title": "Mobile Development",
-        "description": "Native and cross-platform mobile applications for iOS and Android.",
-        "features": ["iOS Development", "Android Development", "Cross-platform Solutions", "Mobile UI/UX Design"]
+        "description": "Native and cross platform mobile applications for iOS and Android.",
+        "features": [
+          "iOS Development",
+          "Android Development",
+          "Cross platform Solutions",
+          "Mobile UI/UX Design"
+        ]
       },
       "uiux": {
         "title": "UI/UX Design",
-        "description": "User-centered design solutions that drive engagement and satisfaction.",
-        "features": ["User Interface Design", "User Experience Design", "Prototyping", "Design Systems"]
+        "description": "User centered design solutions that drive engagement and satisfaction.",
+        "features": [
+          "User Interface Design",
+          "User Experience Design",
+          "Prototyping",
+          "Design Systems"
+        ]
       },
       "database": {
         "title": "Database Solutions",
         "description": "Robust database architecture and management systems.",
-        "features": ["Database Design", "Data Migration", "Performance Optimization", "Data Security"]
+        "features": [
+          "Database Design",
+          "Data Migration",
+          "Performance Optimization",
+          "Data Security"
+        ]
       },
       "cloud": {
         "title": "Cloud Services",
         "description": "Scalable cloud solutions for modern business needs.",
-        "features": ["Cloud Migration", "AWS/Azure/GCP", "Cloud Architecture", "DevOps"]
+        "features": [
+          "Cloud Migration",
+          "AWS/Azure/GCP",
+          "Cloud Architecture",
+          "DevOps"
+        ]
       },
       "ai": {
         "title": "AI",
         "description": "Intelligent solutions powered by advanced AI technologies.",
-        "features": ["Predictive Analytics", "Natural Language Processing", "Computer Vision", "Machine Learning Models"]
+        "features": [
+          "Predictive Analytics",
+          "Natural Language Processing",
+          "Computer Vision",
+          "Machine Learning Models"
+        ]
       }
     },
     "categories": {
@@ -391,25 +446,40 @@
       "marketing": {
         "title": "Marketing & Communication",
         "description": "Strategic marketing solutions to boost your online presence and drive growth through targeted campaigns.",
-        "highlights": ["Digital Marketing", "Social Media Management", "Brand Development", "Content Creation"],
+        "highlights": [
+          "Digital Marketing",
+          "Social Media Management",
+          "Brand Development",
+          "Content Creation"
+        ],
         "button": "Explore Marketing Services"
       },
       "tech": {
         "title": "Technology Solutions",
-        "description": "Cutting-edge technology solutions from web development to AI implementation for modern businesses.",
-        "highlights": ["Web Development", "Mobile Applications", "Cloud Solutions", "AI & Machine Learning"],
+        "description": "Cutting edge technology solutions from web development to AI implementation for modern businesses.",
+        "highlights": [
+          "Web Development",
+          "Mobile Applications",
+          "Cloud Solutions",
+          "AI & Machine Learning"
+        ],
         "button": "Explore Tech Services"
       },
       "media": {
         "title": "Media Production",
         "description": "Professional media production services from photography to video production and CGI visualization.",
-        "highlights": ["Video Production", "Photography", "CGI & 3D Rendering", "Post-Production"],
+        "highlights": [
+          "Video Production",
+          "Photography",
+          "CGI & 3D Rendering",
+          "Post Production"
+        ],
         "button": "Explore Media Services"
       }
     },
     "technologies": {
       "title": "Technologies We Use",
-      "subtitle": "We leverage the latest technologies to deliver cutting-edge solutions",
+      "subtitle": "We leverage the latest technologies to deliver cutting edge solutions",
       "development": "Development",
       "marketing": "Marketing",
       "analytics": "Analytics",
@@ -459,7 +529,7 @@
     "subcategories": {
       "all": "All",
       "websites": "Websites",
-      "shopifyEcommerce": "Shopify / E-commerce",
+      "shopifyEcommerce": "Shopify / E commerce",
       "mobileApplications": "Mobile Applications",
       "webApplicationsPlatforms": "Web Applications / Platforms",
       "uiUxDesign": "UI/UX Design",
@@ -484,7 +554,7 @@
       "industries": {
         "technologyProducts": "Technology Products",
         "governmentCorporate": "Government & Corporate",
-        "retailEcommerce": "Retail & E-commerce",
+        "retailEcommerce": "Retail & E commerce",
         "hospitalityFb": "Hospitality & F&B",
         "sportsFitness": "Sports & Fitness",
         "lifestyleFashion": "Lifestyle & Fashion"
@@ -493,107 +563,202 @@
     "projects": {
       "eliteEdition": {
         "description": "We developed a complete brand identity system for Elite Edition, from visual language to applications, ensuring premium consistency across all touchpoints.",
-        "tech": ["Brand Identity", "Creative Direction", "Visual System"]
+        "tech": [
+          "Brand Identity",
+          "Creative Direction",
+          "Visual System"
+        ]
       },
       "xelerate": {
-        "description": "We designed and delivered the Xelerate website with a clear product-first structure and a modern user experience built for performance and clarity.",
-        "tech": ["Website", "UI/UX", "Product Experience"]
+        "description": "We designed and delivered the Xelerate website with a clear product first structure and a modern user experience built for performance and clarity.",
+        "tech": [
+          "Website",
+          "UI/UX",
+          "Product Experience"
+        ]
       },
       "origin": {
         "description": "We built Origin's Shopify perfume store with a smooth customer journey from discovery to checkout, optimized for conversion and brand presentation.",
-        "tech": ["Shopify", "E-commerce", "UI/UX"]
+        "tech": [
+          "Shopify",
+          "E commerce",
+          "UI/UX"
+        ]
       },
-      "Barnda":{
-        "description":"Barnda is an international high-end shisha lounge and restaurant that offers a premium dining and social experience. Known for its elegant ambiance and luxurious setting, Barnda combines exceptional cuisine with refined lounge culture.",
-        "tech":["Restaurant" , "F&B Media Production" , "Content Creation" , "Photography"]
+      "Barnda": {
+        "description": "Barnda is an international high end shisha lounge and restaurant that offers a premium dining and social experience. Known for its elegant ambiance and luxurious setting, Barnda combines exceptional cuisine with refined lounge culture.",
+        "tech": [
+          "Restaurant",
+          "F&B Media Production",
+          "Content Creation",
+          "Photography"
+        ]
       },
-      "Saudi Wrestling Federation":{
-        "description":"The Saudi Wrestling Federation is the official governing body for wrestling in Saudi Arabia, dedicated to promoting and developing the sport across the Kingdom.",
-        "tech" :["Sports" , "Media Production" ,"Content Creation" , "Video Production","Campaigns" ]
+      "Saudi Wrestling Federation": {
+        "description": "The Saudi Wrestling Federation is the official governing body for wrestling in Saudi Arabia, dedicated to promoting and developing the sport across the Kingdom.",
+        "tech": [
+          "Sports",
+          "Media Production",
+          "Content Creation",
+          "Video Production",
+          "Campaigns"
+        ]
       },
       "the feast": {
-        "description" :"The Feast is an American diner-style restaurant founded by Chef Abbas, inspired by his university days with friends. The menu celebrates comfort food favorites such as cheesesteaks and gourmet burgers, blending nostalgia with flavor.",
-        "tech": ["Restaurant", "Marketing","Social media", "Media Production" , "Launch Campaign"]
+        "description": "The Feast is an American diner style restaurant founded by Chef Abbas, inspired by his university days with friends. The menu celebrates comfort food favorites such as cheesesteaks and gourmet burgers, blending nostalgia with flavor.",
+        "tech": [
+          "Restaurant",
+          "Marketing",
+          "Social media",
+          "Media Production",
+          "Launch Campaign"
+        ]
       },
       "tinyTots": {
-        "description": "We developed a clean and user-friendly website for Tiny Tots, designed to clearly communicate the brand offering and support audience engagement. The platform focuses on responsive design, clarity of content, and ease of navigation across all devices.",
-        "tech": ["Website"]
+        "description": "We developed a clean and user friendly website for Tiny Tots, designed to clearly communicate the brand offering and support audience engagement. The platform focuses on responsive design, clarity of content, and ease of navigation across all devices.",
+        "tech": [
+          "Website"
+        ]
       },
       "cashCup": {
         "description": "We developed a dedicated website for Cash Cup focused on performance, accessibility, and user engagement. The platform supports the brand's digital presence through a clear structure and responsive experience.",
-        "tech": ["Website"]
+        "tech": [
+          "Website"
+        ]
       },
       "toyslab": {
         "description": "We supported Toyslab with a comprehensive digital and visual presence, including social media content, printed materials, and website development. The project ensured brand consistency across all touchpoints while enhancing visibility and audience engagement.",
-        "tech": ["Social Media", "Printings", "Website"]
+        "tech": [
+          "Social Media",
+          "Printings",
+          "Website"
+        ]
       },
       "hadiha": {
         "description": "We developed a complete brand identity for Hadiha alongside a cohesive website and social media presence. The project focused on expressing the brand's character consistently while supporting its digital growth.",
-        "tech": ["Brand Identity", "Website", "Social Media"]
+        "tech": [
+          "Brand Identity",
+          "Website",
+          "Social Media"
+        ]
       },
       "salmina": {
         "description": "We created a distinctive brand identity for Salmina and translated it into a modern, functional website. The project reflects the brand's positioning while providing a seamless user experience.",
-        "tech": ["Brand Identity", "Website"]
+        "tech": [
+          "Brand Identity",
+          "Website"
+        ]
       },
       "samSign": {
         "description": "We developed a streamlined website for Sam Sign focused on clarity, accessibility, and effective communication. The platform supports the brand's digital presence with an intuitive user experience.",
-        "tech": ["Website"]
+        "tech": [
+          "Website"
+        ]
       },
       "groundKings": {
         "description": "We delivered a modern website for Ground Kings that supports clear content presentation and responsive performance. The project enhances the brand's online presence across all devices.",
-        "tech": ["Website"]
+        "tech": [
+          "Website"
+        ]
       },
       "newLogo": {
         "description": "We developed a website for NewLogo that reflects the brand's visual direction and supports consistent digital communication. The project focused on clarity, usability, and clean design.",
-        "tech": ["Website"]
+        "tech": [
+          "Website"
+        ]
       },
       "fane": {
-        "description": "We handled full account management for FANE, shaping a digital presence that matched their bold, street-smart identity. From content planning to daily execution, every detail was aligned with their brand culture.",
-        "tech": ["Lifestyle", "Social media", "Barbershop"]
+        "description": "We handled full account management for FANE, shaping a digital presence that matched their bold, street smart identity. From content planning to daily execution, every detail was aligned with their brand culture.",
+        "tech": [
+          "Lifestyle",
+          "Social media",
+          "Barbershop"
+        ]
       },
       "huqqabaz": {
-        "description": "We managed HuQQabaz's social presence with a focus on luxury, lifestyle, and experience-driven content. From strategy to daily execution, we crafted a digital voice as refined as the brand itself.",
-        "tech": ["Lifestyle", "Social media", "Restaurant"]
+        "description": "We managed HuQQabaz's social presence with a focus on luxury, lifestyle, and experience driven content. From strategy to daily execution, we crafted a digital voice as refined as the brand itself.",
+        "tech": [
+          "Lifestyle",
+          "Social media",
+          "Restaurant"
+        ]
       },
       "dpc": {
         "description": "We managed Diamond Padel's account with a focus on blending sport, style, and community. From content strategy to daily execution, we brought the club's energy and premium vibe to every post",
-        "tech": ["Lifestyle", "Social media", "Sports"]
+        "tech": [
+          "Lifestyle",
+          "Social media",
+          "Sports"
+        ]
       },
       "tarta": {
-        "description": "We built a bold brand identity that reflects its cutting-edge printing tech and transformative potential. From logo to story, every element was designed to speak innovation without borders.",
-        "tech": ["Logo", "Visual identity", "Sweets"]
+        "description": "We built a bold brand identity that reflects its cutting edge printing tech and transformative potential. From logo to story, every element was designed to speak innovation without borders.",
+        "tech": [
+          "Logo",
+          "Visual identity",
+          "Sweets"
+        ]
       },
       "unframed": {
-        "description": "We built a bold brand identity that reflects its cutting-edge printing tech and transformative potential. From logo to story, every element was designed to speak innovation without borders.",
-        "tech": ["Creative service", "Visual identity"]
+        "description": "We built a bold brand identity that reflects its cutting edge printing tech and transformative potential. From logo to story, every element was designed to speak innovation without borders.",
+        "tech": [
+          "Creative service",
+          "Visual identity"
+        ]
       },
       "hm": {
-        "description": "We delivered full in-house video production for H&M, from concept to final cut. The shoot captured their bold, expressive style with energy and precision.",
-        "tech": ["Fashion", "Production"]
+        "description": "We delivered full in house video production for H&M, from concept to final cut. The shoot captured their bold, expressive style with energy and precision.",
+        "tech": [
+          "Fashion",
+          "Production"
+        ]
       },
       "shift": {
-        "description": "We created a full-scale brand video for SHIFT Inc., capturing their seamless tech-driven approach to smart mobility. The project was managed entirely in-house from concept to final edit with precision and speed. A future-focused production that reflects their Vision 2030 ambition.",
-        "tech": ["Rental car", "Production"]
+        "description": "We created a full scale brand video for SHIFT Inc., capturing their seamless tech driven approach to smart mobility. The project was managed entirely in house from concept to final edit with precision and speed. A future focused production that reflects their Vision 2030 ambition.",
+        "tech": [
+          "Rental car",
+          "Production"
+        ]
       },
       "saccess": {
         "description": "We launched a fully customized Shopify store for luxury Parfum. From structure to checkout, every step was optimized for luxury and ease. A seamless shopping flow built to elevate the customer experience.",
-        "tech": ["Website", "luxury Parfum", "Shopify"]
+        "tech": [
+          "Website",
+          "luxury Parfum",
+          "Shopify"
+        ]
       },
       "pebble": {
-        "description": "We developed a high-performing landing page for Pebble Life, built to drive action and engagement. From layout to responsiveness, every detail was crafted for clarity and speed. A focused digital experience designed to convert.",
-        "tech": ["Website", "UI/UX", "Electric trailer"]
+        "description": "We developed a high performing landing page for Pebble Life, built to drive action and engagement. From layout to responsiveness, every detail was crafted for clarity and speed. A focused digital experience designed to convert.",
+        "tech": [
+          "Website",
+          "UI/UX",
+          "Electric trailer"
+        ]
       },
       "tahkeem": {
-        "description": "We reimagined the Tahkeem platform to elevate its legal case management experience. The UI/UX was fully redesigned in-house, creating a smoother, smarter, and more intuitive workflow. The result? A system built to perform—with functionality that adapts to real legal demands.",
-        "tech": ["Website", "UI/UX", "legal case management"]
+        "description": "We reimagined the Tahkeem platform to elevate its legal case management experience. The UI/UX was fully redesigned in house, creating a smoother, smarter, and more intuitive workflow. The result? A system built to perform—with functionality that adapts to real legal demands.",
+        "tech": [
+          "Website",
+          "UI/UX",
+          "legal case management"
+        ]
       },
       "eventek": {
-        "description": "We designed and developed a smart event-planning app with a fully intuitive interface. The UI/UX was crafted in-house to ensure a smooth, end-to-end user experience.",
-        "tech": ["Mobile Application", "UI/UX", "Event Management"]
+        "description": "We designed and developed a smart event planning app with a fully intuitive interface. The UI/UX was crafted in house to ensure a smooth, end to end user experience.",
+        "tech": [
+          "Mobile Application",
+          "UI/UX",
+          "Event Management"
+        ]
       },
       "evolve": {
-        "description": "We created a smart, user-first fitness platform. From UI/UX design to development, every step was handled in-house to ensure a seamless, intuitive experience that empowers users to train smarter, eat better, and stay on track.",
-        "tech": ["Mobile Application", "UI/UX", "Fitness & Personal Training"]
+        "description": "We created a smart, user first fitness platform. From UI/UX design to development, every step was handled in house to ensure a seamless, intuitive experience that empowers users to train smarter, eat better, and stay on track.",
+        "tech": [
+          "Mobile Application",
+          "UI/UX",
+          "Fitness & Personal Training"
+        ]
       }
     },
     "cta": {
@@ -615,7 +780,7 @@
     },
     "design": {
       "title": "Design & Development",
-      "description": "Creating innovative solutions with cutting-edge technology"
+      "description": "Creating innovative solutions with cutting edge technology"
     },
     "testing": {
       "title": "Testing & Quality",
@@ -654,60 +819,110 @@
       "tag": "Media Production",
       "title": "Bringing Your Vision to",
       "titleHighlight": "Life",
-      "description": "From videos to photography, we craft high-quality content that captures attention and drives impact through creative excellence."
+      "description": "From videos to photography, we craft high quality content that captures attention and drives impact through creative excellence."
     },
     "services": {
       "title": "Our Media Production Services",
       "subtitle": "Comprehensive media production solutions for all your creative needs",
       "videoProduction": {
         "title": "Video Production",
-        "description": "Full-service video production including pre-production planning, filming, and post-production for commercials, corporate videos, and digital platforms.",
-        "features": ["4K/8K Video Production", "Pre-production Planning", "Professional Filming", "Post-production Editing"]
+        "description": "Full service video production including pre production planning, filming, and post production for commercials, corporate videos, and digital platforms.",
+        "features": [
+          "4K/8K Video Production",
+          "Pre production Planning",
+          "Professional Filming",
+          "Post production Editing"
+        ]
       },
       "photography": {
         "title": "Photography",
         "description": "Professional photography services for commercial, editorial, and corporate needs. From product shots to architectural photography.",
-        "features": ["Commercial Photography", "Product Photography", "Corporate Headshots", "Event Photography"]
+        "features": [
+          "Commercial Photography",
+          "Product Photography",
+          "Corporate Headshots",
+          "Event Photography"
+        ]
       },
       "cgiAnd3d": {
         "title": "CGI & 3D",
-        "description": "State-of-the-art CGI and 3D visualization services. We bring your ideas to life with photorealistic renders and animations.",
-        "features": ["3D Modeling", "CGI Integration", "Product Visualization", "Architectural Rendering"]
+        "description": "State of the art CGI and 3D visualization services. We bring your ideas to life with photorealistic renders and animations.",
+        "features": [
+          "3D Modeling",
+          "CGI Integration",
+          "Product Visualization",
+          "Architectural Rendering"
+        ]
       },
       "postProduction": {
-        "title": "Post-Production",
-        "description": "Professional post-production services including editing, color grading, sound design, and visual effects.",
-        "features": ["Video Editing", "Color Grading", "Sound Design", "Visual Effects"]
+        "title": "Post Production",
+        "description": "Professional post production services including editing, color grading, sound design, and visual effects.",
+        "features": [
+          "Video Editing",
+          "Color Grading",
+          "Sound Design",
+          "Visual Effects"
+        ]
       },
       "motionGraphics": {
         "title": "Motion Graphics",
         "description": "Creative motion graphics and animation services for branding, explainer videos, and digital content.",
-        "features": ["2D Animation", "Motion Graphics", "Logo Animation", "Explainer Videos"]
+        "features": [
+          "2D Animation",
+          "Motion Graphics",
+          "Logo Animation",
+          "Explainer Videos"
+        ]
       },
       "documentary": {
         "title": "Documentary Production",
         "description": "Complete documentary production services from concept development to final delivery.",
-        "features": ["Story Development", "Interview Setup", "Location Filming", "Documentary Editing"]
+        "features": [
+          "Story Development",
+          "Interview Setup",
+          "Location Filming",
+          "Documentary Editing"
+        ]
       }
     },
     "equipment": {
       "title": "Equipment & Technologies",
-      "subtitle": "We use industry-leading equipment and software for exceptional results",
+      "subtitle": "We use industry leading equipment and software for exceptional results",
       "video": {
         "name": "Video Equipment",
-        "items": ["RED Cameras", "Sony FX Series", "DJI Drones", "Steadicam"]
+        "items": [
+          "RED Cameras",
+          "Sony FX Series",
+          "DJI Drones",
+          "Steadicam"
+        ]
       },
       "photography": {
         "name": "Photography",
-        "items": ["Canon R Series", "Nikon Z Series", "Profoto Lighting", "Phase One"]
+        "items": [
+          "Canon R Series",
+          "Nikon Z Series",
+          "Profoto Lighting",
+          "Phase One"
+        ]
       },
       "postProduction": {
-        "name": "Post-Production",
-        "items": ["DaVinci Resolve", "Adobe Creative Suite", "Avid Media Composer", "Cinema 4D"]
+        "name": "Post Production",
+        "items": [
+          "DaVinci Resolve",
+          "Adobe Creative Suite",
+          "Avid Media Composer",
+          "Cinema 4D"
+        ]
       },
       "cgi3d": {
         "name": "3D & CGI",
-        "items": ["Blender", "Maya", "3ds Max", "Houdini"]
+        "items": [
+          "Blender",
+          "Maya",
+          "3ds Max",
+          "Houdini"
+        ]
       }
     },
     "process": {
@@ -719,15 +934,15 @@
           "description": "Understanding your vision and creating detailed production plans and storyboards"
         },
         "preProduction": {
-          "title": "Pre-Production",
+          "title": "Pre Production",
           "description": "Location scouting, casting, equipment preparation, and creative direction setup"
         },
         "production": {
           "title": "Production",
-          "description": "Professional filming and photography with state-of-the-art equipment"
+          "description": "Professional filming and photography with state of the art equipment"
         },
         "postProduction": {
-          "title": "Post-Production",
+          "title": "Post Production",
           "description": "Editing, color grading, sound design, and final delivery in your preferred format"
         }
       }
@@ -743,7 +958,7 @@
       "tag": "Technology Solutions",
       "title": "Digital Innovation for",
       "titleHighlight": "Modern Businesses",
-      "description": "Transforming businesses through cutting-edge technology solutions, innovative development, and scalable digital infrastructure."
+      "description": "Transforming businesses through cutting edge technology solutions, innovative development, and scalable digital infrastructure."
     },
     "services": {
       "title": "Our Technology Services",
@@ -751,56 +966,111 @@
       "webDev": {
         "title": "Web Development",
         "description": "Custom web applications, progressive web apps, and enterprise portals using the latest technologies and frameworks.",
-        "features": ["React/Angular/Vue.js", "Node.js/Python/PHP", "REST/GraphQL APIs", "Database Design"]
+        "features": [
+          "React/Angular/Vue.js",
+          "Node.js/Python/PHP",
+          "REST/GraphQL APIs",
+          "Database Design"
+        ]
       },
       "mobileDev": {
         "title": "Mobile Development",
-        "description": "Native and cross-platform mobile applications for iOS and Android with seamless user experience.",
-        "features": ["iOS (Swift/SwiftUI)", "Android (Kotlin)", "React Native", "Flutter"]
+        "description": "Native and cross platform mobile applications for iOS and Android with seamless user experience.",
+        "features": [
+          "iOS (Swift/SwiftUI)",
+          "Android (Kotlin)",
+          "React Native",
+          "Flutter"
+        ]
       },
       "cloudSolutions": {
         "title": "Cloud Solutions",
         "description": "Cloud architecture, migration, and management services for scalable and reliable infrastructure.",
-        "features": ["AWS/Azure/GCP", "Containerization", "Microservices", "DevOps"]
+        "features": [
+          "AWS/Azure/GCP",
+          "Containerization",
+          "Microservices",
+          "DevOps"
+        ]
       },
       "database": {
         "title": "Database Solutions",
         "description": "Robust database architecture and management systems for optimal performance and scalability.",
-        "features": ["Database Design", "Data Migration", "Performance Optimization", "Data Security"]
+        "features": [
+          "Database Design",
+          "Data Migration",
+          "Performance Optimization",
+          "Data Security"
+        ]
       },
       "aiMl": {
         "title": "AI & Machine Learning",
         "description": "Intelligent solutions powered by advanced AI technologies and machine learning algorithms.",
-        "features": ["Predictive Analytics", "Natural Language Processing", "Computer Vision", "Machine Learning Models"]
+        "features": [
+          "Predictive Analytics",
+          "Natural Language Processing",
+          "Computer Vision",
+          "Machine Learning Models"
+        ]
       },
       "cybersecurity": {
         "title": "Cybersecurity",
         "description": "Comprehensive security solutions to protect your digital assets and ensure compliance.",
-        "features": ["Security Audits", "Penetration Testing", "Compliance Management", "Incident Response"]
+        "features": [
+          "Security Audits",
+          "Penetration Testing",
+          "Compliance Management",
+          "Incident Response"
+        ]
       }
     },
     "technologies": {
       "title": "Technologies We Use",
-      "subtitle": "We leverage the latest technologies to deliver cutting-edge solutions",
+      "subtitle": "We leverage the latest technologies to deliver cutting edge solutions",
       "frontend": {
         "name": "Frontend",
-        "items": ["React", "Angular", "Vue.js", "TypeScript"]
+        "items": [
+          "React",
+          "Angular",
+          "Vue.js",
+          "TypeScript"
+        ]
       },
       "mobile": {
         "name": "Mobile Applications",
-        "items": ["React Native", "Flutter", "Swift", "Kotlin"]
+        "items": [
+          "React Native",
+          "Flutter",
+          "Swift",
+          "Kotlin"
+        ]
       },
       "backend": {
         "name": "Backend",
-        "items": ["Node.js", "Python", "Java", "C#"]
+        "items": [
+          "Node.js",
+          "Python",
+          "Java",
+          "C#"
+        ]
       },
       "database": {
         "name": "Database",
-        "items": ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
+        "items": [
+          "PostgreSQL",
+          "MongoDB",
+          "Redis",
+          "MySQL"
+        ]
       },
       "cloudDevops": {
         "name": "Cloud & DevOps",
-        "items": ["AWS", "Azure", "Docker", "Kubernetes"]
+        "items": [
+          "AWS",
+          "Azure",
+          "Docker",
+          "Kubernetes"
+        ]
       }
     },
     "process": {
@@ -844,42 +1114,82 @@
       "socialMedia": {
         "title": "Social Media Marketing",
         "description": "Build your brand presence across all major social platforms with engaging content and strategic campaigns.",
-        "features": ["Content Creation", "Community Management", "Paid Advertising", "Analytics & Reporting"]
+        "features": [
+          "Content Creation",
+          "Community Management",
+          "Paid Advertising",
+          "Analytics & Reporting"
+        ]
       },
       "brandStrategy": {
         "title": "Brand Strategy & Design",
         "description": "Create a compelling brand identity that resonates with your audience and stands out in the market.",
-        "features": ["Brand Identity", "Logo Design", "Brand Guidelines", "Visual Storytelling"]
+        "features": [
+          "Brand Identity",
+          "Logo Design",
+          "Brand Guidelines",
+          "Visual Storytelling"
+        ]
       },
       "digitalAds": {
         "title": "Digital Advertising",
         "description": "Drive targeted traffic and conversions through strategic paid advertising campaigns.",
-        "features": ["Google Ads", "Facebook Ads", "LinkedIn Ads", "Campaign Optimization"]
+        "features": [
+          "Google Ads",
+          "Facebook Ads",
+          "LinkedIn Ads",
+          "Campaign Optimization"
+        ]
       },
       "contentMarketing": {
         "title": "Content Marketing",
         "description": "Engage your audience with valuable, relevant content that drives action and builds trust.",
-        "features": ["Content Strategy", "Blog Writing", "Video Content", "Email Marketing"]
+        "features": [
+          "Content Strategy",
+          "Blog Writing",
+          "Video Content",
+          "Email Marketing"
+        ]
       }
     },
     "tools": {
       "title": "Marketing Tools We Use",
-      "subtitle": "We leverage the latest marketing technologies to deliver cutting-edge campaigns",
+      "subtitle": "We leverage the latest marketing technologies to deliver cutting edge campaigns",
       "socialMedia": {
         "name": "Social Media",
-        "items": ["Facebook Ads", "Instagram Ads", "LinkedIn Ads", "TikTok Ads"]
+        "items": [
+          "Facebook Ads",
+          "Instagram Ads",
+          "LinkedIn Ads",
+          "TikTok Ads"
+        ]
       },
       "analytics": {
         "name": "Analytics",
-        "items": ["Google Analytics", "Facebook Insights", "Hootsuite", "Buffer"]
+        "items": [
+          "Google Analytics",
+          "Facebook Insights",
+          "Hootsuite",
+          "Buffer"
+        ]
       },
       "design": {
         "name": "Design Tools",
-        "items": ["Adobe Creative Suite", "Canva", "Figma", "Sketch"]
+        "items": [
+          "Adobe Creative Suite",
+          "Canva",
+          "Figma",
+          "Sketch"
+        ]
       },
       "automation": {
         "name": "Marketing Automation",
-        "items": ["HubSpot", "Mailchimp", "ActiveCampaign", "Zapier"]
+        "items": [
+          "HubSpot",
+          "Mailchimp",
+          "ActiveCampaign",
+          "Zapier"
+        ]
       }
     },
     "process": {
@@ -900,7 +1210,7 @@
         },
         "optimize": {
           "title": "Monitor & Optimize",
-          "description": "Continuous monitoring and data-driven optimization to maximize your marketing ROI"
+          "description": "Continuous monitoring and data driven optimization to maximize your marketing ROI"
         }
       }
     },
@@ -943,11 +1253,10 @@
       }
     },
     "schedule": {
-      "weekdays": "Sunday - Thursday",
-      "weekdaysHours": "9:00 AM - 6:00 PM",
-      "weekend": "Friday - Saturday",
+      "weekdays": "Sunday   Thursday",
+      "weekdaysHours": "9:00 AM   6:00 PM",
+      "weekend": "Friday   Saturday",
       "weekendHours": "Closed"
     }
   }
 }
-

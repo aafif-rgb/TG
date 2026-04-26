@@ -1,117 +1,62 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./FeaturedProjects.css";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { workProjects } from "../../data/workData";
 
-// Import brand images
-import faneImage from "../../assets/brands/fane.png";
-import unframedImage from "../../assets/brands/unframed.png";
-import pebbleImage from "../../assets/brands/Pebble.png";
-import hmImage from "../../assets/brands/H&M.png";
-import evolveImage from "../../assets/brands/evolve.png";
+const featuredProjectIds = [
+  "fane",
+  "unframed",
+  "pebble",
+  "hm",
+  "eventek",
+  "evolve",
+];
 
 const FeaturedProjects = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const projectsGridRef = useRef(null);
-  const progressRef = useRef(null);
   const navigate = useNavigate();
 
-  const projects = [
-    {
-      id: "fane",
-      title: t("featuredProjects.projects.fane.title"),
-      category: t("featuredProjects.projects.fane.category"),
-      description: t("featuredProjects.projects.fane.description"),
-      image: faneImage,
-    },
-    {
-      id: "unframed",
-      title: t("featuredProjects.projects.unframed.title"),
-      category: t("featuredProjects.projects.unframed.category"),
-      description: t("featuredProjects.projects.unframed.description"),
-      image: unframedImage,
-    },
-    {
-      id: "pebble",
-      title: t("featuredProjects.projects.pebble.title"),
-      category: t("featuredProjects.projects.pebble.category"),
-      description: t("featuredProjects.projects.pebble.description"),
-      image: pebbleImage,
-    },
-    {
-      id: "h&m",
-      title: t("featuredProjects.projects.hm.title"),
-      category: t("featuredProjects.projects.hm.category"),
-      description: t("featuredProjects.projects.hm.description"),
-      image: hmImage,
-    },
-    {
-      id: "Evolve",
-      title: t("featuredProjects.projects.evolve.title"),
-      category: t("featuredProjects.projects.evolve.category"),
-      description: t("featuredProjects.projects.evolve.description"),
-      image: evolveImage,
-    },
-  ];
-
-  // Check if mobile on mount and window resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  // Handle scroll events for mobile carousel
-  useEffect(() => {
-    if (!isMobile || !projectsGridRef.current) return;
-
-    const grid = projectsGridRef.current;
-    let timeout;
-
-    const handleScroll = () => {
-      if (timeout) clearTimeout(timeout);
-
-      timeout = setTimeout(() => {
-        const scrollLeft = grid.scrollLeft;
-        const cardWidth = grid.offsetWidth * 0.85; // 85% of viewport
-        const newSlide = Math.round(scrollLeft / cardWidth);
-        setCurrentSlide(newSlide);
-
-        // Update progress bar
-        if (progressRef.current) {
-          const progress =
-            (scrollLeft / (grid.scrollWidth - grid.offsetWidth)) * 100;
-          progressRef.current.style.width = `${progress}%`;
-        }
-      }, 50);
-    };
-
-    grid.addEventListener("scroll", handleScroll);
-    return () => grid.removeEventListener("scroll", handleScroll);
-  }, [isMobile]);
-
-  // Scroll to slide on dot click
-  const scrollToSlide = (index) => {
-    if (!projectsGridRef.current) return;
-
-    const grid = projectsGridRef.current;
-    const cardWidth = grid.offsetWidth * 0.85;
-    grid.scrollTo({
-      left: cardWidth * index,
-      behavior: "smooth",
-    });
-    setCurrentSlide(index);
+  const formatCardText = (text) => {
+    if (typeof text !== "string") return text;
+    return language === "ar" ? text.replace(/\s*\/\s*/g, " / ") : text;
   };
+
+  const subcategoryLabels = {
+    all: t("workPage.subcategories.all"),
+    websites: t("workPage.subcategories.websites"),
+    "shopify-ecommerce": t("workPage.subcategories.shopifyEcommerce"),
+    "mobile-applications": t("workPage.subcategories.mobileApplications"),
+    "web-applications-platforms": t(
+      "workPage.subcategories.webApplicationsPlatforms"
+    ),
+    "ui-ux-design": t("workPage.subcategories.uiUxDesign"),
+    "branding-brand-identity": t(
+      "workPage.subcategories.brandingBrandIdentity"
+    ),
+    "creative-design": t("workPage.subcategories.creativeDesign"),
+    "videography-production": t("workPage.subcategories.videographyProduction"),
+    photography: t("workPage.subcategories.photography"),
+    "product-shoots": t("workPage.subcategories.productShoots"),
+    "lifestyle-shoots": t("workPage.subcategories.lifestyleShoots"),
+    "talking-head-interviews": t(
+      "workPage.subcategories.talkingHeadInterviews"
+    ),
+    "event-coverage": t("workPage.subcategories.eventCoverage"),
+    "signage-printing": t("workPage.subcategories.signagePrinting"),
+    "social-media-management": t("workPage.subcategories.socialMediaManagement"),
+    "content-strategy": t("workPage.subcategories.contentStrategy"),
+    "campaign-management": t("workPage.subcategories.campaignManagement"),
+    "digital-marketing": t("workPage.subcategories.digitalMarketing"),
+    "performance-marketing": t("workPage.subcategories.performanceMarketing"),
+  };
+
+  const featuredProjects = featuredProjectIds
+    .map((id) => workProjects.find((project) => project.id === id))
+    .filter(Boolean);
 
   return (
     <section className="featured-projects">
@@ -131,53 +76,59 @@ const FeaturedProjects = () => {
 
         <motion.div
           className="projects-grid"
-          ref={projectsGridRef}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-              whileHover={
-                !isMobile
-                  ? {
-                      y: -10,
-                      transition: { duration: 0.2 },
-                    }
-                  : {}
-              }
-              onClick={() => navigate("/work")}
-              style={{
-                cursor: "pointer",
-              }}
-            >
-              <div className="project-image">
-                <div className="image-placeholder">
-                  <img src={project.image} />
+          {featuredProjects.map((project, index) => {
+            const technologies = t(project.technologiesKey, {
+              returnObjects: true,
+            });
+            const safeTechnologies = Array.isArray(technologies)
+              ? technologies
+              : [];
+
+            return (
+              <motion.div
+                key={project.id}
+                className="project-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                viewport={{ once: true }}
+                onClick={() => navigate("/work")}
+                style={{ cursor: "pointer" }}
+              >
+                <div className="project-image">
+                  <img src={project.image} alt={project.title} />
+                  <div className="project-overlay"></div>
                 </div>
-              </div>
-              <div className="project-info">
-                <span className="project-category">{project.category}</span>
-                <h3
-                  className="project-title"
-                  style={{ textAlign: language === "ar" ? "start" : undefined }}
-                >
-                  {project.title}
-                </h3>
-                <p className="project-description">{project.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                <div className="project-content">
+                  <div className="project-client-row">
+                    <span className="client-name">
+                      {formatCardText(project.client)}
+                    </span>
+                    <span className="subcategory-pill">
+                      {formatCardText(
+                        subcategoryLabels[project.subcategory] ||
+                          project.subcategory
+                      )}
+                    </span>
+                  </div>
+                  <div className="project-tech">
+                    {safeTechnologies.map((tech, idx) => (
+                      <span key={idx} className="tech-tag">
+                        {formatCardText(tech)}
+                      </span>
+                    ))}
+                  </div>
+                  <h3>{formatCardText(project.title)}</h3>
+                  <p>{formatCardText(t(project.descriptionKey))}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.div
