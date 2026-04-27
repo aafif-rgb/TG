@@ -43,6 +43,7 @@
     background: transparent;
     border: none;
     contain: layout paint;
+    direction: ltr;
 }
 
 .logos-container::before,
@@ -79,6 +80,7 @@
     -webkit-transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    direction: ltr;
 }
 
 .logo-item {
@@ -238,4 +240,9 @@
     .logos-scroll {
         animation: none;
     }
+}
+
+/* Keep marquee behavior reliable in RTL pages */
+[dir="rtl"] .client-logos .logos-scroll {
+    animation-direction: reverse;
 }

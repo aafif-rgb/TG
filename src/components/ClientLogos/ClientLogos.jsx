@@ -70,14 +70,14 @@ const ClientLogos = () => {
             {companies.map((company, index) => (
               <div key={index} className="logo-item">
                 <div className="logo-placeholder">
-                  <img src={company.logo} alt={company.name} />
+                  <img src={company.logo} alt={company.name} loading="lazy" decoding="async" draggable="false" />
                 </div>
               </div>
             ))}
             {companies.map((company, index) => (
               <div key={`duplicate-${index}`} className="logo-item">
                 <div className="logo-placeholder">
-                  <img src={company.logo} alt={company.name} />
+                  <img src={company.logo} alt={company.name} loading="lazy" decoding="async" draggable="false" />
                 </div>
               </div>
             ))}
@@ -89,3 +89,4 @@ const ClientLogos = () => {
 };
 
 export default ClientLogos;
+

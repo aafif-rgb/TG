@@ -274,7 +274,7 @@ const Services = () => {
                           : {}
                       }
                     >
-                      {/* <span className="feature-icon"></span> */}
+                      <span className="service-feature-icon"></span>
                       {item}
                     </motion.div>
                   ))}

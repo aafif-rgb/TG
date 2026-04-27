@@ -1,15 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { Suspense, lazy, useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../../contexts/LanguageContext";
 import "./HomePage.css";
 import Header from "../../components/Header/Header";
-import Values from "../../components/Values/Values";
-import Services from "../../components/Services/Services";
-import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
-import ClientLogos from "../../components/ClientLogos/ClientLogos";
-import FeaturedProjects from "../../components/FeaturedProjects/FeaturedProjects";
-import Footer from "../../components/Footer/Footer";
+
+const Values = lazy(() => import("../../components/Values/Values"));
+const Services = lazy(() => import("../../components/Services/Services"));
+const WhyChooseUs = lazy(() => import("../../components/WhyChooseUs/WhyChooseUs"));
+const ClientLogos = lazy(() => import("../../components/ClientLogos/ClientLogos"));
+const FeaturedProjects = lazy(() =>
+  import("../../components/FeaturedProjects/FeaturedProjects")
+);
+const Footer = lazy(() => import("../../components/Footer/Footer"));
 
 const HomePage = () => {
   const canvasRef = useRef(null);
@@ -19,9 +22,17 @@ const HomePage = () => {
   // Particle animation
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return undefined;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduceMotion) return undefined;
+
     const ctx = canvas.getContext("2d");
     let animationFrameId;
     let particles = [];
+    let isAnimating = false;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -69,12 +80,17 @@ const HomePage = () => {
 
     const initParticles = () => {
       particles = [];
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 70; i++) {
         particles.push(new Particle());
       }
     };
 
     const animate = () => {
+      if (document.hidden) {
+        isAnimating = false;
+        return;
+      }
+
       ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -86,11 +102,29 @@ const HomePage = () => {
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    const startAnimation = () => {
+      if (!isAnimating) {
+        isAnimating = true;
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationFrameId);
+        isAnimating = false;
+      } else {
+        startAnimation();
+      }
+    };
+
     initParticles();
-    animate();
+    startAnimation();
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -224,19 +258,29 @@ const HomePage = () => {
         </section>
 
         {/* Values Section */}
-        <Values />
+        <Suspense fallback={null}>
+          <Values />
+        </Suspense>
 
         {/* Services Section */}
-        <Services />
+        <Suspense fallback={null}>
+          <Services />
+        </Suspense>
 
         {/* Why Choose Us Section */}
-        <WhyChooseUs />
+        <Suspense fallback={null}>
+          <WhyChooseUs />
+        </Suspense>
 
         {/* Client Logos Section */}
-        <ClientLogos />
+        <Suspense fallback={null}>
+          <ClientLogos />
+        </Suspense>
 
         {/* Featured Projects Section */}
-        <FeaturedProjects />
+        <Suspense fallback={null}>
+          <FeaturedProjects />
+        </Suspense>
 
         {/* Approach Section */}
         <section className="approach">
@@ -371,7 +415,9 @@ const HomePage = () => {
         </section>
       </main>
 
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

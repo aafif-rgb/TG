@@ -261,6 +261,17 @@ RTL Support Styles
     text-align: center;
 }
 
+/* Home section headers and titles must stay centered in Arabic */
+[dir="rtl"] .section-header,
+[dir="rtl"] .section-header p,
+[dir="rtl"] .clients-title,
+[dir="rtl"] .featured-projects-title,
+[dir="rtl"] .why-choose-us-title,
+[dir="rtl"] .why-choose-us-header p,
+[dir="rtl"] .approach-title {
+    text-align: center !important;
+}
+
 /* Button RTL */
 [dir="rtl"] button {
     direction: rtl;
@@ -368,16 +379,26 @@ RTL Support Styles
     text-align: start;
 }
 
+/* Why Choose Us section header should remain centered in RTL */
+[dir="rtl"] .why-choose-us .why-choose-us-title,
+[dir="rtl"] .why-choose-us .why-choose-us-header p {
+    text-align: center !important;
+}
+
 /* Client Logos Component RTL */
-[dir="rtl"] .client-logos .section-header h2 {
+[dir="rtl"] .client-logos .clients-title {
     text-align: center !important;
 }
 
 [dir="rtl"] .client-logos .section-header p {
-    text-align: start !important;
+    text-align: center !important;
 }
 
 /* Featured Projects Component RTL */
+[dir="rtl"] .featured-projects .featured-projects-title {
+    text-align: center !important;
+}
+
 [dir="rtl"] .featured-projects .section-header p {
     text-align: center !important;
 }
@@ -515,4 +536,5 @@ RTL Support Styles
         margin-right: auto;
     }
 }
+
 

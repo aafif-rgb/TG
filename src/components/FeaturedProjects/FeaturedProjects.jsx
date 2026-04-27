@@ -101,7 +101,7 @@ const FeaturedProjects = () => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="project-image">
-                  <img src={project.image} alt={project.title} />
+                  <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                   <div className="project-overlay"></div>
                 </div>
                 <div className="project-content">
@@ -158,3 +158,4 @@ const FeaturedProjects = () => {
 };
 
 export default FeaturedProjects;
+
